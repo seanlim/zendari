@@ -58,7 +58,7 @@ func _physics_process(delta):
 			$Sprite.animation = "jump" if motion.y < 0 else "fall"
 		
 		if motion.abs() > Vector2(0, 20) && !rewinded:
-			motion_hist.append(motion)
+			motion_hist.append(Vector2(motion.x, motion.y -20))
 		
 	motion = move_and_slide(motion, UP)
 	pass
