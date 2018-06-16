@@ -1,22 +1,22 @@
 [gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://Portal.gd" type="Script" id=1]
-[ext_resource path="res://Portal/portal0.png" type="Texture" id=2]
-[ext_resource path="res://Portal/portal1.png" type="Texture" id=3]
-[ext_resource path="res://Portal/portal2.png" type="Texture" id=4]
-[ext_resource path="res://Portal/portal3.png" type="Texture" id=5]
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=6]
-[ext_resource path="res://Player/Idle0.png" type="Texture" id=7]
-[ext_resource path="res://Player/Run0.png" type="Texture" id=8]
-[ext_resource path="res://Player/Run1.png" type="Texture" id=9]
-[ext_resource path="res://Player/Run2.png" type="Texture" id=10]
-[ext_resource path="res://Player/Run3.png" type="Texture" id=11]
-[ext_resource path="res://Player/Run4.png" type="Texture" id=12]
-[ext_resource path="res://Player/Run7.png" type="Texture" id=13]
-[ext_resource path="res://Player/Jump0.png" type="Texture" id=14]
-[ext_resource path="res://Player/Jump3.png" type="Texture" id=15]
-[ext_resource path="res://Tiles/generic_platformer_tiles.png" type="Texture" id=16]
-[ext_resource path="res://Tiles.tres" type="TileSet" id=17]
+[ext_resource path="res://Tiles/generic_platformer_tiles.png" type="Texture" id=1]
+[ext_resource path="res://Tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Portal.gd" type="Script" id=3]
+[ext_resource path="res://Portal/portal0.png" type="Texture" id=4]
+[ext_resource path="res://Portal/portal1.png" type="Texture" id=5]
+[ext_resource path="res://Portal/portal2.png" type="Texture" id=6]
+[ext_resource path="res://Portal/portal3.png" type="Texture" id=7]
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=8]
+[ext_resource path="res://Player/Idle0.png" type="Texture" id=9]
+[ext_resource path="res://Player/Run0.png" type="Texture" id=10]
+[ext_resource path="res://Player/Run1.png" type="Texture" id=11]
+[ext_resource path="res://Player/Run2.png" type="Texture" id=12]
+[ext_resource path="res://Player/Run3.png" type="Texture" id=13]
+[ext_resource path="res://Player/Run4.png" type="Texture" id=14]
+[ext_resource path="res://Player/Run7.png" type="Texture" id=15]
+[ext_resource path="res://Player/Jump0.png" type="Texture" id=16]
+[ext_resource path="res://Player/Jump3.png" type="Texture" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -26,7 +26,7 @@ extents = Vector2( 31.8657, 32 )
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -36,22 +36,22 @@ _sections_unfolded = [ "Resource" ]
 [sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "run",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "jump",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 17 ) ],
 "loop": true,
 "name": "fall",
 "speed": 5.0
@@ -60,14 +60,355 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 39 )
+extents = Vector2( 10, 35 )
 
 [node name="World" type="Node" index="0"]
 
-[node name="Portal" type="Area2D" parent="." index="0"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
 editor/display_folded = true
-position = Vector2( 576, 192 )
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 0, 0 )
+scroll_offset = Vector2( 10, 10 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = false
+_sections_unfolded = [ "Scroll" ]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+
+editor/display_folded = true
+motion_scale = Vector2( 0.2, 0.2 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 360, 300 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+
+_sections_unfolded = [ "Offset" ]
+
+[node name="0" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="0"]
+
+position = Vector2( 32, 96 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 672, 576, 160, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="1" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="1"]
+
+position = Vector2( 192, 96 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="2" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="2"]
+
+position = Vector2( 256, 96 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="3" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="3"]
+
+position = Vector2( 192, 160 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="24" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="4"]
+
+position = Vector2( -64, 32 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="25" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="5"]
+
+position = Vector2( 0, 32 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="26" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="6"]
+
+position = Vector2( 64, 32 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="27" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="7"]
+
+position = Vector2( 128, 32 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="28" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="8"]
+
+position = Vector2( 192, 32 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="29" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="9"]
+
+position = Vector2( 256, 32 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="23" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="10"]
+
+position = Vector2( -64, 288 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="5" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="11"]
+
+position = Vector2( 256, 160 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="6" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="12"]
+
+position = Vector2( 64, 160 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="7" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="13"]
+
+position = Vector2( 0, 160 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="8" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="14"]
+
+position = Vector2( 0, 224 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="9" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="15"]
+
+position = Vector2( 64, 224 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="10" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="16"]
+
+position = Vector2( 128, 224 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="11" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="17"]
+
+position = Vector2( 192, 224 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="12" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="18"]
+
+position = Vector2( 256, 224 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="13" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="19"]
+
+position = Vector2( 256, 288 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="14" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="20"]
+
+position = Vector2( 192, 288 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="15" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="21"]
+
+position = Vector2( 128, 288 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="16" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="22"]
+
+position = Vector2( 64, 288 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="17" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="23"]
+
+position = Vector2( -32, 288 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="18" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="24"]
+
+position = Vector2( 32, 288 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="19" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="25"]
+
+position = Vector2( -64, 224 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="20" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="26"]
+
+position = Vector2( -64, 160 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="21" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="27"]
+
+position = Vector2( -64, 96 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="22" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="28"]
+
+position = Vector2( -32, 96 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="4" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="29"]
+
+position = Vector2( 128, 160 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 224, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="30" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="30"]
+
+position = Vector2( -64, 256 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 672, 576, 160, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="31" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="31"]
+
+position = Vector2( 32, 192 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 100, 0 )
+region_enabled = true
+region_rect = Rect2( 672, 576, 160, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="TileMap" type="TileMap" parent="." index="1"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 262162, 28, 0, 393228, 31, 0, 393229, 31, 0, 393230, 31, 0, 393233, 31, 0, 393234, 31, 0, 393235, 31, 0, 393236, 31, 0, 393237, 31, 0, 393238, 31, 0, 393239, 31, 0, 524287, 32, 0, 458752, 31, 0, 458753, 31, 0, 458754, 31, 0, 458755, 31, 0, 458764, 0, 0, 458765, 1, 0, 458766, 19, 0, 458767, 19, 0, 458768, 19, 0, 458769, 19, 0, 458770, 19, 0, 458771, 19, 0, 458772, 19, 0, 458773, 19, 0, 458774, 13, 0, 458775, 14, 0, 589823, 0, 0, 524288, 1, 0, 524289, 19, 0, 524290, 13, 0, 524291, 14, 0, 524301, 3, 0, 524302, 12, 0, 524314, 21, 0, 589824, 3, 0, 589825, 4, 0, 589826, 12, 0, 589831, 15, 0, 589837, 3, 0, 589838, 12, 0, 589839, 31, 0, 589840, 31, 0, 589841, 31, 0, 589843, 31, 0, 589844, 31, 0, 589845, 31, 0, 589846, 31, 0, 589847, 31, 0, 589848, 31, 0, 655360, 3, 0, 655361, 4, 0, 655362, 12, 0, 655367, 16, 0, 655373, 3, 0, 655374, 12, 0, 655375, 1, 0, 655376, 19, 0, 655377, 19, 0, 655378, 19, 0, 655379, 19, 0, 655380, 19, 0, 655381, 19, 0, 655382, 19, 0, 655383, 19, 0, 655384, 2, 0, 655385, 2, 0, 655386, 13, 0, 655387, 14, 0, 720896, 7, 0, 720897, 6, 0, 720898, 8, 0, 720903, 17, 0, 720909, 3, 0, 720910, 12, 0, 786433, 17, 0, 786445, 7, 0, 786446, 8, 0 )
+_sections_unfolded = [ "Cell", "Collision", "Material", "Occluder", "Transform", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Portal" type="Area2D" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 512, 288 )
 scale = Vector2( 0.5, 1 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -76,7 +417,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
@@ -94,17 +435,17 @@ position = Vector2( 8.02568, 0 )
 scale = Vector2( 0.256575, 0.133333 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 3
+frame = 1
 playing = true
 
-[node name="Player" type="KinematicBody2D" parent="." index="1"]
+[node name="Player" type="KinematicBody2D" parent="." index="3"]
 
 position = Vector2( 32, 224 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 __meta__ = {
 "_edit_group_": true
@@ -114,6 +455,7 @@ __meta__ = {
 
 frames = SubResource( 3 )
 animation = "run"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="1"]
@@ -147,346 +489,5 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Drag Margin", "Limit", "Offset", "Smoothing" ]
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Player" index="3"]
-
-layer = -1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 2, 2 )
-transform = Transform2D( 2, 0, 0, 2, 0, 0 )
-scroll_offset = Vector2( 10, 10 )
-scroll_base_offset = Vector2( 0, 0 )
-scroll_base_scale = Vector2( 1, 1 )
-scroll_limit_begin = Vector2( 0, 0 )
-scroll_limit_end = Vector2( 0, 0 )
-scroll_ignore_camera_zoom = false
-_sections_unfolded = [ "Scroll" ]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Player/ParallaxBackground" index="0"]
-
-editor/display_folded = true
-motion_scale = Vector2( 0.2, 0.2 )
-motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 360, 300 )
-_sections_unfolded = [ "Motion", "Transform" ]
-
-[node name="Background" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer" index="0"]
-
-editor/display_folded = true
-_sections_unfolded = [ "Offset" ]
-
-[node name="0" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="0"]
-
-position = Vector2( 32, 96 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 672, 576, 160, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="1" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="1"]
-
-position = Vector2( 192, 96 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="2" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="2"]
-
-position = Vector2( 256, 96 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="3" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="3"]
-
-position = Vector2( 192, 160 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="24" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="4"]
-
-position = Vector2( -64, 32 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="25" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="5"]
-
-position = Vector2( 0, 32 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="26" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="6"]
-
-position = Vector2( 64, 32 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="27" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="7"]
-
-position = Vector2( 128, 32 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="28" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="8"]
-
-position = Vector2( 192, 32 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="29" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="9"]
-
-position = Vector2( 256, 32 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="23" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="10"]
-
-position = Vector2( -64, 288 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="5" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="11"]
-
-position = Vector2( 256, 160 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="6" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="12"]
-
-position = Vector2( 64, 160 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="7" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="13"]
-
-position = Vector2( 0, 160 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="8" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="14"]
-
-position = Vector2( 0, 224 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="9" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="15"]
-
-position = Vector2( 64, 224 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="10" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="16"]
-
-position = Vector2( 128, 224 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="11" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="17"]
-
-position = Vector2( 192, 224 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="12" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="18"]
-
-position = Vector2( 256, 224 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="13" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="19"]
-
-position = Vector2( 256, 288 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="14" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="20"]
-
-position = Vector2( 192, 288 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="15" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="21"]
-
-position = Vector2( 128, 288 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="16" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="22"]
-
-position = Vector2( 64, 288 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="17" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="23"]
-
-position = Vector2( -32, 288 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="18" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="24"]
-
-position = Vector2( 32, 288 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="19" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="25"]
-
-position = Vector2( -64, 224 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="20" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="26"]
-
-position = Vector2( -64, 160 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="21" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="27"]
-
-position = Vector2( -64, 96 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="22" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="28"]
-
-position = Vector2( -32, 96 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="4" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="29"]
-
-position = Vector2( 128, 160 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 256, 224, 64, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="30" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="30"]
-
-position = Vector2( -64, 256 )
-texture = ExtResource( 16 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 672, 576, 160, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="31" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer/Background" index="31"]
-
-position = Vector2( 32, 192 )
-texture = ExtResource( 16 )
-centered = false
-offset = Vector2( 100, 0 )
-region_enabled = true
-region_rect = Rect2( 672, 576, 160, 64 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="TileMap" type="TileMap" parent="." index="2"]
-
-mode = 0
-tile_set = ExtResource( 17 )
-cell_size = Vector2( 32, 32 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
-format = 1
-tile_data = PoolIntArray( 458764, 0, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458769, 1, 0, 458770, 1, 0, 458771, 1, 0, 458772, 1, 0, 458773, 1, 0, 458774, 1, 0, 458775, 1, 0, 589823, 0, 0, 524288, 1, 0, 524289, 19, 0, 524290, 13, 0, 524291, 14, 0, 589824, 3, 0, 589825, 4, 0, 589826, 12, 0, 589831, 15, 0, 655360, 3, 0, 655361, 4, 0, 655362, 12, 0, 655367, 16, 0, 720896, 7, 0, 720897, 6, 0, 720898, 8, 0, 720903, 17, 0, 786433, 17, 0 )
-_sections_unfolded = [ "Cell", "Collision", "Material", "Occluder", "Transform", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 
