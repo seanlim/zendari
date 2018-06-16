@@ -82,7 +82,6 @@ _sections_unfolded = [ "Scroll" ]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
 
-editor/display_folded = true
 motion_scale = Vector2( 0.2, 0.2 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 360, 300 )
@@ -90,7 +89,12 @@ _sections_unfolded = [ "Motion", "Transform" ]
 
 [node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Offset" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="0" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="0"]
 
@@ -100,6 +104,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 672, 576, 160, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="1" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="1"]
 
@@ -109,6 +116,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="2" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="2"]
 
@@ -118,6 +128,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="3" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="3"]
 
@@ -127,6 +140,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="24" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="4"]
 
@@ -136,6 +152,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="25" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="5"]
 
@@ -145,6 +164,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="26" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="6"]
 
@@ -154,6 +176,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="27" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="7"]
 
@@ -163,6 +188,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="28" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="8"]
 
@@ -172,6 +200,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="29" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="9"]
 
@@ -181,6 +212,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="23" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="10"]
 
@@ -190,6 +224,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="5" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="11"]
 
@@ -199,6 +236,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="6" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="12"]
 
@@ -208,6 +248,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="7" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="13"]
 
@@ -217,6 +260,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="8" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="14"]
 
@@ -226,6 +272,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="9" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="15"]
 
@@ -235,6 +284,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="10" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="16"]
 
@@ -244,6 +296,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="11" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="17"]
 
@@ -253,6 +308,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="12" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="18"]
 
@@ -262,6 +320,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="13" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="19"]
 
@@ -271,6 +332,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="14" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="20"]
 
@@ -280,6 +344,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="15" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="21"]
 
@@ -289,6 +356,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="16" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="22"]
 
@@ -298,6 +368,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="17" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="23"]
 
@@ -307,6 +380,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="18" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="24"]
 
@@ -316,6 +392,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="19" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="25"]
 
@@ -325,6 +404,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="20" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="26"]
 
@@ -334,6 +416,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="21" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="27"]
 
@@ -343,6 +428,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="22" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="28"]
 
@@ -352,6 +440,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="4" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="29"]
 
@@ -361,6 +452,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 256, 224, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="30" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="30"]
 
@@ -370,6 +464,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 672, 576, 160, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="31" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Background" index="31"]
 
@@ -380,6 +477,9 @@ offset = Vector2( 100, 0 )
 region_enabled = true
 region_rect = Rect2( 672, 576, 160, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TileMap" type="TileMap" parent="." index="1"]
 
@@ -435,7 +535,6 @@ position = Vector2( 8.02568, 0 )
 scale = Vector2( 0.256575, 0.133333 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="Player" type="KinematicBody2D" parent="." index="3"]
@@ -455,7 +554,7 @@ __meta__ = {
 
 frames = SubResource( 3 )
 animation = "run"
-frame = 1
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="1"]
