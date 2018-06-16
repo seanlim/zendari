@@ -9,13 +9,16 @@ const UP = Vector2(0,-1)
 var motion = Vector2()
 var friction = false
 var doubleJumped = false
-var rewinded = false 
+# Rewind
+var rewinding = false 
+var recording = false
 
 var motion_hist = Array()
 
 func _physics_process(delta):
-	if Input.is_action_pressed("ui_down") && motion_hist.size() > 0:
-		rewinded = true
+	print(motion_hist)
+	if  (rewinding || Input.is_action_pressed("ui_down")) && motion_hist.size() > 0:
+		rewinding = true
 		$Sprite.animation = "fall"
 		motion = motion_hist.pop_back() * Vector2(-1,-1)
 	else:
@@ -40,7 +43,7 @@ func _physics_process(delta):
 			friction = true
 
 		if is_on_floor():
-			rewinded = false
+			rewinding = false
 			doubleJumped = false 
 			if friction == true:
 				motion.x = lerp(motion.x, 0, 0.2)
@@ -56,7 +59,7 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, 0.1)
 			$Sprite.animation = "jump" if motion.y < 0 else "fall"
 		
-		if motion.abs() > Vector2(0, 20) && !rewinded:
+		if recording && motion.abs() > Vector2(0, 20) && !rewinding:
 			motion_hist.append(Vector2(motion.x, motion.y -20))
 		
 	motion = move_and_slide(motion, UP)
