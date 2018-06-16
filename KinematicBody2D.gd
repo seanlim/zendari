@@ -11,12 +11,14 @@ var friction = false
 var doubleJumped = false
 # Rewind
 var rewinding = false 
-var recording = false
-
+var recording = true
 var motion_hist = Array()
 
+func _process(delta):
+	var shader = get_node("Shader").get_material()
+	shader.set_shader_param("rewind", rewinding)
+
 func _physics_process(delta):
-	print(motion_hist)
 	if  (rewinding || Input.is_action_pressed("ui_down")) && motion_hist.size() > 0:
 		rewinding = true
 		$Sprite.animation = "fall"
@@ -56,7 +58,7 @@ func _physics_process(delta):
 				motion.y = JUMP_HEIGHT/ 2 # Double jump
 
 		else:
-			motion.x = lerp(motion.x, 0, 0.1)
+			motion.x = lerp(motion.x, 0, 0.2)
 			$Sprite.animation = "jump" if motion.y < 0 else "fall"
 		
 		if recording && motion.abs() > Vector2(0, 20) && !rewinding:
