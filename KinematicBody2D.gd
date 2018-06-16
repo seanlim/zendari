@@ -14,7 +14,6 @@ var rewinded = false
 var motion_hist = Array()
 
 func _physics_process(delta):
-	print(motion_hist)
 	if Input.is_action_pressed("ui_down") && motion_hist.size() > 0:
 		rewinded = true
 		$Sprite.animation = "fall"
