@@ -9,30 +9,30 @@ const UP = Vector2(0,-1)
 var motion = Vector2()
 var friction = false
 var doubleJumped = false
+var rewinded = false 
 
 var motion_hist = Array()
 
 func _physics_process(delta):
-	print(motion_hist.size())
+	print(motion_hist)
 	if Input.is_action_pressed("ui_down") && motion_hist.size() > 0:
+		rewinded = true
 		$Sprite.animation = "fall"
 		motion = motion_hist.pop_back() * Vector2(-1,-1)
 	else:
 		# Gravity
 		motion.y += GRAVITY
 
-		# if Input.is_action_just_released("ui_down"):
-			# motion_hist.clear()
+		if Input.is_action_just_released("ui_down"):
+			motion_hist.clear()
 		# Controls
 		if Input.is_action_pressed("ui_right"):
 			motion.x = min(motion.x + ACC , SPEED_UPPER)
-			motion_hist.append(motion)
 			$Sprite.flip_h = false
 			$Sprite.animation = "run"
 			
 		elif Input.is_action_pressed("ui_left"):
 			motion.x = max(motion.x - ACC , -SPEED_UPPER)
-			motion_hist.append(motion)
 			$Sprite.flip_h = true
 			$Sprite.animation = "run" 
 		else:
@@ -41,22 +41,24 @@ func _physics_process(delta):
 			friction = true
 
 		if is_on_floor():
+			rewinded = false
 			doubleJumped = false 
 			if friction == true:
 				motion.x = lerp(motion.x, 0, 0.2)
 			if Input.is_action_just_pressed("ui_up"): 
 				motion.y = JUMP_HEIGHT
-				motion_hist.append(motion)
 
 
 		elif Input.is_action_just_pressed("ui_up") && !doubleJumped:
 				doubleJumped = true
 				motion.y = JUMP_HEIGHT/ 2 # Double jump
-				motion_hist.append(motion)
 
 		else:
 			motion.x = lerp(motion.x, 0, 0.1)
 			$Sprite.animation = "jump" if motion.y < 0 else "fall"
+		
+		if motion.abs() > Vector2(0, 20) && !rewinded:
+			motion_hist.append(motion)
 		
 	motion = move_and_slide(motion, UP)
 	pass
