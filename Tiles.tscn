@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[node name="Tiles" type="Node" index="0"]
+[node name="Tiles" type="Node"]
 
 [node name="0" type="Sprite" parent="." index="0"]
 
@@ -427,7 +427,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="15" type="Sprite" parent="." index="13"]
 
-editor/display_folded = true
 position = Vector2( 160, 32 )
 texture = ExtResource( 1 )
 centered = false
@@ -440,7 +439,6 @@ __meta__ = {
 
 [node name="StaticBody2D" type="StaticBody2D" parent="15" index="0"]
 
-editor/display_folded = true
 visible = false
 input_pickable = false
 collision_layer = 1
@@ -455,7 +453,7 @@ _sections_unfolded = [ "Visibility" ]
 
 position = Vector2( 16, 16 )
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="16" type="Sprite" parent="." index="14"]
 
