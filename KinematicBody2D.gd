@@ -9,47 +9,68 @@ const UP = Vector2(0,-1)
 var motion = Vector2()
 var friction = false
 var doubleJumped = false
+# Rewind
+var rewinding = false 
+var recording = true
+var motion_hist = Array()
+
+func _process(delta):
+	var shader = get_node("Shader").get_material()
+	shader.set_shader_param("rewind", rewinding)
+	$RewindParticles.set_emitting(rewinding)
+	
+	if rewinding && !$AudioStreamPlayer2D.playing:
+		$AudioStreamPlayer2D.play()
+
 
 func _physics_process(delta):
-	# Gravity
-	motion.y += GRAVITY
-	
-	# Controls
-	if Input.is_action_pressed("ui_right"):
-		motion.x = min(motion.x + ACC , SPEED_UPPER)
-		
-		$Sprite.flip_h = false
-		$Sprite.animation = "run"
-		
-	elif Input.is_action_pressed("ui_left"):
-		
-		motion.x = max(motion.x - ACC , -SPEED_UPPER)
-		
-		$Sprite.flip_h = true
-		$Sprite.animation = "run" 
+	if  (rewinding || Input.is_action_pressed("ui_down")) && motion_hist.size() > 0:
+		rewinding = true
+		$Camera2D.shake(1, 35, 2)
+		$Sprite.animation = "rewind"
+		motion = motion_hist.pop_back() * Vector2(-1,-1)
 	else:
-		motion.x = 0 
+		$AudioStreamPlayer2D.stop()
 		
-		$Sprite.animation = "idle"
-		
-		friction = true
+		# Gravity
+		motion.y += GRAVITY
 
-	if is_on_floor():
-		doubleJumped = false 
-		if friction == true:
+		if Input.is_action_just_released("ui_down"):
+			motion_hist.clear()
+		# Controls
+		if Input.is_action_pressed("ui_right"):
+			motion.x = min(motion.x + ACC , SPEED_UPPER)
+			$Sprite.flip_h = false
+			$Sprite.animation = "run"
 			
+		elif Input.is_action_pressed("ui_left"):
+			motion.x = max(motion.x - ACC , -SPEED_UPPER)
+			$Sprite.flip_h = true
+			$Sprite.animation = "run" 
+		else:
+			motion.x = 0 
+			$Sprite.animation = "idle"
+			friction = true
+
+		if is_on_floor():
+			rewinding = false
+			doubleJumped = false 
+			if friction == true:
+				motion.x = lerp(motion.x, 0, 0.2)
+			if Input.is_action_just_pressed("ui_up"): 
+				motion.y = JUMP_HEIGHT
+
+
+		elif Input.is_action_just_pressed("ui_up") && !doubleJumped:
+				doubleJumped = true
+				motion.y = JUMP_HEIGHT/ 2 # Double jump
+
+		else:
 			motion.x = lerp(motion.x, 0, 0.2)
-		if Input.is_action_just_pressed("ui_up"): 
+			$Sprite.animation = "jump" if motion.y < 0 else "fall"
 		
-			motion.y = JUMP_HEIGHT
-	elif Input.is_action_just_pressed("ui_up") && !doubleJumped:
-			doubleJumped = true
-			motion.y = JUMP_HEIGHT/ 2 # Double jump
-	else:
-		motion.x = lerp(motion.x, 0, 0.1)
+		if recording && motion.abs() > Vector2(0, 20) && !rewinding:
+			motion_hist.append(Vector2(motion.x, motion.y -20))
 		
-		$Sprite.animation = "jump" if motion.y < 0 else "fall"
-	
 	motion = move_and_slide(motion, UP)
-	
 	pass
