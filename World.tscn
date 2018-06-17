@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Tiles/generic_platformer_tiles.png" type="Texture" id=1]
 [ext_resource path="res://Tiles.tres" type="TileSet" id=2]
@@ -7,21 +7,22 @@
 [ext_resource path="res://Portal/portal1.png" type="Texture" id=5]
 [ext_resource path="res://Portal/portal2.png" type="Texture" id=6]
 [ext_resource path="res://Portal/portal3.png" type="Texture" id=7]
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=8]
-[ext_resource path="res://World.shader" type="Shader" id=9]
-[ext_resource path="res://white.png" type="Texture" id=10]
-[ext_resource path="res://Player/Idle0.png" type="Texture" id=11]
-[ext_resource path="res://Player/Jump4.png" type="Texture" id=12]
-[ext_resource path="res://Player/Run0.png" type="Texture" id=13]
-[ext_resource path="res://Player/Run1.png" type="Texture" id=14]
-[ext_resource path="res://Player/Run2.png" type="Texture" id=15]
-[ext_resource path="res://Player/Run3.png" type="Texture" id=16]
-[ext_resource path="res://Player/Run4.png" type="Texture" id=17]
-[ext_resource path="res://Player/Run7.png" type="Texture" id=18]
-[ext_resource path="res://Player/Jump3.png" type="Texture" id=19]
-[ext_resource path="res://Player/Jump0.png" type="Texture" id=20]
-[ext_resource path="res://Camera2D.gd" type="Script" id=21]
-[ext_resource path="res://Player/rewind.wav" type="AudioStream" id=22]
+[ext_resource path="res://Tiles/white.png" type="Texture" id=8]
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=9]
+[ext_resource path="res://World.shader" type="Shader" id=10]
+[ext_resource path="res://white.png" type="Texture" id=11]
+[ext_resource path="res://Player/Idle0.png" type="Texture" id=12]
+[ext_resource path="res://Player/Jump4.png" type="Texture" id=13]
+[ext_resource path="res://Player/Run0.png" type="Texture" id=14]
+[ext_resource path="res://Player/Run1.png" type="Texture" id=15]
+[ext_resource path="res://Player/Run2.png" type="Texture" id=16]
+[ext_resource path="res://Player/Run3.png" type="Texture" id=17]
+[ext_resource path="res://Player/Run4.png" type="Texture" id=18]
+[ext_resource path="res://Player/Run7.png" type="Texture" id=19]
+[ext_resource path="res://Player/Jump3.png" type="Texture" id=20]
+[ext_resource path="res://Player/Jump0.png" type="Texture" id=21]
+[ext_resource path="res://Camera2D.gd" type="Script" id=22]
+[ext_resource path="res://Player/rewind.wav" type="AudioStream" id=23]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -38,37 +39,77 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
+[sub_resource type="ParticlesMaterial" id=6]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 20.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 60.0
+flatness = 0.0
+gravity = Vector3( 0, 80, 0 )
+initial_velocity = 1.02
+initial_velocity_random = 0.0
+angular_velocity = 40.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 0.534737, 0.0297852, 0.953125, 1 )
+hue_variation = 1.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Animation", "Color", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Spread", "Trail" ]
+
 [sub_resource type="ShaderMaterial" id=3]
 
 render_priority = 0
-shader = ExtResource( 9 )
+shader = ExtResource( 10 )
 shader_param/rewind = false
 _sections_unfolded = [ "Resource", "shader_param" ]
 
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "rewind",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "run",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 19 ) ],
+"frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 20 ) ],
+"frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "jump",
 "speed": 10.0
@@ -80,6 +121,45 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 radius = 14.0
 height = 32.0
+
+[sub_resource type="ParticlesMaterial" id=7]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, -5, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = -2.65901e-23
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.14
+damping_random = 0.0
+angle = 0.0
+angle_random = 1.0
+scale = 1.0
+scale_random = 0.4
+color = Color( 0, 0, 0, 0.381216 )
+hue_variation = 0.4
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Damping", "Gravity", "Hue Variation", "Scale" ]
 
 [node name="World" type="Node" index="0"]
 
@@ -526,7 +606,6 @@ __meta__ = {
 
 [node name="Portal" type="Area2D" parent="." index="2"]
 
-editor/display_folded = true
 position = Vector2( 512, 288 )
 scale = Vector2( 0.5, 1 )
 input_pickable = true
@@ -557,6 +636,30 @@ animation = "default"
 frame = 2
 playing = true
 
+[node name="Particles2D" type="Particles2D" parent="Portal" index="2"]
+
+position = Vector2( 12.1283, 2.94088 )
+scale = Vector2( -3.22395, -1.60208 )
+emitting = true
+amount = 20
+lifetime = 0.5
+one_shot = false
+preprocess = 0.0
+speed_scale = 0.6
+explosiveness = 0.0
+randomness = 0.5
+fixed_fps = 60
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 6 )
+texture = ExtResource( 8 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Material", "Process Material", "Textures", "Time" ]
+
 [node name="Player" type="KinematicBody2D" parent="." index="3"]
 
 position = Vector2( 32, 224 )
@@ -564,7 +667,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 __meta__ = {
 "_edit_group_": true
@@ -587,7 +690,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material" ]
@@ -595,8 +698,7 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material" ]
 [node name="Sprite" type="AnimatedSprite" parent="Player" index="1"]
 
 frames = SubResource( 4 )
-animation = "run"
-frame = 3
+animation = "idle"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="2"]
@@ -628,12 +730,12 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-script = ExtResource( 21 )
+script = ExtResource( 22 )
 _sections_unfolded = [ "Drag Margin", "Limit", "Offset", "Smoothing" ]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player" index="4"]
 
-stream = ExtResource( 22 )
+stream = ExtResource( 23 )
 volume_db = 1.0
 pitch_scale = 0.8
 autoplay = false
@@ -641,5 +743,28 @@ max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
+
+[node name="RewindParticles" type="Particles2D" parent="Player" index="5"]
+
+show_behind_parent = true
+emitting = false
+amount = 30
+lifetime = 0.6
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.3
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 7 )
+texture = ExtResource( 13 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "Visibility" ]
 
 

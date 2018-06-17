@@ -17,6 +17,7 @@ var motion_hist = Array()
 func _process(delta):
 	var shader = get_node("Shader").get_material()
 	shader.set_shader_param("rewind", rewinding)
+	$RewindParticles.set_emitting(rewinding)
 	
 	if rewinding && !$AudioStreamPlayer2D.playing:
 		$AudioStreamPlayer2D.play()
