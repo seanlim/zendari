@@ -17,7 +17,7 @@ var motion_hist = Array()
 var shader
 
 func _ready():
-	shader = get_node("Shader").get_material()
+	shader = get_node("RewindShader").get_material()
 
 func _process(delta):
 	if rewinding && !$AudioStreamPlayer2D.playing:
@@ -79,7 +79,7 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, 0.2)
 			$Sprite.animation = "jump" if motion.y < 0 else "fall"
 
-		if recording && motion.abs() > Vector2(0, 20) && !rewinding && ( motion.y > 20 || !self.is_on_wall()):
+		if recording && motion.abs() > Vector2(0, 20) && !rewinding && (motion.y > 20 || !self.is_on_wall()):
 			if motion_hist.size() > HIST_MAX:
 				motion_hist.pop_front()
 			motion_hist.append(Vector2(motion.x, motion.y - GRAVITY))

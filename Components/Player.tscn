@@ -72,7 +72,7 @@ _sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Damping", "Gravity
 render_priority = 0
 shader = ExtResource( 3 )
 shader_param/rewind = false
-_sections_unfolded = [ "Resource", "shader_param" ]
+_sections_unfolded = [ "Resource" ]
 
 [sub_resource type="SpriteFrames" id=5]
 
@@ -145,7 +145,7 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "Visibility" ]
 
-[node name="Shader" type="TextureRect" parent="." index="1"]
+[node name="RewindShader" type="TextureRect" parent="." index="1"]
 
 material = SubResource( 4 )
 anchor_left = 0.0
