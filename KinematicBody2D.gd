@@ -21,7 +21,8 @@ func _process(delta):
 func _physics_process(delta):
 	if  (rewinding || Input.is_action_pressed("ui_down")) && motion_hist.size() > 0:
 		rewinding = true
-		$Sprite.animation = "fall"
+		$Camera2D.shake(1, 35, 2)
+		$Sprite.animation = "rewind"
 		motion = motion_hist.pop_back() * Vector2(-1,-1)
 	else:
 		# Gravity

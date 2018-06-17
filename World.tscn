@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Tiles/generic_platformer_tiles.png" type="Texture" id=1]
 [ext_resource path="res://Tiles.tres" type="TileSet" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://World.shader" type="Shader" id=9]
 [ext_resource path="res://white.png" type="Texture" id=10]
 [ext_resource path="res://Player/Idle0.png" type="Texture" id=11]
-[ext_resource path="res://Player/Jump0.png" type="Texture" id=12]
+[ext_resource path="res://Player/Jump4.png" type="Texture" id=12]
 [ext_resource path="res://Player/Run0.png" type="Texture" id=13]
 [ext_resource path="res://Player/Run1.png" type="Texture" id=14]
 [ext_resource path="res://Player/Run2.png" type="Texture" id=15]
@@ -19,6 +19,8 @@
 [ext_resource path="res://Player/Run4.png" type="Texture" id=17]
 [ext_resource path="res://Player/Run7.png" type="Texture" id=18]
 [ext_resource path="res://Player/Jump3.png" type="Texture" id=19]
+[ext_resource path="res://Player/Jump0.png" type="Texture" id=20]
+[ext_resource path="res://Camera2D.gd" type="Script" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -35,14 +37,14 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="ShaderMaterial" id=6]
+[sub_resource type="ShaderMaterial" id=3]
 
 render_priority = 0
 shader = ExtResource( 9 )
 shader_param/rewind = false
 _sections_unfolded = [ "Resource", "shader_param" ]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
 "frames": [ ExtResource( 11 ) ],
@@ -52,8 +54,8 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "jump",
-"speed": 10.0
+"name": "rewind",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
@@ -64,9 +66,15 @@ animations = [ {
 "loop": true,
 "name": "fall",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "jump",
+"speed": 10.0
 } ]
+_sections_unfolded = [ "Resource" ]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=5]
 
 custom_solver_bias = 0.0
 radius = 14.0
@@ -545,7 +553,7 @@ position = Vector2( 8.02568, 0 )
 scale = Vector2( 0.256575, 0.133333 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Player" type="KinematicBody2D" parent="." index="3"]
@@ -563,7 +571,7 @@ __meta__ = {
 
 [node name="Shader" type="TextureRect" parent="Player" index="0"]
 
-material = SubResource( 6 )
+material = SubResource( 3 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -585,14 +593,14 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material" ]
 
 [node name="Sprite" type="AnimatedSprite" parent="Player" index="1"]
 
-frames = SubResource( 3 )
+frames = SubResource( 4 )
 animation = "run"
-frame = 4
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="2"]
 
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Camera2D" type="Camera2D" parent="Player" index="3"]
@@ -619,6 +627,7 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
+script = ExtResource( 21 )
 _sections_unfolded = [ "Drag Margin", "Limit", "Offset", "Smoothing" ]
 
 
