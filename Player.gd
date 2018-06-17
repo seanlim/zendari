@@ -25,7 +25,6 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	print(self.is_on_wall())
 	if Input.is_action_just_released("player_rewind"):
 			rewinding = false
 			motion_hist.clear()
@@ -80,7 +79,7 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, 0.2)
 			$Sprite.animation = "jump" if motion.y < 0 else "fall"
 
-		if recording && motion.abs() > Vector2(0, 20) && !rewinding && !self.is_on_wall():
+		if recording && motion.abs() > Vector2(0, 20) && !rewinding && ( motion.y > 20 || !self.is_on_wall()):
 			if motion_hist.size() > HIST_MAX:
 				motion_hist.pop_front()
 			motion_hist.append(Vector2(motion.x, motion.y - GRAVITY))
