@@ -1,10 +1,11 @@
 extends KinematicBody2D
 
 const GRAVITY = 20
-const ACC = 40
+const ACC = 50
 const SPEED_UPPER = 250
 const JUMP_HEIGHT = -400
 const UP = Vector2(0,-1)
+const HIST_MAX = 100
 
 var motion = Vector2()
 var friction = false
@@ -13,30 +14,40 @@ var doubleJumped = false
 var rewinding = false 
 var recording = true
 var motion_hist = Array()
+var shader 
+
+func _ready():
+	shader = get_node("Shader").get_material()
 
 func _process(delta):
-	var shader = get_node("Shader").get_material()
-	shader.set_shader_param("rewind", rewinding)
-	$RewindParticles.set_emitting(rewinding)
-	
 	if rewinding && !$AudioStreamPlayer2D.playing:
 		$AudioStreamPlayer2D.play()
-
+		
 
 func _physics_process(delta):
-	if  (rewinding || Input.is_action_pressed("ui_down")) && motion_hist.size() > 0:
+	print(motion_hist.size())
+	if Input.is_action_just_released("ui_down"):
+			rewinding = false
+			motion_hist.clear()
+	elif Input.is_action_pressed("ui_down"):
 		rewinding = true
+	
+	# REWIND
+	if rewinding && motion_hist.size() > 0:
 		$Camera2D.shake(1, 35, 2)
 		$Sprite.animation = "rewind"
+		shader.set_shader_param("rewind", true)
+		$RewindParticles.set_emitting(rewinding)
 		motion = motion_hist.pop_back() * Vector2(-1,-1)
 	else:
-		$AudioStreamPlayer2D.stop()
+	# NORMAL LOOP
+		shader.set_shader_param("rewind", false)
+		$RewindParticles.set_emitting(false)
 		
 		# Gravity
 		motion.y += GRAVITY
+		$AudioStreamPlayer2D.stop()
 
-		if Input.is_action_just_released("ui_down"):
-			motion_hist.clear()
 		# Controls
 		if Input.is_action_pressed("ui_right"):
 			motion.x = min(motion.x + ACC , SPEED_UPPER)
@@ -53,7 +64,7 @@ func _physics_process(delta):
 			friction = true
 
 		if is_on_floor():
-			rewinding = false
+			#rewinding = false
 			doubleJumped = false 
 			if friction == true:
 				motion.x = lerp(motion.x, 0, 0.2)
@@ -70,7 +81,9 @@ func _physics_process(delta):
 			$Sprite.animation = "jump" if motion.y < 0 else "fall"
 		
 		if recording && motion.abs() > Vector2(0, 20) && !rewinding:
-			motion_hist.append(Vector2(motion.x, motion.y -20))
+			if motion_hist.size() > HIST_MAX:
+				motion_hist.pop_front()
+			motion_hist.append(Vector2(motion.x, motion.y - GRAVITY))
 		
 	motion = move_and_slide(motion, UP)
 	pass

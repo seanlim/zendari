@@ -1,0 +1,221 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://Player/Jump4.png" type="Texture" id=2]
+[ext_resource path="res://World.shader" type="Shader" id=3]
+[ext_resource path="res://white.png" type="Texture" id=4]
+[ext_resource path="res://Player/Run0.png" type="Texture" id=5]
+[ext_resource path="res://Player/Run1.png" type="Texture" id=6]
+[ext_resource path="res://Player/Run2.png" type="Texture" id=7]
+[ext_resource path="res://Player/Run3.png" type="Texture" id=8]
+[ext_resource path="res://Player/Run4.png" type="Texture" id=9]
+[ext_resource path="res://Player/Run7.png" type="Texture" id=10]
+[ext_resource path="res://Player/Idle0.png" type="Texture" id=11]
+[ext_resource path="res://Player/Jump3.png" type="Texture" id=12]
+[ext_resource path="res://Player/Jump0.png" type="Texture" id=13]
+[ext_resource path="res://Camera2D.gd" type="Script" id=14]
+[ext_resource path="res://Player/rewind.wav" type="AudioStream" id=15]
+
+[sub_resource type="Gradient" id=10]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1 )
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="GradientTexture" id=11]
+
+flags = 4
+gradient = SubResource( 10 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=12]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, -50, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = -2.65901e-23
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.14
+damping_random = 0.0
+angle = 0.0
+angle_random = 1.0
+scale = 1.0
+scale_random = 0.4
+color_ramp = SubResource( 11 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Damping", "Gravity", "Hue Variation", "Scale" ]
+
+[sub_resource type="ShaderMaterial" id=13]
+
+render_priority = 0
+shader = ExtResource( 3 )
+shader_param/rewind = false
+_sections_unfolded = [ "Resource", "shader_param" ]
+
+[sub_resource type="SpriteFrames" id=14]
+
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "rewind",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "jump",
+"speed": 10.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="CapsuleShape2D" id=15]
+
+custom_solver_bias = 0.0
+radius = 13.0
+height = 33.0
+
+[node name="Player" type="KinematicBody2D"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pickable", "Transform", "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RewindParticles" type="Particles2D" parent="." index="0"]
+
+modulate = Color( 0.872764, 0.0926971, 0.878906, 0.685098 )
+show_behind_parent = true
+emitting = false
+amount = 25
+lifetime = 0.5
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.3
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 12 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "Visibility" ]
+
+[node name="Shader" type="TextureRect" parent="." index="1"]
+
+material = SubResource( 13 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -416.0
+margin_top = -320.0
+margin_right = 672.0
+margin_bottom = 384.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material" ]
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="2"]
+
+frames = SubResource( 14 )
+animation = "idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+
+shape = SubResource( 15 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = false
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+script = ExtResource( 14 )
+_sections_unfolded = [ "Drag Margin", "Limit", "Offset", "Smoothing" ]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="5"]
+
+stream = ExtResource( 15 )
+volume_db = 9.0
+pitch_scale = 0.8
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+
