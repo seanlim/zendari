@@ -3,7 +3,7 @@ uniform bool rewind;
 
 void fragment() {
 	if (rewind){
-		COLOR = vec4(0.4, 0.5, 0.95, 0.5);
+		COLOR = vec4(0.2, 0.2, 0.2, 0.4);
 	}
 	else {
 		COLOR = vec4(0, 0, 0, 0);
