@@ -5,7 +5,7 @@ const ACC = 50
 const SPEED_UPPER = 250
 const JUMP_HEIGHT = -400
 const UP = Vector2(0,-1)
-const HIST_MAX = 100
+const HIST_MAX = 180
 
 var motion = Vector2()
 var friction = false
@@ -25,7 +25,7 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	print(motion_hist.size())
+	print(self.is_on_wall())
 	if Input.is_action_just_released("player_rewind"):
 			rewinding = false
 			motion_hist.clear()
@@ -74,13 +74,13 @@ func _physics_process(delta):
 
 		elif Input.is_action_just_pressed("ui_up") && !doubleJumped:
 				doubleJumped = true
-				motion.y = JUMP_HEIGHT/ 2 # Double jump
+				motion.y = JUMP_HEIGHT/ 1.5 # Double jump
 
 		else:
 			motion.x = lerp(motion.x, 0, 0.2)
 			$Sprite.animation = "jump" if motion.y < 0 else "fall"
 
-		if recording && motion.abs() > Vector2(0, 20) && !rewinding:
+		if recording && motion.abs() > Vector2(0, 20) && !rewinding && !self.is_on_wall():
 			if motion_hist.size() > HIST_MAX:
 				motion_hist.pop_front()
 			motion_hist.append(Vector2(motion.x, motion.y - GRAVITY))
