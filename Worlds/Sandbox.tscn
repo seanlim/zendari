@@ -1,9 +1,41 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Components/ParallaxBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Components/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Tiles/Lever/lever2.png" type="Texture" id=5]
+[ext_resource path="res://Tiles/Lever/lever0.png" type="Texture" id=6]
+[ext_resource path="res://Tiles/Lever/lever1.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "on",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "switch_off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "switch_on",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 20, 15 )
 
 [node name="World" type="Node" index="0"]
 
@@ -27,7 +59,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 262161, 28, 0, 262163, 28, 0, 327680, 28, 0, 327700, 29, 0, 393228, 31, 0, 393229, 31, 0, 393230, 31, 0, 393231, 32, 0, 393233, 31, 0, 393234, 31, 0, 393235, 30, 0, 393236, 31, 0, 393237, 31, 0, 393238, 31, 0, 393239, 31, 0, 524287, 32, 0, 458752, 31, 0, 458753, 31, 0, 458764, 0, 0, 458765, 1, 0, 458766, 15, 0, 458767, 19, 0, 458768, 18, 0, 458769, 18, 0, 458770, 18, 0, 458771, 19, 0, 458772, 17, 0, 458773, 18, 0, 458774, 13, 0, 458775, 14, 0, 458779, 31, 0, 589823, 18, 0, 524288, 1, 0, 524289, 19, 0, 524290, 15, 0, 524295, 18, 0, 524301, 3, 0, 524302, 12, 0, 524314, 32, 0, 524315, 15, 0, 589824, 3, 0, 589825, 4, 0, 589826, 4, 0, 589827, 2, 0, 589837, 3, 0, 589838, 12, 0, 589839, 31, 0, 589840, 31, 0, 589841, 31, 0, 589843, 31, 0, 589846, 30, 0, 589847, 31, 0, 589848, 31, 0, 589850, 15, 0, 589851, 16, 0, 655360, 3, 0, 655361, 4, 0, 655362, 12, 0, 655363, 17, 0, 655364, 18, 0, 655365, 18, 0, 655373, 3, 0, 655374, 12, 0, 655375, 1, 0, 655376, 19, 0, 655377, 19, 0, 655378, 18, 0, 655379, 19, 0, 655380, 19, 0, 655381, 18, 0, 655382, 15, 0, 655383, 19, 0, 655384, 2, 0, 655385, 15, 0, 655386, 13, 0, 655387, 14, 0, 720896, 5, 0, 720897, 6, 0, 720898, 12, 0, 720909, 3, 0, 720910, 12, 0, 786433, 17, 0, 786434, 16, 0, 786445, 17, 0, 786446, 17, 0, 851970, 17, 0, 851971, 13, 0, 851972, 13, 0, 851973, 13, 0, 851974, 13, 0, 851975, 15, 0, 917507, 4, 0, 917508, 16, 0, 917509, 16, 0, 917510, 16, 0, 917511, 17, 0, 917512, 15, 0, 983043, 17, 0, 983044, 17, 0, 983045, 17, 0, 983046, 17, 0, 983048, 16, 0, 983049, 15, 0, 1048584, 17, 0, 1048585, 17, 0, 1114123, 18, 0, 1114124, 18, 0, 1179663, 18, 0 )
+tile_data = PoolIntArray( 262161, 28, 0, 262163, 28, 0, 327680, 28, 0, 327700, 29, 0, 393228, 31, 0, 393229, 31, 0, 393230, 31, 0, 393231, 32, 0, 393233, 31, 0, 393234, 31, 0, 393235, 30, 0, 393236, 31, 0, 393237, 31, 0, 393238, 31, 0, 393239, 31, 0, 524287, 32, 0, 458752, 31, 0, 458753, 31, 0, 458764, 0, 0, 458765, 1, 0, 458766, 15, 0, 458767, 19, 0, 458768, 18, 0, 458769, 18, 0, 458770, 18, 0, 458771, 19, 0, 458772, 17, 0, 458773, 18, 0, 458774, 13, 0, 458775, 14, 0, 458779, 31, 0, 589823, 18, 0, 524288, 1, 0, 524289, 19, 0, 524290, 15, 0, 524295, 18, 0, 524301, 3, 0, 524302, 12, 0, 524314, 32, 0, 524315, 15, 0, 589824, 3, 0, 589825, 4, 0, 589826, 4, 0, 589827, 2, 0, 589837, 3, 0, 589838, 12, 0, 589839, 31, 0, 589840, 31, 0, 589841, 31, 0, 589843, 31, 0, 589846, 30, 0, 589847, 31, 0, 589848, 31, 0, 589850, 15, 0, 589851, 16, 0, 655360, 3, 0, 655361, 4, 0, 655362, 12, 0, 655363, 17, 0, 655364, 18, 0, 655365, 18, 0, 655373, 3, 0, 655374, 12, 0, 655375, 1, 0, 655376, 19, 0, 655377, 19, 0, 655378, 18, 0, 655379, 19, 0, 655380, 19, 0, 655381, 18, 0, 655382, 15, 0, 655383, 19, 0, 655384, 2, 0, 655385, 15, 0, 655386, 13, 0, 655387, 14, 0, 720896, 5, 0, 720897, 6, 0, 720898, 12, 0, 720909, 3, 0, 720910, 12, 0, 786433, 17, 0, 786434, 16, 0, 786445, 17, 0, 786446, 17, 0, 851970, 17, 0, 851971, 13, 0, 851972, 13, 0, 851973, 13, 0, 851974, 13, 0, 851975, 15, 0, 917507, 4, 0, 917508, 16, 0, 917509, 16, 0, 917510, 16, 0, 917511, 17, 0, 917512, 15, 0, 983043, 17, 0, 983044, 17, 0, 983045, 17, 0, 983046, 17, 0, 983048, 16, 0, 983049, 15, 0, 1048584, 17, 0, 1048585, 17, 0, 1048594, 15, 0, 1114123, 18, 0, 1114124, 18, 0, 1114130, 16, 0, 1179663, 18, 0, 1179664, 18, 0, 1179665, 18, 0, 1179666, 17, 0 )
 _sections_unfolded = [ "Cell", "Collision", "Material", "Occluder", "Transform", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
@@ -41,5 +73,36 @@ Next_Scene = "res://Worlds/World1.tscn"
 [node name="Player" parent="." index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 32, 224 )
+
+[node name="Area2D" type="Area2D" parent="." index="4"]
+
+position = Vector2( 592, 555 )
+scale = Vector2( 0.7, 0.7 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D" index="0"]
+
+frames = SubResource( 1 )
+animation = "switch_on"
+frame = 1
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="1"]
+
+visible = false
+scale = Vector2( 2, 2 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 
