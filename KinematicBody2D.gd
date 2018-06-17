@@ -17,6 +17,10 @@ var motion_hist = Array()
 func _process(delta):
 	var shader = get_node("Shader").get_material()
 	shader.set_shader_param("rewind", rewinding)
+	
+	if rewinding && !$AudioStreamPlayer2D.playing:
+		$AudioStreamPlayer2D.play()
+
 
 func _physics_process(delta):
 	if  (rewinding || Input.is_action_pressed("ui_down")) && motion_hist.size() > 0:
@@ -25,6 +29,8 @@ func _physics_process(delta):
 		$Sprite.animation = "rewind"
 		motion = motion_hist.pop_back() * Vector2(-1,-1)
 	else:
+		$AudioStreamPlayer2D.stop()
+		
 		# Gravity
 		motion.y += GRAVITY
 
