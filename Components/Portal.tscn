@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Portal.gd" type="Script" id=1]
 [ext_resource path="res://Portal/portal0.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Tiles/white.png" type="Texture" id=6]
 [ext_resource path="res://Transition.shader" type="Shader" id=7]
 [ext_resource path="res://Components/Transition.gd" type="Script" id=8]
+[ext_resource path="res://shadowTexture.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -136,7 +137,7 @@ texture = ExtResource( 6 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Material", "Process Material", "Textures", "Time" ]
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time" ]
 
 [node name="Camera2D" type="Camera2D" parent="." index="3"]
 
@@ -193,5 +194,32 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 _sections_unfolded = [ "playback" ]
+
+[node name="Light2D" type="Light2D" parent="." index="6"]
+
+position = Vector2( 0, 4 )
+scale = Vector2( 2.66667, 1.03333 )
+enabled = true
+editor_only = false
+texture = ExtResource( 9 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 1, 0, 1, 1 )
+energy = 0.8
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Range", "Shadow" ]
 
 
