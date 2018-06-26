@@ -2,22 +2,22 @@
 
 [ext_resource path="res://Tiles/generic_platformer_tiles.png" type="Texture" id=1]
 
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 16 )
+
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[sub_resource type="RectangleShape2D" id=24]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[sub_resource type="RectangleShape2D" id=25]
-
-custom_solver_bias = 0.0
-extents = Vector2( 16, 16 )
-
-[sub_resource type="OccluderPolygon2D" id=3]
+[sub_resource type="OccluderPolygon2D" id=4]
 
 closed = true
 cull_mode = 0
@@ -36,7 +36,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 1/name = "1"
@@ -50,7 +50,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 2/name = "2"
@@ -64,7 +64,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 3/name = "3"
@@ -78,7 +78,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 3/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 4/name = "4"
@@ -92,7 +92,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 4/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 5/name = "5"
@@ -106,7 +106,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 5/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 6/name = "6"
@@ -120,7 +120,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 6/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 7/name = "7"
@@ -134,7 +134,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 7/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 8/name = "8"
@@ -148,7 +148,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 8/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 9/name = "9"
@@ -162,7 +162,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 9/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 10/name = "10"
@@ -176,7 +176,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 10/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 11/name = "11"
@@ -190,7 +190,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 11/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 24 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 12/name = "12"
@@ -204,7 +204,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 12/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 13/name = "13"
@@ -218,7 +218,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 13/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 14/name = "15"
@@ -232,7 +232,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 14/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 15/name = "16"
@@ -246,7 +246,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 15/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 16/name = "17"
@@ -260,7 +260,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 16/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 17/name = "18"
@@ -274,7 +274,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 17/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 18/name = "19"
@@ -288,7 +288,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 18/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 19/name = "14"
@@ -302,7 +302,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 19/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 20/name = "20"
@@ -316,7 +316,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 20/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 25 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 21/name = "21"
@@ -330,7 +330,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 21/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 25 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 22/name = "22"
@@ -344,7 +344,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 22/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 25 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 23/name = "23"
@@ -358,7 +358,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 23/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 25 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 24/name = "24"
@@ -372,7 +372,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 24/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 25 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 25/name = "25"
@@ -386,7 +386,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 25/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 26/name = "26"
@@ -400,7 +400,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 26/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 24 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 27/name = "27"
@@ -414,7 +414,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 27/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 28/name = "Tree"
@@ -451,7 +451,7 @@ polygon = PoolVector2Array( -32, -10.6666, -32, 32, 32, 32, 32, 10.6667, -32, -1
 31/region = Rect2( 672, 512, 32, 32 )
 31/is_autotile = false
 31/occluder_offset = Vector2( 0, 0 )
-31/occluder = SubResource( 3 )
+31/occluder = SubResource( 4 )
 31/navigation_offset = Vector2( 0, 0 )
 31/shapes = [  ]
 32/name = "Flower"
