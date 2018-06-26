@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Components/ParallaxBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Components/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Components/Lever.tscn" type="PackedScene" id=5]
+[ext_resource path="res://shadowTexture.png" type="Texture" id=6]
 
 [node name="World" type="Node" index="0"]
 
@@ -44,5 +45,32 @@ Next_Scene = "res://Worlds/World1.tscn"
 position = Vector2( 704, 288 )
 
 [node name="Lever" parent="." index="4" instance=ExtResource( 5 )]
+
+[node name="Light2D" type="Light2D" parent="." index="5"]
+
+position = Vector2( 352, 736 )
+scale = Vector2( 8.03601, 7.05 )
+enabled = true
+editor_only = false
+texture = ExtResource( 6 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 0.1 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Shadow", "Transform" ]
 
 

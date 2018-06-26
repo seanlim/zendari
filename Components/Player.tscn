@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Jump4.png" type="Texture" id=2]
@@ -103,7 +103,13 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="OccluderPolygon2D" id=6]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( 0, -24, -4, -24, -8, -20, -16, -12, -16, 0, -12, 8, -12, 20, -12, 28, -8, 32, 0, 32, 8, 32, 8, 28, 16, 24, 16, 16, 12, 12, 16, -4, 16, -16, 12, -20, 8, -24, 0, -24 )
+
+[sub_resource type="CapsuleShape2D" id=7]
 
 custom_solver_bias = 0.0
 radius = 13.0
@@ -173,9 +179,17 @@ frames = SubResource( 5 )
 animation = "idle"
 playing = true
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite" index="0"]
+
+modulate = Color( 0.0859375, 0.0713836, 0.0713836, 0 )
+occluder = SubResource( 6 )
+light_mask = 1
+_sections_unfolded = [ "Visibility" ]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 
-shape = SubResource( 6 )
+visible = false
+shape = SubResource( 7 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Camera2D" type="Camera2D" parent="." index="4"]
