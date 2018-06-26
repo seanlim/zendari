@@ -28,8 +28,8 @@ func _physics_process(delta):
 	if Input.is_action_just_released("player_rewind"):
 			rewinding = false
 			motion_hist.clear()
-	elif Input.is_action_pressed("player_rewind"):
-		rewinding = true
+	#elif Input.is_action_pressed("player_rewind"):
+		#rewinding = true
 
 	# REWIND
 	if rewinding && motion_hist.size() > 0:
@@ -37,7 +37,8 @@ func _physics_process(delta):
 		$Sprite.animation = "rewind"
 		shader.set_shader_param("rewind", true)
 		$RewindParticles.set_emitting(rewinding)
-		motion = motion_hist.pop_back() * Vector2(-1,-1)
+		#motion = motion_hist.pop_back() * Vector2(-1,-1)
+		motion = Vector2(0,0)
 	else:
 	# NORMAL LOOP
 		shader.set_shader_param("rewind", false)
