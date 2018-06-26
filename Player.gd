@@ -33,7 +33,7 @@ func _physics_process(delta):
 
 	# REWIND
 	if rewinding && motion_hist.size() > 0:
-		$Camera2D.shake(1, 35, 2)
+		$Camera2D.shake(0.8, 20, 2)
 		$Sprite.animation = "rewind"
 		shader.set_shader_param("rewind", true)
 		$RewindParticles.set_emitting(rewinding)
