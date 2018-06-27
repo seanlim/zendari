@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Worlds/Sandbox.gd" type="Script" id=1]
 [ext_resource path="res://Components/ParallaxBackground.tscn" type="PackedScene" id=2]
@@ -7,6 +7,16 @@
 [ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Components/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Components/Lever.tscn" type="PackedScene" id=7]
+
+[sub_resource type="AudioStreamSample" id=1]
+
+format = 0
+loop_mode = 0
+loop_begin = 0
+loop_end = 0
+mix_rate = 44100
+stereo = false
+data = PoolByteArray(  )
 
 [node name="World" type="Node" index="0"]
 
@@ -59,5 +69,16 @@ Next_Scene = "res://Worlds/World1.tscn"
 position = Vector2( 704, 288 )
 
 [node name="Lever" parent="." index="4" instance=ExtResource( 7 )]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="5"]
+
+stream = SubResource( 1 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 
