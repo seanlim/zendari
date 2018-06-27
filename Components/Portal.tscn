@@ -1,14 +1,14 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Portal.gd" type="Script" id=1]
-[ext_resource path="res://Portal/portal0.png" type="Texture" id=2]
-[ext_resource path="res://Portal/portal1.png" type="Texture" id=3]
-[ext_resource path="res://Portal/portal2.png" type="Texture" id=4]
-[ext_resource path="res://Portal/portal3.png" type="Texture" id=5]
-[ext_resource path="res://Tiles/white.png" type="Texture" id=6]
-[ext_resource path="res://Transition.shader" type="Shader" id=7]
-[ext_resource path="res://Components/Transition.gd" type="Script" id=8]
-[ext_resource path="res://shadowTexture.png" type="Texture" id=9]
+[ext_resource path="res://shadowTexture.png" type="Texture" id=2]
+[ext_resource path="res://Portal/portal0.png" type="Texture" id=3]
+[ext_resource path="res://Portal/portal1.png" type="Texture" id=4]
+[ext_resource path="res://Portal/portal2.png" type="Texture" id=5]
+[ext_resource path="res://Portal/portal3.png" type="Texture" id=6]
+[ext_resource path="res://Tiles/white.png" type="Texture" id=7]
+[ext_resource path="res://Transition.shader" type="Shader" id=8]
+[ext_resource path="res://Components/Transition.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -18,7 +18,7 @@ extents = Vector2( 31.8657, 32 )
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -79,7 +79,7 @@ width = 2048
 [sub_resource type="ShaderMaterial" id=6]
 
 render_priority = 0
-shader = ExtResource( 7 )
+shader = ExtResource( 8 )
 shader_param/cutoff = 0.0
 shader_param/filter = SubResource( 5 )
 _sections_unfolded = [ "shader_param" ]
@@ -107,15 +107,43 @@ position = Vector2( 1.5, 0 )
 scale = Vector2( 0.957143, 1 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="AnimatedSprite" parent="." index="1"]
+[node name="Light2D" type="Light2D" parent="." index="1"]
+
+position = Vector2( 0, 4 )
+scale = Vector2( 2.66667, 1.03333 )
+enabled = true
+editor_only = false
+texture = ExtResource( 2 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 1, 0, 1, 1 )
+energy = 0.8
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Range", "Shadow" ]
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="2"]
 
 position = Vector2( 8.02568, 0 )
 scale = Vector2( 0.256575, 0.133333 )
 frames = SubResource( 2 )
 animation = "default"
+frame = 2
 playing = true
 
-[node name="Particles2D" type="Particles2D" parent="." index="2"]
+[node name="Particles2D" type="Particles2D" parent="." index="3"]
 
 position = Vector2( 12.1283, 2.94088 )
 scale = Vector2( -3.22395, -1.60208 )
@@ -133,13 +161,13 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 3 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time" ]
 
-[node name="Camera2D" type="Camera2D" parent="." index="3"]
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
 
 anchor_mode = 1
 rotating = false
@@ -164,7 +192,7 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="Transition" type="ColorRect" parent="." index="4"]
+[node name="Transition" type="ColorRect" parent="." index="5"]
 
 material = SubResource( 6 )
 anchor_left = 0.0
@@ -182,10 +210,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0.976562, 0.976562, 0.976562, 1 )
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Visibility" ]
 
-[node name="Tween" type="Tween" parent="." index="5"]
+[node name="Tween" type="Tween" parent="." index="6"]
 
 repeat = false
 playback_process_mode = 1
@@ -194,32 +222,5 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 _sections_unfolded = [ "playback" ]
-
-[node name="Light2D" type="Light2D" parent="." index="6"]
-
-position = Vector2( 0, 4 )
-scale = Vector2( 2.66667, 1.03333 )
-enabled = true
-editor_only = false
-texture = ExtResource( 9 )
-offset = Vector2( 0, 0 )
-texture_scale = 1.0
-color = Color( 1, 0, 1, 1 )
-energy = 0.8
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = true
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
-_sections_unfolded = [ "Range", "Shadow" ]
 
 
