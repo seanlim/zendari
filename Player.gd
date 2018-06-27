@@ -19,6 +19,8 @@ func _ready():
 func _process(delta):
 	if rewinding && !$AudioStreamPlayer2D.playing:
 		$AudioStreamPlayer2D.play()
+	pass
+
 
 
 func _physics_process(delta):
@@ -30,14 +32,17 @@ func _physics_process(delta):
 		$Camera2D.shake(0.8, 20, 2)
 		shader.set_shader_param("rewind", true)
 		$RewindParticles.set_emitting(rewinding)
+		$Music.pitch_scale = 0.6
 	else:
 	# NORMAL LOOP
 		shader.set_shader_param("rewind", false)
 		$RewindParticles.set_emitting(false)
+		$Music.pitch_scale = 0.9
 
 		# Gravity
 		motion.y += GRAVITY
 		$AudioStreamPlayer2D.stop()
+
 
 		# Controls
 		if Input.is_action_pressed("ui_right"):

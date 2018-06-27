@@ -4,15 +4,15 @@
 [ext_resource path="res://World.shader" type="Shader" id=2]
 [ext_resource path="res://white.png" type="Texture" id=3]
 [ext_resource path="res://Player/Idle0.png" type="Texture" id=4]
-[ext_resource path="res://Player/Jump4.png" type="Texture" id=5]
-[ext_resource path="res://Player/Run0.png" type="Texture" id=6]
-[ext_resource path="res://Player/Run1.png" type="Texture" id=7]
-[ext_resource path="res://Player/Run2.png" type="Texture" id=8]
-[ext_resource path="res://Player/Run3.png" type="Texture" id=9]
-[ext_resource path="res://Player/Run4.png" type="Texture" id=10]
-[ext_resource path="res://Player/Run7.png" type="Texture" id=11]
-[ext_resource path="res://Player/Jump0.png" type="Texture" id=12]
-[ext_resource path="res://Player/Jump3.png" type="Texture" id=13]
+[ext_resource path="res://Player/Jump3.png" type="Texture" id=5]
+[ext_resource path="res://Player/Jump0.png" type="Texture" id=6]
+[ext_resource path="res://Player/Jump4.png" type="Texture" id=7]
+[ext_resource path="res://Player/Run0.png" type="Texture" id=8]
+[ext_resource path="res://Player/Run1.png" type="Texture" id=9]
+[ext_resource path="res://Player/Run2.png" type="Texture" id=10]
+[ext_resource path="res://Player/Run3.png" type="Texture" id=11]
+[ext_resource path="res://Player/Run4.png" type="Texture" id=12]
+[ext_resource path="res://Player/Run7.png" type="Texture" id=13]
 [ext_resource path="res://Camera2D.gd" type="Script" id=14]
 [ext_resource path="res://Player/rewind.wav" type="AudioStream" id=15]
 
@@ -33,23 +33,23 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "rewind",
-"speed": 5.0
+"name": "fall",
+"speed": 35.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "run",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "jump",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "fall",
-"speed": 35.0
+"name": "rewind",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
 } ]
 
 [sub_resource type="OccluderPolygon2D" id=3]
@@ -154,7 +154,6 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material" ]
 editor/display_folded = true
 frames = SubResource( 2 )
 animation = "run"
-frame = 5
 playing = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite" index="0"]
@@ -182,7 +181,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 6 )
-texture = ExtResource( 13 )
+texture = ExtResource( 5 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -226,8 +225,8 @@ _sections_unfolded = [ "Drag Margin", "Limit", "Offset", "Smoothing" ]
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="5"]
 
 stream = ExtResource( 15 )
-volume_db = 9.0
-pitch_scale = 0.8
+volume_db = 0.6
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0

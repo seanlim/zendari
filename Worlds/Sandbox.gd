@@ -31,3 +31,4 @@ func _physics_process(delta):
 			$Player.get_node('Sprite').animation = state[1]
 	else:
 		$Player.rewinding = false
+
