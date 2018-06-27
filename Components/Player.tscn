@@ -5,14 +5,14 @@
 [ext_resource path="res://white.png" type="Texture" id=3]
 [ext_resource path="res://Player/Idle0.png" type="Texture" id=4]
 [ext_resource path="res://Player/Jump3.png" type="Texture" id=5]
-[ext_resource path="res://Player/Jump0.png" type="Texture" id=6]
-[ext_resource path="res://Player/Jump4.png" type="Texture" id=7]
-[ext_resource path="res://Player/Run0.png" type="Texture" id=8]
-[ext_resource path="res://Player/Run1.png" type="Texture" id=9]
-[ext_resource path="res://Player/Run2.png" type="Texture" id=10]
-[ext_resource path="res://Player/Run3.png" type="Texture" id=11]
-[ext_resource path="res://Player/Run4.png" type="Texture" id=12]
-[ext_resource path="res://Player/Run7.png" type="Texture" id=13]
+[ext_resource path="res://Player/Jump4.png" type="Texture" id=6]
+[ext_resource path="res://Player/Run0.png" type="Texture" id=7]
+[ext_resource path="res://Player/Run1.png" type="Texture" id=8]
+[ext_resource path="res://Player/Run2.png" type="Texture" id=9]
+[ext_resource path="res://Player/Run3.png" type="Texture" id=10]
+[ext_resource path="res://Player/Run4.png" type="Texture" id=11]
+[ext_resource path="res://Player/Run7.png" type="Texture" id=12]
+[ext_resource path="res://Player/Jump0.png" type="Texture" id=13]
 [ext_resource path="res://Camera2D.gd" type="Script" id=14]
 [ext_resource path="res://Player/rewind.wav" type="AudioStream" id=15]
 
@@ -38,17 +38,17 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "jump",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
 "name": "rewind",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "jump",
 "speed": 10.0
 } ]
 
@@ -83,7 +83,7 @@ flatness = 0.0
 gravity = Vector3( 0, -50, 0 )
 initial_velocity = 1.0
 initial_velocity_random = 0.0
-angular_velocity = -2.65901e-23
+angular_velocity = -2.65901e-023
 angular_velocity_random = 0.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
@@ -209,7 +209,7 @@ limit_smoothed = true
 drag_margin_h_enabled = false
 drag_margin_v_enabled = true
 smoothing_enabled = true
-smoothing_speed = 6.0
+smoothing_speed = 3.0
 offset_v = 0.0
 offset_h = 0.0
 drag_margin_left = 0.2

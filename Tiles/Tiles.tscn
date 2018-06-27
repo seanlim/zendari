@@ -233,7 +233,38 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="9" type="Sprite" parent="." index="7"]
+[node name="invs" type="Sprite" parent="." index="7"]
+
+position = Vector2( 62.6053, 176.87 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 928, 32, 32, 32 )
+_sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="invs" index="0"]
+
+editor/display_folded = true
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="invs/StaticBody2D" index="0"]
+
+position = Vector2( 16, 16 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="9" type="Sprite" parent="." index="8"]
 
 position = Vector2( 96, 96 )
 texture = ExtResource( 1 )
@@ -264,7 +295,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="10" type="Sprite" parent="." index="8"]
+[node name="10" type="Sprite" parent="." index="9"]
 
 position = Vector2( 128, 96 )
 texture = ExtResource( 1 )
@@ -295,7 +326,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="12" type="Sprite" parent="." index="9"]
+[node name="12" type="Sprite" parent="." index="10"]
 
 position = Vector2( 128, 64 )
 texture = ExtResource( 1 )
@@ -326,7 +357,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="13" type="Sprite" parent="." index="10"]
+[node name="13" type="Sprite" parent="." index="11"]
 
 position = Vector2( 128, 32 )
 texture = ExtResource( 1 )
@@ -357,7 +388,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="15" type="Sprite" parent="." index="11"]
+[node name="15" type="Sprite" parent="." index="12"]
 
 position = Vector2( 160, 32 )
 texture = ExtResource( 1 )
@@ -387,7 +418,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="16" type="Sprite" parent="." index="12"]
+[node name="16" type="Sprite" parent="." index="13"]
 
 position = Vector2( 224, 32 )
 texture = ExtResource( 1 )
@@ -418,7 +449,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="17" type="Sprite" parent="." index="13"]
+[node name="17" type="Sprite" parent="." index="14"]
 
 position = Vector2( 224, 64 )
 texture = ExtResource( 1 )
@@ -449,7 +480,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="18" type="Sprite" parent="." index="14"]
+[node name="18" type="Sprite" parent="." index="15"]
 
 position = Vector2( 224, 96 )
 texture = ExtResource( 1 )
@@ -480,7 +511,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="19" type="Sprite" parent="." index="15"]
+[node name="19" type="Sprite" parent="." index="16"]
 
 position = Vector2( 288, 32 )
 texture = ExtResource( 1 )
@@ -511,7 +542,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree" type="Sprite" parent="." index="16"]
+[node name="Tree" type="Sprite" parent="." index="17"]
 
 position = Vector2( 0, 256 )
 texture = ExtResource( 1 )
@@ -520,7 +551,7 @@ region_enabled = true
 region_rect = Rect2( 800, 448, 96, 96 )
 _sections_unfolded = [ "Offset", "Region" ]
 
-[node name="Tree_sm" type="Sprite" parent="." index="17"]
+[node name="Tree_sm" type="Sprite" parent="." index="18"]
 
 position = Vector2( 128, 256 )
 texture = ExtResource( 1 )
@@ -532,7 +563,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Bush" type="Sprite" parent="." index="18"]
+[node name="Bush" type="Sprite" parent="." index="19"]
 
 position = Vector2( 224, 256 )
 texture = ExtResource( 1 )
@@ -544,7 +575,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Grass" type="Sprite" parent="." index="19"]
+[node name="Grass" type="Sprite" parent="." index="20"]
 
 position = Vector2( 288, 256 )
 texture = ExtResource( 1 )
@@ -556,7 +587,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Flower" type="Sprite" parent="." index="20"]
+[node name="Flower" type="Sprite" parent="." index="21"]
 
 position = Vector2( 352, 256 )
 texture = ExtResource( 1 )
@@ -568,7 +599,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="25" type="Sprite" parent="." index="21"]
+[node name="25" type="Sprite" parent="." index="22"]
 
 editor/display_folded = true
 position = Vector2( 288, 160 )
@@ -600,7 +631,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="26" type="Sprite" parent="." index="22"]
+[node name="26" type="Sprite" parent="." index="23"]
 
 position = Vector2( 320, 160 )
 texture = ExtResource( 1 )
@@ -612,7 +643,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="27" type="Sprite" parent="." index="23"]
+[node name="27" type="Sprite" parent="." index="24"]
 
 position = Vector2( 288, 128 )
 texture = ExtResource( 1 )
@@ -643,7 +674,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="14" type="Sprite" parent="." index="24"]
+[node name="14" type="Sprite" parent="." index="25"]
 
 position = Vector2( 96, 32 )
 texture = ExtResource( 1 )
@@ -674,7 +705,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="4" type="Sprite" parent="." index="25"]
+[node name="4" type="Sprite" parent="." index="26"]
 
 position = Vector2( 64, 64 )
 texture = ExtResource( 1 )

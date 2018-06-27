@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Worlds/World1.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/Tiles1.tres" type="TileSet" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Experimental/parallax_mountain_pack/layers/parallax-mountain-bg.png" type="Texture" id=4]
 [ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Components/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sounds/main.wav" type="AudioStream" id=7]
+
 
 [node name="World1" type="Node" index="0"]
 
@@ -50,5 +52,14 @@ Next_Scene = "res://Worlds/Sandbox.tscn"
 [node name="Player" parent="." index="3" instance=ExtResource( 6 )]
 
 position = Vector2( -160, 192 )
+
+[node name="Music" type="AudioStreamPlayer" parent="Player" index="6"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+pitch_scale = 0.9
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 

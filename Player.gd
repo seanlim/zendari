@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 const GRAVITY = 20
 const ACC = 50
-const SPEED_UPPER = 250
-const JUMP_HEIGHT = -400
+const SPEED_UPPER = 210
+const JUMP_HEIGHT = -300
 const UP = Vector2(0,-1)
 
 var motion = Vector2()
@@ -32,7 +32,7 @@ func _physics_process(delta):
 		$Camera2D.shake(0.8, 20, 2)
 		shader.set_shader_param("rewind", true)
 		$RewindParticles.set_emitting(rewinding)
-		$Music.pitch_scale = 0.6
+		$Music.pitch_scale = 1.0
 	else:
 	# NORMAL LOOP
 		shader.set_shader_param("rewind", false)

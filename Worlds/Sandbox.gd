@@ -1,4 +1,6 @@
- extends Node
+extends Node
+
+const TIME_WARP = 0.3 # Factor in which time warps
 
 var position_hist = Array()
 var counter = 0.0
@@ -19,8 +21,10 @@ func _process(delta):
 	
 func _physics_process(delta):
 	if Input.is_action_just_pressed('player_rewind'):
-		Engine.time_scale = 0.3
+		$"Moving Platform".toggleRewind(TIME_WARP)
+		Engine.time_scale = TIME_WARP
 	elif Input.is_action_just_released('player_rewind'):
+		$"Moving Platform".toggleRewind(null)
 		Engine.time_scale = 1.0
 	if Input.is_action_pressed('player_rewind') && position_hist.size() > 1:
 		$Player.rewinding = true
@@ -29,6 +33,7 @@ func _physics_process(delta):
 			var state = position_hist.pop_back()
 			$Player.position = state[0]
 			$Player.get_node('Sprite').animation = state[1]
+
 	else:
 		$Player.rewinding = false
 

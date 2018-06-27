@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Worlds/Lever.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/Lever/lever2.png" type="Texture" id=2]
 [ext_resource path="res://Tiles/Lever/lever0.png" type="Texture" id=3]
 [ext_resource path="res://Tiles/Lever/lever1.png" type="Texture" id=4]
+[ext_resource path="res://Sounds/switch_strength_stove_01.ogg" type="AudioStream" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -35,9 +36,8 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 extents = Vector2( 20, 15 )
 
-[node name="Lever" type="Area2D"]
+[node name="Lever" type="Area2D" index="0"]
 
-editor/display_folded = true
 position = Vector2( 592, 555 )
 scale = Vector2( 0.7, 0.7 )
 input_pickable = true
@@ -63,5 +63,16 @@ visible = false
 scale = Vector2( 2, 2 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="." index="2"]
+
+stream = ExtResource( 5 )
+volume_db = 0.4
+pitch_scale = 0.5
+autoplay = false
+max_distance = 1000.0
+attenuation = 0.5
+bus = "Master"
+area_mask = 1
 
 
