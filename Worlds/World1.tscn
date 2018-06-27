@@ -1,20 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Components/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Components/ParallaxBackground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Gradient" id=1]
-
-offsets = PoolRealArray( 0, 1 )
-colors = PoolColorArray( 0.9375, 0.0277217, 0.0277217, 1, 1, 0.545699, 0.545699, 1 )
-
-[sub_resource type="GradientTexture" id=2]
-
-flags = 4
-gradient = SubResource( 1 )
-width = 2048
 
 [node name="World1" type="Node" index="0"]
 
@@ -42,32 +32,6 @@ _sections_unfolded = [ "Cell" ]
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 96, 256 )
-
-[node name="Light2D" type="Light2D" parent="Player" index="6"]
-
-position = Vector2( 0, -32 )
-scale = Vector2( 1, 64 )
-enabled = true
-editor_only = false
-texture = SubResource( 2 )
-offset = Vector2( 0, 0 )
-texture_scale = 1.0
-color = Color( 1, 1, 1, 1 )
-energy = 1.13
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
 
 [node name="ParallaxBackground" parent="." index="2" instance=ExtResource( 3 )]
 
