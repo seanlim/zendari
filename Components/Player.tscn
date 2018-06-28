@@ -115,7 +115,7 @@ custom_solver_bias = 0.0
 radius = 13.0
 height = 33.0
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -223,7 +223,7 @@ editor_draw_drag_margin = false
 script = ExtResource( 14 )
 _sections_unfolded = [ "Drag Margin", "Limit", "Offset", "Smoothing" ]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="5"]
+[node name="RewindSound" type="AudioStreamPlayer2D" parent="." index="5"]
 
 stream = ExtResource( 15 )
 volume_db = 0.6
