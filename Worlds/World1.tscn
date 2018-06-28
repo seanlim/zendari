@@ -6,8 +6,7 @@
 [ext_resource path="res://Experimental/parallax_mountain_pack/layers/parallax-mountain-bg.png" type="Texture" id=4]
 [ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Components/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sounds/main.wav" type="AudioStream" id=7]
-
+[ext_resource path="res://Sounds/mess.wav" type="AudioStream" id=7]
 
 [node name="World1" type="Node" index="0"]
 

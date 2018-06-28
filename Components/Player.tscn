@@ -3,16 +3,16 @@
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://World.shader" type="Shader" id=2]
 [ext_resource path="res://white.png" type="Texture" id=3]
-[ext_resource path="res://Player/Jump4.png" type="Texture" id=4]
-[ext_resource path="res://Player/Idle0.png" type="Texture" id=5]
-[ext_resource path="res://Player/Jump3.png" type="Texture" id=6]
-[ext_resource path="res://Player/Run0.png" type="Texture" id=7]
-[ext_resource path="res://Player/Run1.png" type="Texture" id=8]
-[ext_resource path="res://Player/Run2.png" type="Texture" id=9]
-[ext_resource path="res://Player/Run3.png" type="Texture" id=10]
-[ext_resource path="res://Player/Run4.png" type="Texture" id=11]
-[ext_resource path="res://Player/Run7.png" type="Texture" id=12]
-[ext_resource path="res://Player/Jump0.png" type="Texture" id=13]
+[ext_resource path="res://Player/Idle0.png" type="Texture" id=4]
+[ext_resource path="res://Player/Jump0.png" type="Texture" id=5]
+[ext_resource path="res://Player/Run0.png" type="Texture" id=6]
+[ext_resource path="res://Player/Run1.png" type="Texture" id=7]
+[ext_resource path="res://Player/Run2.png" type="Texture" id=8]
+[ext_resource path="res://Player/Run3.png" type="Texture" id=9]
+[ext_resource path="res://Player/Run4.png" type="Texture" id=10]
+[ext_resource path="res://Player/Run7.png" type="Texture" id=11]
+[ext_resource path="res://Player/Jump4.png" type="Texture" id=12]
+[ext_resource path="res://Player/Jump3.png" type="Texture" id=13]
 [ext_resource path="res://Camera2D.gd" type="Script" id=14]
 [ext_resource path="res://Player/rewind.wav" type="AudioStream" id=15]
 
@@ -28,28 +28,28 @@ _sections_unfolded = [ "Resource", "shader_param" ]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "rewind",
+"name": "idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "idle",
-"speed": 5.0
+"name": "jump",
+"speed": 10.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "fall",
-"speed": 35.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "run",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "rewind",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "jump",
-"speed": 10.0
+"name": "fall",
+"speed": 35.0
 } ]
 
 [sub_resource type="OccluderPolygon2D" id=3]
@@ -78,9 +78,9 @@ emission_shape = 0
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = true
-spread = 10.0
-flatness = 0.0
-gravity = Vector3( 0, -50, 0 )
+spread = 0.0
+flatness = 1.0
+gravity = Vector3( 0, -60, 0 )
 initial_velocity = 1.0
 initial_velocity_random = 0.0
 angular_velocity = -2.65901e-23
@@ -97,17 +97,17 @@ damping = 0.14
 damping_random = 0.0
 angle = 0.0
 angle_random = 1.0
-scale = 1.0
+scale = 0.9
 scale_random = 0.4
 color_ramp = SubResource( 5 )
-hue_variation = 0.0
+hue_variation = 0.6
 hue_variation_random = 0.0
 anim_speed = 0.0
 anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Damping", "Gravity", "Hue Variation", "Scale", "Spread" ]
+_sections_unfolded = [ "Angle", "Angular Velocity", "Animation", "Color", "Damping", "Gravity", "Hue Variation", "Scale", "Spread" ]
 
 [sub_resource type="CapsuleShape2D" id=7]
 
@@ -154,7 +154,7 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material" ]
 editor/display_folded = true
 frames = SubResource( 2 )
 animation = "run"
-frame = 3
+frame = 4
 playing = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite" index="0"]
@@ -169,20 +169,20 @@ _sections_unfolded = [ "Visibility" ]
 modulate = Color( 0.26468, 0.878906, 0.0926971, 0.685098 )
 show_behind_parent = true
 emitting = false
-amount = 40
-lifetime = 0.1
+amount = 104
+lifetime = 0.08
 one_shot = true
 preprocess = 0.0
-speed_scale = 2.0
+speed_scale = 1.0
 explosiveness = 0.0
 randomness = 0.0
 fixed_fps = 0
-fract_delta = true
+fract_delta = false
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 6 )
-texture = ExtResource( 6 )
+texture = ExtResource( 13 )
 normal_map = null
 h_frames = 1
 v_frames = 1
