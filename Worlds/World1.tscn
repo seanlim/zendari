@@ -50,6 +50,7 @@ Next_Scene = "res://Worlds/Sandbox.tscn"
 
 [node name="Player" parent="." index="3" instance=ExtResource( 6 )]
 
+editor/display_folded = true
 position = Vector2( -160, 192 )
 
 [node name="Music" type="AudioStreamPlayer" parent="Player" index="6"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Worlds/Sandbox.gd" type="Script" id=1]
 [ext_resource path="res://Components/ParallaxBackground.tscn" type="PackedScene" id=2]
@@ -9,11 +9,22 @@
 [ext_resource path="res://Sounds/main.wav" type="AudioStream" id=7]
 [ext_resource path="res://Components/Lever.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Enemy.gd" type="Script" id=9]
+[ext_resource path="res://icon.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 9.66967, 14.5294 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
 
 [node name="World" type="Node" index="0"]
 
@@ -102,13 +113,12 @@ position = Vector2( -1.08347, -1.50881 )
 scale = Vector2( 3.34989, 0.931149 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="Moving Platform" index="1"]
+[node name="Sprite" type="AnimatedSprite" parent="Moving Platform" index="1"]
 
 position = Vector2( 5.72098, -1.25046 )
 scale = Vector2( 0.821219, 0.921846 )
-texture = ExtResource( 3 )
-region_enabled = true
-region_rect = Rect2( 768, 192, 64, 32 )
+frames = SubResource( 2 )
+animation = "default"
 _sections_unfolded = [ "Region" ]
 
 
