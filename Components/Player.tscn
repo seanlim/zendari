@@ -3,9 +3,9 @@
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://World.shader" type="Shader" id=2]
 [ext_resource path="res://white.png" type="Texture" id=3]
-[ext_resource path="res://Player/Idle0.png" type="Texture" id=4]
-[ext_resource path="res://Player/Jump3.png" type="Texture" id=5]
-[ext_resource path="res://Player/Jump4.png" type="Texture" id=6]
+[ext_resource path="res://Player/Jump4.png" type="Texture" id=4]
+[ext_resource path="res://Player/Idle0.png" type="Texture" id=5]
+[ext_resource path="res://Player/Jump3.png" type="Texture" id=6]
 [ext_resource path="res://Player/Run0.png" type="Texture" id=7]
 [ext_resource path="res://Player/Run1.png" type="Texture" id=8]
 [ext_resource path="res://Player/Run2.png" type="Texture" id=9]
@@ -28,18 +28,18 @@ _sections_unfolded = [ "Resource", "shader_param" ]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "idle",
+"name": "rewind",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "fall",
-"speed": 35.0
+"name": "idle",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "rewind",
-"speed": 5.0
+"name": "fall",
+"speed": 35.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
@@ -83,7 +83,7 @@ flatness = 0.0
 gravity = Vector3( 0, -50, 0 )
 initial_velocity = 1.0
 initial_velocity_random = 0.0
-angular_velocity = -2.65901e-023
+angular_velocity = -2.65901e-23
 angular_velocity_random = 0.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
@@ -154,6 +154,7 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material" ]
 editor/display_folded = true
 frames = SubResource( 2 )
 animation = "run"
+frame = 3
 playing = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite" index="0"]
@@ -165,23 +166,23 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="RewindParticles" type="Particles2D" parent="." index="2"]
 
-modulate = Color( 0.872764, 0.0926971, 0.878906, 0.685098 )
+modulate = Color( 0.26468, 0.878906, 0.0926971, 0.685098 )
 show_behind_parent = true
 emitting = false
-amount = 25
+amount = 40
 lifetime = 0.1
-one_shot = false
+one_shot = true
 preprocess = 0.0
-speed_scale = 1.0
+speed_scale = 2.0
 explosiveness = 0.0
-randomness = 0.3
+randomness = 0.0
 fixed_fps = 0
 fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 6 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 normal_map = null
 h_frames = 1
 v_frames = 1
