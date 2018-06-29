@@ -6,9 +6,13 @@ const SPEED_UPPER = 210
 const JUMP_HEIGHT = -300
 const UP = Vector2(0,-1)
 
+
+var enabled = true
+
 var motion = Vector2()
 var friction = false
 var doubleJumped = false
+
 # Rewind
 var rewinding = false
 var shader

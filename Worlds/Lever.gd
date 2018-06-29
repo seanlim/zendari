@@ -12,4 +12,4 @@ func _process(delta):
 			else:
 				$Sprite.animation = "switch_on"
 				$Sound.play()
-				get_parent().get_node("Moving Platform").activated = true
+				get_parent().get_node("Moving Platform").enabled = true

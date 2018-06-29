@@ -1,28 +1,30 @@
 extends Node
 
 const TIME_WARP = 0.3 # Factor in which time warps
+const REWIND_FRAMERATE = 0.001
+const RECORD_FRAMERATE = 0.05
 
 var global_store = Dictionary() # Stores global state
-var rewind_entities = [$Player, $"Moving Platform"] # Defines entities to track
+var rewind_entities = [$Player, $"Moving Platform", $Key] # Defines entities to track
 
 var counter = 0.0
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	rewind_entities = [$Player, $"Moving Platform"]
+	rewind_entities = [$Player, $"Moving Platform", $Key]
 	for entity in rewind_entities: 
-		global_store[entity] = [[entity.position, entity.get_node('Sprite').animation]]
+		global_store[entity] = [[entity.position, entity.enabled, entity.get_node('Sprite').animation]]
 		print (global_store[entity])
 		pass
 	pass
 
 func _process(delta):
 	counter += delta
-	if counter > 0.06 && !$Player.rewinding:
+	if counter > RECORD_FRAMERATE && !$Player.rewinding:
 		for entity in rewind_entities:
 			if entity.position != global_store[entity][-1][0]:
-					global_store[entity].append([entity.position, entity.get_node('Sprite').animation])
+					global_store[entity].append([entity.position, entity.enabled, entity.get_node('Sprite').animation])
 			pass 
 		counter = 0
 	pass
@@ -33,15 +35,16 @@ func _physics_process(delta):
 	elif Input.is_action_just_released('player_rewind'):
 		Engine.time_scale = 1.0
 	if Input.is_action_pressed('player_rewind'):
-		if counter > 0.008:
-			counter = 0
+		if counter > REWIND_FRAMERATE:
 			for entity in rewind_entities:
+				entity.rewinding = true
 				if global_store[entity].size() > 1:
-					entity.rewinding = true
 					var state = global_store[entity].pop_back()
 					entity.position = state[0]
-					entity.get_node('Sprite').animation = state[1]
-				pass
+					entity.enabled = state[1]
+					entity.get_node('Sprite').animation = state[2]
+					pass
+			counter = 0
 
 	else:
 		for entity in rewind_entities:
