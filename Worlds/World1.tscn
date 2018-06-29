@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Worlds/World1.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/Tiles1.tres" type="TileSet" id=2]
 [ext_resource path="res://Components/ParallaxBackground.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Experimental/parallax_mountain_pack/layers/parallax-mountain-bg.png" type="Texture" id=4]
-[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sounds/mess.wav" type="AudioStream" id=7]
+[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sounds/mess.wav" type="AudioStream" id=6]
 
 [node name="World1" type="Node" index="0"]
 
@@ -35,27 +34,19 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="ParallaxBackground" parent="." index="1" instance=ExtResource( 3 )]
 
-editor/display_folded = true
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground" index="1"]
-
-position = Vector2( 64, 128 )
-scale = Vector2( 2.67647, 2.67647 )
-texture = ExtResource( 4 )
-
-[node name="Portal" parent="." index="2" instance=ExtResource( 5 )]
+[node name="Portal" parent="." index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 256, 256 )
 Next_Scene = "res://Worlds/Sandbox.tscn"
 
-[node name="Player" parent="." index="3" instance=ExtResource( 6 )]
+[node name="Player" parent="." index="3" instance=ExtResource( 5 )]
 
 editor/display_folded = true
 position = Vector2( -160, 192 )
 
 [node name="Music" type="AudioStreamPlayer" parent="Player" index="6"]
 
-stream = ExtResource( 7 )
+stream = ExtResource( 6 )
 volume_db = 0.0
 pitch_scale = 0.9
 autoplay = true

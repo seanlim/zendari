@@ -15,4 +15,3 @@ func _physics_process(delta):
 	for body in bodies:
 		if body.name == "Player":
 			print("Player died")
-

@@ -225,8 +225,8 @@ _sections_unfolded = [ "Shadow" ]
 [node name="Sound" type="AudioStreamPlayer2D" parent="Key" index="2"]
 
 stream = ExtResource( 13 )
-volume_db = 15.0
-pitch_scale = 1.1
+volume_db = 4.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = -0.5
