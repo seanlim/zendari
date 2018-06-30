@@ -20,5 +20,7 @@ func _physics_process(delta):
 			if body.name == "Player":
 				$Sound.play()
 				self.enabled = false
+				$Sprite.get_node("AnimationPlayer").current_animation = "get"
 	else: 
-		self.visible = false
+		#self.visible = false
+		pass
