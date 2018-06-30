@@ -30,13 +30,12 @@ _sections_unfolded = [ "Material", "Motion", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer" index="0"]
 
-position = Vector2( -27.7333, -44.8 )
+position = Vector2( -29.9073, -10.4966 )
 scale = Vector2( 1.69314, 1.69314 )
 texture = ExtResource( 1 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="." index="1"]
 
-editor/display_folded = true
 position = Vector2( 52, 52 )
 scale = Vector2( 1.875, 1.875 )
 motion_scale = Vector2( 0.5, 0.5 )
@@ -46,11 +45,11 @@ _sections_unfolded = [ "Material", "Motion", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer3" index="0"]
 
+position = Vector2( -15.6624, 29.6099 )
 texture = ExtResource( 2 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="." index="2"]
 
-editor/display_folded = true
 position = Vector2( 52, 52 )
 scale = Vector2( 1.875, 1.875 )
 motion_scale = Vector2( 0.4, 0.4 )
@@ -60,6 +59,7 @@ _sections_unfolded = [ "Material", "Motion", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer2" index="0"]
 
+position = Vector2( -25.5743, 31.5573 )
 texture = ExtResource( 3 )
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Worlds/Sandbox.gd" type="Script" id=1]
 [ext_resource path="res://Components/ParallaxBackground.tscn" type="PackedScene" id=2]
@@ -8,12 +8,8 @@
 [ext_resource path="res://Sounds/main.wav" type="AudioStream" id=6]
 [ext_resource path="res://Components/Lever.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Enemy.gd" type="Script" id=8]
-[ext_resource path="res://Worlds/Key.gd" type="Script" id=9]
-[ext_resource path="res://shadowTexture.png" type="Texture" id=10]
-[ext_resource path="res://Sounds/bell_ding1.wav" type="AudioStream" id=11]
-[ext_resource path="res://key.png" type="Texture" id=12]
-[ext_resource path="res://Worlds/Spikes.gd" type="Script" id=13]
-[ext_resource path="res://Spikes.png" type="Texture" id=14]
+[ext_resource path="res://Key.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Worlds/Spikes.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -22,95 +18,17 @@ extents = Vector2( 9.66967, 14.5294 )
 
 [sub_resource type="SpriteFrames" id=2]
 
-
-[sub_resource type="CapsuleShape2D" id=3]
-
-custom_solver_bias = 0.0
-radius = 10.0
-height = 20.0
-
-[sub_resource type="SpriteFrames" id=4]
-
 animations = [ {
-"frames": [ ExtResource( 12 ) ],
+"frames": [  ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="StreamTexture" id=8]
 
-resource_name = "Key Hover"
-length = 3.0
-loop = true
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2, 2.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -5 ), Vector2( 0, 5 ), Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1.3, 2.53615 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, -10.0, 10.0 ]
-}
-
-[sub_resource type="Animation" id=6]
-
-resource_name = "get"
-length = 1.5
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:rotation_degrees")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1.1, 1.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 180.0, 180.0, -720.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:scale")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1.1, 1.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1.5, 1.5 ), Vector2( 0, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5, 1.1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 10, -10 ), Vector2( 10, -10 ) ]
-}
+flags = 0
+load_path = "res://.import/Spikes.png-49c30a95905db224cbdec0180761d34f.stex"
 
 [sub_resource type="RectangleShape2D" id=7]
 
@@ -201,81 +119,11 @@ frames = SubResource( 2 )
 animation = "default"
 _sections_unfolded = [ "Region" ]
 
-[node name="Key" type="Area2D" parent="." index="6"]
-
-position = Vector2( 475.705, 543.86 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 9 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Key" index="0"]
-
-shape = SubResource( 3 )
-
-[node name="Light2D" type="Light2D" parent="Key" index="1"]
-
-position = Vector2( 0.397827, 28.7596 )
-scale = Vector2( 0.410554, 0.469125 )
-enabled = true
-editor_only = false
-texture = ExtResource( 10 )
-offset = Vector2( 0, 0 )
-texture_scale = 1.0
-color = Color( 0.905882, 0.768627, 0.215686, 0.41502 )
-energy = 1.0
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = true
-shadow_color = Color( 0, 0, 0, 0.14502 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
-_sections_unfolded = [ "Shadow" ]
-
-[node name="Sound" type="AudioStreamPlayer2D" parent="Key" index="2"]
-
-position = Vector2( 0.298615, 0.220703 )
-stream = ExtResource( 11 )
-volume_db = 4.0
-pitch_scale = 1.0
-autoplay = false
-max_distance = 2000.0
-attenuation = -0.5
-bus = "Master"
-area_mask = 1
-
-[node name="Sprite" type="AnimatedSprite" parent="Key" index="3"]
-
-frames = SubResource( 4 )
-animation = "default"
-_sections_unfolded = [ "Transform" ]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Key/Sprite" index="0"]
-
-root_node = NodePath("../..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-"anims/Key Hover" = SubResource( 5 )
-anims/get = SubResource( 6 )
-blend_times = [  ]
-_sections_unfolded = [ "Pause", "Playback Options" ]
+[node name="Key" parent="." index="6" instance=ExtResource( 9 )]
 
 [node name="Spikes" type="Area2D" parent="." index="7"]
 
+editor/display_folded = true
 position = Vector2( 352.774, 613.769 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -284,13 +132,13 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 13 )
+script = ExtResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="Spikes" index="0"]
 
 position = Vector2( 14.9723, 10.3792 )
 scale = Vector2( 1.59283, 1.59283 )
-texture = ExtResource( 14 )
+texture = SubResource( 8 )
 region_rect = Rect2( 16, 32, 0, 0 )
 _sections_unfolded = [ "Offset", "Region" ]
 
@@ -298,7 +146,7 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 position = Vector2( -16.724, 10.1865 )
 scale = Vector2( 1.59038, 1.60721 )
-texture = ExtResource( 14 )
+texture = SubResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes" index="2"]
 

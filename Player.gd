@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const GRAVITY = 20
+const GRAVITY = 15
 const ACC = 50
 const SPEED_UPPER = 210
 const JUMP_HEIGHT = -300
