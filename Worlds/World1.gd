@@ -5,16 +5,19 @@ const REWIND_FRAMERATE = 0.001
 const RECORD_FRAMERATE = 0.05
 
 var global_store = Dictionary() # Stores global state
-var rewind_entities
+var rewind_entities # Defines recorded attributes
 
 var counter = 0.0
+
+func _state_for(entity):
+	return [entity.position, entity.enabled, entity.get_node('Sprite').animation]
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	rewind_entities = [$Player]
 	for entity in rewind_entities: 
-		global_store[entity] = [[entity.position, entity.enabled, entity.get_node('Sprite').animation]]
+		global_store[entity] = [_state_for(entity)]
 		print (global_store[entity])
 		pass
 	pass
@@ -24,7 +27,7 @@ func _process(delta):
 	if counter > RECORD_FRAMERATE && !$Player.rewinding:
 		for entity in rewind_entities:
 			if entity.position != global_store[entity][-1][0]:
-					global_store[entity].append([entity.position, entity.enabled, entity.get_node('Sprite').animation])
+					global_store[entity].append(_state_for(entity))
 			pass 
 		counter = 0
 	pass
