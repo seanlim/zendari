@@ -20,6 +20,6 @@ func _physics_process(delta):
 					self.enabled = false
 					$Sprite.animation = "open"
 				else:
-					get_parent().get_node("Player").motion = Vector2(0,0)
+					get_parent().get_node("Player").motion = Vector2(-100,0)
 	else: 
 		pass
