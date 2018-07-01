@@ -1,24 +1,31 @@
 extends KinematicBody2D
 
-const GRAVITY = 20
+const GRAVITY = 15
 const ACC = 50
-const SPEED_UPPER = 250
-const JUMP_HEIGHT = -400
+const SPEED_UPPER = 210
+const JUMP_HEIGHT = -300
 const UP = Vector2(0,-1)
+
+
+var enabled = true
 
 var motion = Vector2()
 var friction = false
 var doubleJumped = false
+
 # Rewind
 var rewinding = false
 var shader
+
+var hasKey
 
 func _ready():
 	shader = get_node("RewindShader").get_material()
 
 func _process(delta):
-	if rewinding && !$AudioStreamPlayer2D.playing:
-		$AudioStreamPlayer2D.play()
+	if rewinding && !$RewindSound.playing:
+		$RewindSound.play()
+		$RewindSound.pitch_scale -= 0.001
 	pass
 
 
@@ -32,16 +39,16 @@ func _physics_process(delta):
 		$Camera2D.shake(0.8, 20, 2)
 		shader.set_shader_param("rewind", true)
 		$RewindParticles.set_emitting(rewinding)
-		$Music.pitch_scale = 0.6
+		$Music.pitch_scale = 0.8
 	else:
 	# NORMAL LOOP
 		shader.set_shader_param("rewind", false)
 		$RewindParticles.set_emitting(false)
-		$Music.pitch_scale = 0.9
+		$Music.pitch_scale = 1.0
 
 		# Gravity
 		motion.y += GRAVITY
-		$AudioStreamPlayer2D.stop()
+		$RewindSound.stop()
 
 
 		# Controls

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/parallax-mountain-trees.png-c838a8d19952e2525d14da4980795273.stex"
+path="res://.import/tile004.png-95de380a81edcf145bb2805caeee3682.stex"
 
 [deps]
 
-source_file="res://Experimental/parallax_mountain_pack/layers/parallax-mountain-trees.png"
-dest_files=[ "res://.import/parallax-mountain-trees.png-c838a8d19952e2525d14da4980795273.stex" ]
+source_file="res://Door/tile004.png"
+dest_files=[ "res://.import/tile004.png-95de380a81edcf145bb2805caeee3682.stex" ]
 
 [params]
 
