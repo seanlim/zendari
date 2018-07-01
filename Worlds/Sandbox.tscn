@@ -121,6 +121,8 @@ _sections_unfolded = [ "Region" ]
 
 [node name="Key" parent="." index="6" instance=ExtResource( 9 )]
 
+position = Vector2( 475.705, 543.86 )
+
 [node name="Spikes" type="Area2D" parent="." index="7"]
 
 editor/display_folded = true

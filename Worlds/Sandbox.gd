@@ -23,7 +23,7 @@ func _process(delta):
 	counter += delta
 	if counter > RECORD_FRAMERATE && !$Player.rewinding:
 		for entity in rewind_entities:
-			if entity.position != global_store[entity][-1][0]:
+			if entity.position != global_store[entity][-1][0] || entity.enabled  != global_store[entity][-1][1]:
 					global_store[entity].append([entity.position, entity.enabled, entity.get_node('Sprite').animation])
 			pass 
 		counter = 0

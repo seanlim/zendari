@@ -17,6 +17,8 @@ var doubleJumped = false
 var rewinding = false
 var shader
 
+var hasKey
+
 func _ready():
 	shader = get_node("RewindShader").get_material()
 
