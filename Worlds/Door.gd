@@ -4,6 +4,7 @@ extends Area2D
 # var a = 2
 # var b = "textvar"
 var enabled = true
+var rewinding
 
 func _ready():
 	# Called when the node is added to the scene for the first time.

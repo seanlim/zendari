@@ -26,7 +26,7 @@ func _process(delta):
 	counter += delta
 	if counter > RECORD_FRAMERATE && !$Player.rewinding:
 		for entity in rewind_entities:
-			if entity.position != global_store[entity][-1][0] || entity.enabled  != global_store[entity][-1][1]:
+			if _state_for(entity) != global_store[entity][-1]:
 					global_store[entity].append(_state_for(entity))
 			pass 
 		counter = 0
