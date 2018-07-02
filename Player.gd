@@ -17,12 +17,13 @@ var doubleJumped = false
 var rewinding = false
 var shader
 
-var hasKey
+var hasKey = false
 
 func _ready():
 	shader = get_node("RewindShader").get_material()
 
 func _process(delta):
+	$Key.visible = hasKey
 	if rewinding && !$RewindSound.playing:
 		$RewindSound.play()
 		$RewindSound.pitch_scale -= 0.001

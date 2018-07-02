@@ -41,7 +41,7 @@ animations = [ {
 
 custom_solver_bias = 0.0
 radius = 21.7769
-height = 39.6252
+height = 73.3225
 
 [node name="World1" type="Node" index="0"]
 
@@ -149,6 +149,9 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 8 )
 _sections_unfolded = [ "Collision", "Pickable" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="AnimatedSprite" parent="Door" index="0"]
 
@@ -160,7 +163,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" index="1"]
 
-position = Vector2( 14.7286, 15.5881 )
+position = Vector2( 15.0871, -1.97772 )
 shape = SubResource( 10 )
 
 

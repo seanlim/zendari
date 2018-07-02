@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Worlds/Door.gd" type="Script" id=1]
+[ext_resource path="res://Door/tile001.png" type="Texture" id=2]
+[ext_resource path="res://Door/tile002.png" type="Texture" id=3]
+[ext_resource path="res://Door/tile003.png" type="Texture" id=4]
+[ext_resource path="res://Door/tile004.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=9]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "open",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "closed",
+"speed": 3.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=10]
+
+custom_solver_bias = 0.0
+radius = 21.7769
+height = 73.3225
+
+[node name="Door" type="Area2D"]
+
+editor/display_folded = true
+position = Vector2( -110.231, 246.189 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Pickable" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
+
+position = Vector2( 14.9644, 16.7249 )
+frames = SubResource( 9 )
+animation = "closed"
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 15.0871, -1.97772 )
+shape = SubResource( 10 )
+
+

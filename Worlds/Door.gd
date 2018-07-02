@@ -19,6 +19,7 @@ func _physics_process(delta):
 			if body.name == "Player":
 				if get_parent().get_node("Player").hasKey:
 					self.enabled = false
+					get_parent().get_node("Player").hasKey = false
 					$Sprite.animation = "open"
 				else:
 					get_parent().get_node("Player").motion = Vector2(-100,0)
