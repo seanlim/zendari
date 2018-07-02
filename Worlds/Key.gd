@@ -13,7 +13,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	if enabled:
+	if enabled && !rewinding:
 		self.visible = true
 		$Sprite.get_node("AnimationPlayer").current_animation = "Key Hover"
 		var bodies = get_overlapping_bodies()
