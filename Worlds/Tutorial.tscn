@@ -9,7 +9,7 @@
 [ext_resource path="res://Keyboard Buttons.png" type="Texture" id=7]
 [ext_resource path="res://signs.png" type="Texture" id=8]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 
