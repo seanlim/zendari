@@ -151,8 +151,8 @@ area_mask = 1
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="3"]
 
-position = Vector2( 0, 3.33606 )
-rotation = -0.0400517
+position = Vector2( 0, -3.80378 )
+rotation = -0.159933
 frames = SubResource( 2 )
 animation = "default"
 _sections_unfolded = [ "Transform" ]

@@ -10,18 +10,19 @@ var rewind_entities # Defines entities to track
 var counter = 0.0
 
 func _state_for(entity):
-	return [entity.position, entity.enabled, entity.get_node('Sprite').animation]
+	return [entity.position - , entity.enabled, entity.get_node('Sprite').animation]
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
+	# Define rewind entities
 	rewind_entities = [$Player, $"Moving Platform", $Key]
+	# Initial state
 	for entity in rewind_entities: 
 		global_store[entity] = [_state_for(entity)]
 		print (global_store[entity])
 		pass
 	pass
 
+# Gameloop
 func _process(delta):
 	counter += delta
 	if counter > RECORD_FRAMERATE && !$Player.rewinding:
@@ -43,7 +44,7 @@ func _physics_process(delta):
 				entity.rewinding = true
 				if global_store[entity].size() > 1:
 					var state = global_store[entity].pop_back()
-					entity.position = state[0]
+					entity.position -= state[0]
 					entity.enabled = state[1]
 					entity.get_node('Sprite').animation = state[2]
 					pass

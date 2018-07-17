@@ -3,7 +3,8 @@ extends KinematicBody2D
 const GRAVITY = 15
 const ACC = 50
 const SPEED_UPPER = 210
-const JUMP_HEIGHT = -300
+const JUMP_HEIGHT = -250
+const DOUBLE_JUMP_FACTOR = 1.3
 const UP = Vector2(0,-1)
 
 
@@ -78,7 +79,7 @@ func _physics_process(delta):
 
 		elif Input.is_action_just_pressed("ui_up") && !doubleJumped:
 				doubleJumped = true
-				motion.y = JUMP_HEIGHT/ 1.5 # Double jump
+				motion.y = JUMP_HEIGHT/ DOUBLE_JUMP_FACTOR # Double jump
 
 		else:
 			motion.x = lerp(motion.x, 0, 0.2)
