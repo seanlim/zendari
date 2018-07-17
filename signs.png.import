@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Keyboard Buttons.png-7de36bc090baae6947f11f9a5f6a9098.stex"
+path="res://.import/signs.png-05323af05893646964574c3ef9624a64.stex"
 
 [deps]
 
-source_file="res://Keyboard Buttons.png"
-dest_files=[ "res://.import/Keyboard Buttons.png-7de36bc090baae6947f11f9a5f6a9098.stex" ]
+source_file="res://signs.png"
+dest_files=[ "res://.import/signs.png-05323af05893646964574c3ef9624a64.stex" ]
 
 [params]
 

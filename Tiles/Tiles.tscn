@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[node name="Tiles" type="Node" index="0"]
+[node name="Tiles" type="Node"]
 
 __meta__ = {
 "_edit_vertical_guides_": [ 32.0 ]
@@ -650,7 +650,19 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="10" type="Sprite" parent="." index="20"]
+[node name="invsNoCol" type="Sprite" parent="." index="20"]
+
+position = Vector2( 62.6053, 176.87 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 928, 32, 32, 32 )
+_sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="10" type="Sprite" parent="." index="21"]
 
 editor/display_folded = true
 position = Vector2( 128, 96 )
@@ -682,7 +694,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="12" type="Sprite" parent="." index="21"]
+[node name="12" type="Sprite" parent="." index="22"]
 
 editor/display_folded = true
 position = Vector2( 128, 64 )
@@ -714,7 +726,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="13" type="Sprite" parent="." index="22"]
+[node name="13" type="Sprite" parent="." index="23"]
 
 editor/display_folded = true
 position = Vector2( 128, 32 )
@@ -746,7 +758,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="15" type="Sprite" parent="." index="23"]
+[node name="15" type="Sprite" parent="." index="24"]
 
 editor/display_folded = true
 position = Vector2( 160, 32 )
@@ -777,7 +789,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="16" type="Sprite" parent="." index="24"]
+[node name="16" type="Sprite" parent="." index="25"]
 
 editor/display_folded = true
 position = Vector2( 224, 32 )
@@ -809,7 +821,66 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="17" type="Sprite" parent="." index="25"]
+[node name="34" type="Sprite" parent="." index="26"]
+
+position = Vector2( 352.641, 29.9894 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 512, 416, 32, 32 )
+_sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="34" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="34/StaticBody2D" index="0"]
+
+position = Vector2( 16, 16 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="35" type="Sprite" parent="." index="27"]
+
+position = Vector2( 449.381, 32 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 416, 384, 32, 32 )
+_sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="35" index="0"]
+
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="35/StaticBody2D" index="0"]
+
+position = Vector2( 16, 16 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="17" type="Sprite" parent="." index="28"]
 
 editor/display_folded = true
 position = Vector2( 224, 64 )
@@ -841,7 +912,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="18" type="Sprite" parent="." index="26"]
+[node name="18" type="Sprite" parent="." index="29"]
 
 editor/display_folded = true
 position = Vector2( 224, 96 )
@@ -873,7 +944,39 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="19" type="Sprite" parent="." index="27"]
+[node name="36" type="Sprite" parent="." index="30"]
+
+editor/display_folded = true
+position = Vector2( 354.321, 95.1855 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 224, 128, 32, 32 )
+_sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="36" index="0"]
+
+editor/display_folded = true
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="36/StaticBody2D" index="0"]
+
+position = Vector2( 16, 16 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="19" type="Sprite" parent="." index="31"]
 
 editor/display_folded = true
 position = Vector2( 288, 32 )
@@ -905,7 +1008,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree" type="Sprite" parent="." index="28"]
+[node name="Tree" type="Sprite" parent="." index="32"]
 
 position = Vector2( 0, 256 )
 texture = ExtResource( 1 )
@@ -914,7 +1017,7 @@ region_enabled = true
 region_rect = Rect2( 800, 448, 96, 96 )
 _sections_unfolded = [ "Offset", "Region" ]
 
-[node name="Tree_sm" type="Sprite" parent="." index="29"]
+[node name="Tree_sm" type="Sprite" parent="." index="33"]
 
 position = Vector2( 128, 256 )
 texture = ExtResource( 1 )
@@ -926,7 +1029,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Bush" type="Sprite" parent="." index="30"]
+[node name="Bush" type="Sprite" parent="." index="34"]
 
 position = Vector2( 224, 256 )
 texture = ExtResource( 1 )
@@ -938,7 +1041,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Grass" type="Sprite" parent="." index="31"]
+[node name="Grass" type="Sprite" parent="." index="35"]
 
 position = Vector2( 288, 256 )
 texture = ExtResource( 1 )
@@ -950,7 +1053,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="9" type="Sprite" parent="." index="32"]
+[node name="9" type="Sprite" parent="." index="36"]
 
 editor/display_folded = true
 position = Vector2( 96, 96 )
@@ -982,7 +1085,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="25" type="Sprite" parent="." index="33"]
+[node name="25" type="Sprite" parent="." index="37"]
 
 editor/display_folded = true
 position = Vector2( 288, 160 )
@@ -1014,7 +1117,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="26" type="Sprite" parent="." index="34"]
+[node name="26" type="Sprite" parent="." index="38"]
 
 position = Vector2( 320, 160 )
 texture = ExtResource( 1 )
@@ -1026,7 +1129,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="27" type="Sprite" parent="." index="35"]
+[node name="27" type="Sprite" parent="." index="39"]
 
 editor/display_folded = true
 position = Vector2( 288, 128 )
@@ -1058,7 +1161,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="14" type="Sprite" parent="." index="36"]
+[node name="14" type="Sprite" parent="." index="40"]
 
 editor/display_folded = true
 position = Vector2( 96, 32 )
@@ -1090,7 +1193,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="4" type="Sprite" parent="." index="37"]
+[node name="4" type="Sprite" parent="." index="41"]
 
 editor/display_folded = true
 position = Vector2( 64, 64 )
@@ -1122,7 +1225,7 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Flower" type="Sprite" parent="." index="38"]
+[node name="Flower" type="Sprite" parent="." index="42"]
 
 position = Vector2( 352, 256 )
 texture = ExtResource( 1 )
