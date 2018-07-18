@@ -30,8 +30,6 @@ func _process(delta):
 		$RewindSound.pitch_scale -= 0.001
 	pass
 
-
-
 func _physics_process(delta):
 	# REWIND 
 	if rewinding:
@@ -87,3 +85,6 @@ func _physics_process(delta):
 
 	motion = move_and_slide(motion, UP)
 	pass
+
+func die():
+	get_tree().reload_current_scene()	
