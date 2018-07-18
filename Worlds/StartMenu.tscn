@@ -47,7 +47,7 @@ tracks/0/keys = {
 "values": [ Vector2( 365, 253 ), Vector2( 629, 253 ) ]
 }
 
-[node name="StartMenu" type="Control" index="0"]
+[node name="StartMenu" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0

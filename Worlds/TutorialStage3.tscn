@@ -1,0 +1,137 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Worlds/TutorialStage3.gd" type="Script" id=1]
+[ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Components/ParallaxBackground1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Key.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Components/Spikes.tscn" type="PackedScene" id=7]
+[ext_resource path="res://CloudPlatform.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Components/Lever.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "MoveBottom"
+length = 8.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 740, 485 ), Vector2( 1020, 483.5 ), Vector2( 740, 483.5 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "MoveTop"
+length = 9.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4.5, 9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1115, 370 ), Vector2( 740, 370 ), Vector2( 1115, 370 ) ]
+}
+
+[node name="TutorialStage3" type="Node" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 786432, 19, 0, 786433, 19, 0, 786434, 19, 0, 786435, 19, 0, 786436, 19, 0, 786437, 19, 0, 786438, 41, 0, 786443, 40, 0, 786444, 19, 0, 786445, 19, 0, 786446, 19, 0, 786447, 19, 0, 786448, 19, 0, 786449, 19, 0, 786450, 19, 0, 786451, 19, 0, 786452, 19, 0, 786453, 41, 0, 786468, 40, 0, 851974, 12, 0, 851979, 3, 0, 851989, 12, 0, 851993, 18, 0, 851997, 18, 0, 852004, 3, 0, 917510, 12, 0, 917515, 3, 0, 917525, 12, 0, 917529, 18, 0, 917533, 18, 0, 917540, 3, 0, 983046, 12, 0, 983051, 3, 0, 983061, 12, 0, 983076, 3, 0, 1048582, 12, 0, 1048587, 3, 0, 1048597, 12, 0, 1048609, 18, 0, 1048610, 18, 0, 1048611, 18, 0, 1048612, 3, 0, 1114133, 12, 0, 1114134, 27, 0, 1114135, 27, 0, 1114136, 27, 0, 1114137, 27, 0, 1114138, 27, 0, 1114139, 27, 0, 1114140, 27, 0, 1114141, 27, 0, 1114142, 27, 0, 1114143, 27, 0, 1114144, 27, 0, 1114145, 27, 0, 1114146, 27, 0, 1114147, 27, 0, 1114148, 3, 0, 1179670, 25, 0, 1179671, 25, 0, 1179672, 25, 0, 1179673, 26, 0, 1179674, 25, 0, 1179675, 25, 0, 1179676, 26, 0, 1179677, 25, 0, 1179678, 25, 0, 1179679, 26, 0, 1179680, 25, 0, 1179681, 25, 0, 1179682, 25, 0, 1179683, 26, 0, 1179684, 3, 0, 1245206, 25, 0, 1245207, 26, 0, 1245208, 25, 0, 1245209, 25, 0, 1245210, 25, 0, 1245211, 25, 0, 1245212, 25, 0, 1245213, 26, 0, 1245214, 25, 0, 1245215, 25, 0, 1245216, 25, 0, 1245217, 26, 0, 1245218, 25, 0, 1245219, 25, 0, 1245220, 3, 0, 1310742, 25, 0, 1310743, 25, 0, 1310744, 26, 0, 1310745, 25, 0, 1310746, 25, 0, 1310747, 26, 0, 1310748, 25, 0, 1310749, 25, 0, 1310750, 26, 0, 1310751, 25, 0, 1310752, 25, 0, 1310753, 25, 0, 1310754, 26, 0, 1310755, 25, 0, 1310756, 3, 0, 1376278, 25, 0, 1376279, 25, 0, 1376280, 25, 0, 1376281, 25, 0, 1376282, 25, 0, 1376283, 25, 0, 1376284, 25, 0, 1376285, 25, 0, 1376286, 25, 0, 1376287, 25, 0, 1376288, 26, 0, 1376289, 25, 0, 1376290, 25, 0, 1376291, 25, 0, 1376292, 3, 0 )
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxBackground" parent="." index="1" instance=ExtResource( 3 )]
+
+[node name="Player" parent="." index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 88.1396, 338.958 )
+
+[node name="Door" parent="." index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 495.345, 339.286 )
+
+[node name="Key" parent="." index="4" instance=ExtResource( 6 )]
+
+position = Vector2( 388.179, 361.956 )
+
+[node name="Spikes" parent="." index="5" instance=ExtResource( 7 )]
+
+position = Vector2( 257.241, 510.786 )
+
+[node name="Spikes2" parent="." index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 319.154, 512.327 )
+
+[node name="BottomCloud" parent="." index="7" instance=ExtResource( 8 )]
+
+editor/display_folded = false
+position = Vector2( 740, 483.5 )
+scale = Vector2( 0.846433, 0.788919 )
+
+[node name="Move2" type="AnimationPlayer" parent="BottomCloud" index="2"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/MoveBottom = SubResource( 1 )
+blend_times = [  ]
+
+[node name="TopCloud" parent="." index="8" instance=ExtResource( 8 )]
+
+editor/display_folded = false
+position = Vector2( 770.464, 338.234 )
+scale = Vector2( 0.846433, 0.788919 )
+
+[node name="Move2" type="AnimationPlayer" parent="TopCloud" index="2"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/MoveTop = SubResource( 2 )
+blend_times = [  ]
+
+[node name="Lever" parent="." index="9" instance=ExtResource( 9 )]
+
+position = Vector2( 1168.69, 489.409 )
+
+

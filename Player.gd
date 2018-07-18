@@ -46,7 +46,7 @@ func _physics_process(delta):
 	# NORMAL LOOP
 		shader.set_shader_param("rewind", false)
 		$RewindParticles.set_emitting(false)
-		$Music.pitch_scale = 1.0
+		#$Music.pitch_scale = 1.0
 
 		# Gravity
 		motion.y += GRAVITY

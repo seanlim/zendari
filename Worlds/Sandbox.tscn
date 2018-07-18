@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Worlds/Sandbox.gd" type="Script" id=1]
 [ext_resource path="res://Components/ParallaxBackground.tscn" type="PackedScene" id=2]
@@ -10,7 +10,7 @@
 [ext_resource path="res://Enemy.gd" type="Script" id=8]
 [ext_resource path="res://Tiles/generic_platformer_tiles.png" type="Texture" id=9]
 [ext_resource path="res://Key.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Worlds/Spikes.gd" type="Script" id=11]
+[ext_resource path="res://Components/Spikes.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -27,16 +27,6 @@ animations = [ {
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
-
-[sub_resource type="StreamTexture" id=3]
-
-flags = 0
-load_path = "res://.import/Spikes.png-49c30a95905db224cbdec0180761d34f.stex"
-
-[sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10.2458, 10 )
 
 [node name="World" type="Node"]
 
@@ -76,7 +66,7 @@ Next_Scene = "res://Worlds/World1.tscn"
 [node name="Player" parent="." index="3" instance=ExtResource( 5 )]
 
 editor/display_folded = true
-position = Vector2( 44.0001, 222.53 )
+position = Vector2( 43.1198, 222.53 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Player" index="6"]
 
@@ -131,38 +121,7 @@ _sections_unfolded = [ "Region" ]
 
 [node name="Key" parent="." index="6" instance=ExtResource( 10 )]
 
-[node name="Spikes" type="Area2D" parent="." index="7"]
-
-editor/display_folded = true
-position = Vector2( 352.774, 613.769 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 11 )
-
-[node name="Sprite" type="Sprite" parent="Spikes" index="0"]
-
-position = Vector2( 14.9723, 10.3792 )
-scale = Vector2( 1.59283, 1.59283 )
-texture = SubResource( 3 )
-region_rect = Rect2( 16, 32, 0, 0 )
-_sections_unfolded = [ "Offset", "Region" ]
-
-[node name="Sprite2" type="Sprite" parent="Spikes" index="1"]
-
-position = Vector2( -16.724, 10.1865 )
-scale = Vector2( 1.59038, 1.60721 )
-texture = SubResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes" index="2"]
-
-position = Vector2( -0.921112, 23.0425 )
-scale = Vector2( 3.05519, 0.357178 )
-shape = SubResource( 4 )
+[node name="Spikes" parent="." index="7" instance=ExtResource( 11 )]
 
 [node name="Door" parent="." index="8" instance=ExtResource( 12 )]
 

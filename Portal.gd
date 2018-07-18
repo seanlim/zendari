@@ -25,5 +25,5 @@ func _physics_process(delta):
 func on_timeout():
 	remove_child(timer)
 	timer.queue_free()
-	get_tree().change_scene(Next_Scene)
+	get_tree().change_scene("res://TutorialStage3.tscn")
     
