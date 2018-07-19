@@ -6,7 +6,7 @@ const REWIND_FRAMERATE = 0.001
 const RECORD_FRAMERATE = 0.05
 
 var _global_store = Dictionary() # Stores global state
-var _prev_step = Dictionary()# short-term memory
+var _prev_step = Dictionary() # short-term memory
 var rewind_entities # Defines entities to track
 
 var counter = 0.0
@@ -29,7 +29,8 @@ func _process(delta):
 		for entity in rewind_entities:
 			var entity_delta = helper.get_delta(_prev_step[entity], entity.position)
 			_prev_step[entity] = entity.position # Updates player previous position 
-			_global_store[entity].append(helper.delta_entity(entity, entity_delta))
+			if entity_delta != Vector2(0, 0):
+				_global_store[entity].append(helper.delta_entity(entity, entity_delta))
 		counter = 0
 	pass
 	

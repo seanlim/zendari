@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Worlds/World1.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=2]
@@ -8,13 +8,14 @@
 [ext_resource path="res://Sounds/mess.wav" type="AudioStream" id=6]
 [ext_resource path="res://Key.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Monster.tscn" type="PackedScene" id=9]
 
-[sub_resource type="StreamTexture" id=8]
+[sub_resource type="StreamTexture" id=1]
 
 flags = 0
 load_path = "res://.import/Spikes.png-49c30a95905db224cbdec0180761d34f.stex"
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 46.7208, 7.40009 )
@@ -86,46 +87,50 @@ __meta__ = {
 
 position = Vector2( 9.70599, -0.647064 )
 scale = Vector2( 2, 2 )
-texture = SubResource( 8 )
+texture = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite5" type="Sprite" parent="Spikes/Node2D" index="1"]
 
 position = Vector2( 16.7307, -0.647064 )
 scale = Vector2( 2, 2 )
-texture = SubResource( 8 )
+texture = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite2" type="Sprite" parent="Spikes/Node2D" index="2"]
 
 position = Vector2( 49.8243, -0.647064 )
 scale = Vector2( 2, 2 )
-texture = SubResource( 8 )
+texture = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite3" type="Sprite" parent="Spikes/Node2D" index="3"]
 
 position = Vector2( 65.6776, -0.647095 )
 scale = Vector2( 2, 2 )
-texture = SubResource( 8 )
+texture = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite4" type="Sprite" parent="Spikes/Node2D" index="4"]
 
 position = Vector2( 59.1932, -0.647095 )
 scale = Vector2( 2, 2 )
-texture = SubResource( 8 )
+texture = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes" index="1"]
 
 position = Vector2( 37.5301, 8.08838 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Key" parent="." index="5" instance=ExtResource( 7 )]
 
 position = Vector2( -334.788, 369.479 )
 
 [node name="Door" parent="." index="6" instance=ExtResource( 8 )]
+
+[node name="Monster" parent="." index="7" instance=ExtResource( 9 )]
+
+position = Vector2( 128, 416 )
 
 

@@ -142,8 +142,8 @@ _sections_unfolded = [ "Shadow" ]
 
 position = Vector2( 4.29501, 0.140015 )
 stream = ExtResource( 3 )
-volume_db = 4.0
-pitch_scale = 1.0
+volume_db = 1.0
+pitch_scale = 1.4
 autoplay = false
 max_distance = 2000.0
 attenuation = -0.5

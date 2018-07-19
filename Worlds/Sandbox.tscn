@@ -74,6 +74,7 @@ Next_Scene = "res://Worlds/World1.tscn"
 
 [node name="Player" parent="." index="2" instance=ExtResource( 4 )]
 
+editor/display_folded = true
 position = Vector2( 44.0001, 222.53 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Player" index="6"]
@@ -81,7 +82,7 @@ position = Vector2( 44.0001, 222.53 )
 position = Vector2( 16.2302, 4.80969 )
 scale = Vector2( 4.36157, 3.26431 )
 stream = ExtResource( 5 )
-volume_db = -0.1
+volume_db = -5.08
 pitch_scale = 1.0
 autoplay = true
 max_distance = 2000.0
@@ -132,6 +133,7 @@ _sections_unfolded = [ "Region" ]
 
 [node name="Spikes" type="Area2D" parent="." index="6"]
 
+editor/display_folded = true
 position = Vector2( 352.774, 613.769 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

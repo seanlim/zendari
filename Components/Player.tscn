@@ -22,6 +22,7 @@
 render_priority = 0
 shader = ExtResource( 2 )
 shader_param/rewind = false
+shader_param/died = false
 _sections_unfolded = [ "Resource", "shader_param" ]
 
 [sub_resource type="SpriteFrames" id=2]
@@ -214,7 +215,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="RewindShader" type="TextureRect" parent="." index="0"]
+[node name="Shader" type="TextureRect" parent="." index="0"]
 
 material = SubResource( 1 )
 anchor_left = 0.0
@@ -312,11 +313,11 @@ _sections_unfolded = [ "Drag Margin", "Limit", "Offset", "Smoothing" ]
 [node name="RewindSound" type="AudioStreamPlayer2D" parent="." index="5"]
 
 stream = ExtResource( 15 )
-volume_db = 0.6
-pitch_scale = 1.0
+volume_db = 1.0
+pitch_scale = 2.0
 autoplay = false
 max_distance = 2000.0
-attenuation = 1.0
+attenuation = 0.615572
 bus = "Master"
 area_mask = 1
 

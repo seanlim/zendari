@@ -21,7 +21,7 @@ var shader
 var hasKey = false
 
 func _ready():
-	shader = get_node("RewindShader").get_material()
+	shader = $Shader.get_material()
 
 func _process(delta):
 	$Key.visible = hasKey
@@ -50,7 +50,6 @@ func _physics_process(delta):
 		motion.y += GRAVITY
 		$RewindSound.stop()
 
-
 		# Controls
 		if Input.is_action_pressed("ui_right"):
 			motion.x = min(motion.x + ACC , SPEED_UPPER)
@@ -74,7 +73,6 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("ui_up"):
 				motion.y = JUMP_HEIGHT
 
-
 		elif Input.is_action_just_pressed("ui_up") && !doubleJumped:
 				doubleJumped = true
 				motion.y = JUMP_HEIGHT/ DOUBLE_JUMP_FACTOR # Double jump
@@ -87,4 +85,5 @@ func _physics_process(delta):
 	pass
 
 func die():
+	shader.set_shader_param("died", false)
 	get_tree().reload_current_scene()	
