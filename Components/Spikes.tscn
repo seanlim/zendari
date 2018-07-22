@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Worlds/Spikes.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/death.wav" type="AudioStream" id=2]
+
+[sub_resource type="StreamTexture" id=1]
+
+flags = 0
+load_path = "res://.import/Spikes.png-49c30a95905db224cbdec0180761d34f.stex"
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.2458, 10 )
+
+[node name="Spikes" type="Area2D"]
+
+editor/display_folded = true
+position = Vector2( 352.774, 613.769 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="." index="0"]
+
+position = Vector2( -352.774, -613.769 )
+stream = ExtResource( 2 )
+volume_db = 3.0
+pitch_scale = 0.88
+autoplay = false
+max_distance = 2000.0
+attenuation = 0.210224
+bus = "Master"
+area_mask = 1
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+position = Vector2( 14.9723, 10.3792 )
+scale = Vector2( 1.59283, 1.59283 )
+texture = SubResource( 1 )
+region_rect = Rect2( 16, 32, 0, 0 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="Sprite2" type="Sprite" parent="." index="2"]
+
+position = Vector2( -16.724, 10.1865 )
+scale = Vector2( 1.59038, 1.60721 )
+texture = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( -0.921112, 23.0425 )
+scale = Vector2( 3.05519, 0.357178 )
+shape = SubResource( 2 )
+
+

@@ -72,9 +72,10 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("ui_up"):
 				motion.y = JUMP_HEIGHT
 
-		elif Input.is_action_just_pressed("ui_up") && !doubleJumped:
-				doubleJumped = true
-				motion.y = JUMP_HEIGHT/ DOUBLE_JUMP_FACTOR # Double jump
+#  REMOVE DOUBLE JUMP
+		# elif Input.is_action_just_pressed("ui_up") && !doubleJumped:
+		# 		doubleJumped = true
+		# 		motion.y = JUMP_HEIGHT/ DOUBLE_JUMP_FACTOR # Double jump
 
 		else:
 			motion.x = lerp(motion.x, 0, 0.2)
