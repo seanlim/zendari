@@ -1,9 +1,13 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Worlds/Key.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Key.gd" type="Script" id=1]
 [ext_resource path="res://shadowTexture.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/bell_ding1.wav" type="AudioStream" id=3]
-[ext_resource path="res://key.png" type="Texture" id=4]
+[ext_resource path="res://Components/Key/key.png" type="Texture" id=4]
+
+
+
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -19,7 +23,6 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
-_sections_unfolded = [ "Resource" ]
 
 [sub_resource type="Animation" id=3]
 
@@ -113,7 +116,7 @@ shape = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="." index="1"]
 
-position = Vector2( 4.29501, 32.14 )
+position = Vector2( 0.397827, 28.7596 )
 scale = Vector2( 0.410554, 0.469125 )
 enabled = true
 editor_only = false
@@ -140,10 +143,10 @@ _sections_unfolded = [ "Shadow" ]
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="." index="2"]
 
-position = Vector2( 4.29501, 0.140015 )
+position = Vector2( 0.298615, 0.220703 )
 stream = ExtResource( 3 )
-volume_db = 1.0
-pitch_scale = 1.4
+volume_db = 4.0
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = -0.5
@@ -152,7 +155,8 @@ area_mask = 1
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="3"]
 
-rotation = -0.0115601
+position = Vector2( 0, -3.80378 )
+rotation = -0.159933
 frames = SubResource( 2 )
 animation = "default"
 _sections_unfolded = [ "Transform" ]

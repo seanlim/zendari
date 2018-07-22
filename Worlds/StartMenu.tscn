@@ -6,25 +6,25 @@
 [ext_resource path="res://Title.png" type="Texture" id=4]
 [ext_resource path="res://play.png" type="Texture" id=5]
 [ext_resource path="res://quit.png" type="Texture" id=6]
-[ext_resource path="res://Player/Idle0.png" type="Texture" id=7]
-[ext_resource path="res://Player/Run0.png" type="Texture" id=8]
-[ext_resource path="res://Player/Run1.png" type="Texture" id=9]
-[ext_resource path="res://Player/Run2.png" type="Texture" id=10]
-[ext_resource path="res://Player/Run3.png" type="Texture" id=11]
-[ext_resource path="res://Player/Run4.png" type="Texture" id=12]
-[ext_resource path="res://Player/Run7.png" type="Texture" id=13]
+[ext_resource path="res://Player/Run0.png" type="Texture" id=7]
+[ext_resource path="res://Player/Run1.png" type="Texture" id=8]
+[ext_resource path="res://Player/Run2.png" type="Texture" id=9]
+[ext_resource path="res://Player/Run3.png" type="Texture" id=10]
+[ext_resource path="res://Player/Run4.png" type="Texture" id=11]
+[ext_resource path="res://Player/Run7.png" type="Texture" id=12]
+[ext_resource path="res://Player/Idle0.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "Run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -130,7 +130,6 @@ __meta__ = {
 
 [node name="CenterContainer" type="CenterContainer" parent="." index="4"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -171,8 +170,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 203.0
-margin_bottom = 35.0
+margin_left = 9.0
+margin_top = 17.0
+margin_right = 212.0
+margin_bottom = 52.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1

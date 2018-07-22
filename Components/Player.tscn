@@ -1,18 +1,18 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://World.shader" type="Shader" id=2]
 [ext_resource path="res://white.png" type="Texture" id=3]
 [ext_resource path="res://Player/Idle0.png" type="Texture" id=4]
 [ext_resource path="res://Player/Jump4.png" type="Texture" id=5]
-[ext_resource path="res://Player/Jump0.png" type="Texture" id=6]
-[ext_resource path="res://Player/Run0.png" type="Texture" id=7]
-[ext_resource path="res://Player/Run1.png" type="Texture" id=8]
-[ext_resource path="res://Player/Run2.png" type="Texture" id=9]
-[ext_resource path="res://Player/Run3.png" type="Texture" id=10]
-[ext_resource path="res://Player/Run4.png" type="Texture" id=11]
-[ext_resource path="res://Player/Run7.png" type="Texture" id=12]
-[ext_resource path="res://Player/Jump3.png" type="Texture" id=13]
+[ext_resource path="res://Player/Run0.png" type="Texture" id=6]
+[ext_resource path="res://Player/Run1.png" type="Texture" id=7]
+[ext_resource path="res://Player/Run2.png" type="Texture" id=8]
+[ext_resource path="res://Player/Run3.png" type="Texture" id=9]
+[ext_resource path="res://Player/Run4.png" type="Texture" id=10]
+[ext_resource path="res://Player/Run7.png" type="Texture" id=11]
+[ext_resource path="res://Player/Jump3.png" type="Texture" id=12]
+[ext_resource path="res://Player/Jump0.png" type="Texture" id=13]
 [ext_resource path="res://Camera2D.gd" type="Script" id=14]
 [ext_resource path="res://Player/rewind.wav" type="AudioStream" id=15]
 [ext_resource path="res://key.png" type="Texture" id=16]
@@ -22,6 +22,7 @@
 render_priority = 0
 shader = ExtResource( 2 )
 shader_param/rewind = false
+shader_param/died = false
 _sections_unfolded = [ "Resource", "shader_param" ]
 
 [sub_resource type="SpriteFrames" id=2]
@@ -37,20 +38,20 @@ animations = [ {
 "name": "rewind",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "jump",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "run",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "fall",
 "speed": 35.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "jump",
+"speed": 10.0
 } ]
 
 [sub_resource type="OccluderPolygon2D" id=3]
@@ -84,7 +85,7 @@ flatness = 1.0
 gravity = Vector3( 0, -60, 0 )
 initial_velocity = 1.0
 initial_velocity_random = 0.0
-angular_velocity = -2.65901e-023
+angular_velocity = -2.65901e-23
 angular_velocity_random = 0.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
@@ -159,6 +160,49 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=9]
+
+resource_name = "die"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
 [node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
@@ -171,7 +215,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="RewindShader" type="TextureRect" parent="." index="0"]
+[node name="Shader" type="TextureRect" parent="." index="0"]
 
 material = SubResource( 1 )
 anchor_left = 0.0
@@ -197,8 +241,7 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material" ]
 
 editor/display_folded = true
 frames = SubResource( 2 )
-animation = "run"
-frame = 1
+animation = "fall"
 playing = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite" index="0"]
@@ -226,7 +269,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 6 )
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -245,7 +288,7 @@ scale = Vector2( 4.46954, 4.10319 )
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 1, 1 )
+zoom = Vector2( 1.2, 1.2 )
 limit_left = -799993
 limit_top = -800000
 limit_right = 800000
@@ -270,11 +313,11 @@ _sections_unfolded = [ "Drag Margin", "Limit", "Offset", "Smoothing" ]
 [node name="RewindSound" type="AudioStreamPlayer2D" parent="." index="5"]
 
 stream = ExtResource( 15 )
-volume_db = 0.6
-pitch_scale = 1.0
+volume_db = 1.0
+pitch_scale = 2.0
 autoplay = false
 max_distance = 2000.0
-attenuation = 1.0
+attenuation = 0.615572
 bus = "Master"
 area_mask = 1
 
@@ -296,6 +339,16 @@ playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/hover = SubResource( 8 )
+blend_times = [  ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/die = SubResource( 9 )
 blend_times = [  ]
 
 
