@@ -20,22 +20,23 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 17.4457 )
+extents = Vector2( 10, 20.2688 )
 
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 38.3508, 13.0516 )
+extents = Vector2( 38.035, 13.0516 )
 
 [node name="Monster" type="KinematicBody2D" index="0"]
 
-position = Vector2( 247.763, 324.544 )
+position = Vector2( 249.421, 325.91 )
 scale = Vector2( 0.708409, 0.687114 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 3
+collision_mask = 3
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "collision" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -58,9 +59,8 @@ animation = "default"
 
 [node name="Vertical Collision" type="Area2D" parent="." index="2"]
 
-editor/display_folded = true
-position = Vector2( 0.628405, -2.69685 )
-scale = Vector2( 0.739991, 0.915723 )
+position = Vector2( 0.0915049, -2.69685 )
+scale = Vector2( 0.806677, 0.915723 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -68,6 +68,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vertical Collision" index="0"]
 
@@ -82,11 +83,16 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_layer = 3
+collision_mask = 3
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Horizontal Collision" index="0"]
 
+position = Vector2( -0.42607, 0.564904 )
+scale = Vector2( 1.01444, 1.03519 )
 shape = SubResource( 4 )
 
 

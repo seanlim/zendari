@@ -14,7 +14,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 8.40741, 10 )
 
 [node name="World1" type="Node" index="0"]
 
@@ -68,11 +68,8 @@ position = Vector2( -334.788, 369.479 )
 
 [node name="Monster" parent="." index="5" instance=ExtResource( 8 )]
 
-position = Vector2( 395, 271 )
-collision_layer = 3
-collision_mask = 3
-_sections_unfolded = [ "Collision", "collision" ]
-ACC = 233
+position = Vector2( 381, 278 )
+ACC = 100
 
 [node name="ParallaxBackground" parent="." index="6" instance=ExtResource( 9 )]
 
@@ -83,27 +80,29 @@ position = Vector2( -352, 480 )
 [node name="Monster2" parent="." index="8" instance=ExtResource( 8 )]
 
 position = Vector2( 94.0303, 342.899 )
+ACC = 100
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="9"]
+
+position = Vector2( 293.823, 268.288 )
+scale = Vector2( 0.328395, 0.997087 )
+input_pickable = false
 collision_layer = 3
 collision_mask = 3
-_sections_unfolded = [ "Collision", "collision" ]
-
-[node name="StaticBody2D" type="Area2D" parent="." index="9"]
-
-position = Vector2( 289.417, 277.028 )
-scale = Vector2( 0.328395, 0.997087 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_layer = 2
-collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
 _sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 
+position = Vector2( 0.0822449, 7.69437 )
+scale = Vector2( 1.66512, 1.0974 )
 shape = SubResource( 1 )
+one_way_collision = true
 
 
