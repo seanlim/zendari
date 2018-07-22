@@ -55,7 +55,6 @@ func _physics_process(delta):
 					entity.enabled = initial[1]
 					entity.get_node('Sprite').animation = initial[2]
 			counter = 0
-
 	else:
 		for entity in rewind_entities:
 			entity.rewinding = false

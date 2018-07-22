@@ -66,7 +66,6 @@ func _physics_process(delta):
 			friction = true
 
 		if is_on_floor():
-			#rewinding = false
 			doubleJumped = false
 			if friction == true:
 				motion.x = lerp(motion.x, 0, 0.2)

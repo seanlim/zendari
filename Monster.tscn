@@ -1,17 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://rainbow.png" type="Texture" id=1]
+[ext_resource path="res://Monster.gd" type="Script" id=1]
+[ext_resource path="res://rainbow.png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 10.0
-height = 14.3653
+extents = Vector2( 10, 13.7232 )
 
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -24,12 +24,17 @@ extents = Vector2( 10, 17.4457 )
 
 [node name="Monster" type="KinematicBody2D" index="0"]
 
-position = Vector2( 230.3, 331.217 )
-scale = Vector2( 1.25412, 0.89563 )
+position = Vector2( 247.763, 324.544 )
+scale = Vector2( 0.708409, 0.687114 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
