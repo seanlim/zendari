@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Monster.gd" type="Script" id=1]
+[ext_resource path="res://rainbow.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 13.7232 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 20.2688 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 38.035, 13.0516 )
+
+[node name="Monster" type="KinematicBody2D" index="0"]
+
+position = Vector2( 249.421, 325.91 )
+scale = Vector2( 0.708409, 0.687114 )
+input_pickable = false
+collision_layer = 3
+collision_mask = 3
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+GRAVITY = 15
+ACC = 50
+SPEED_UPPER = 200
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( -0.069763, 2.13172 )
+scale = Vector2( 3.22303, 1.21047 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="1"]
+
+position = Vector2( -0.182077, 1.43234 )
+scale = Vector2( 0.131669, 0.0521188 )
+frames = SubResource( 2 )
+animation = "default"
+
+[node name="Vertical Collision" type="Area2D" parent="." index="2"]
+
+position = Vector2( 0.0915049, -2.69685 )
+scale = Vector2( 0.806677, 0.915723 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vertical Collision" index="0"]
+
+position = Vector2( -0.635727, 2.28537 )
+scale = Vector2( 3.92552, 1.3742 )
+shape = SubResource( 3 )
+
+[node name="Horizontal Collision" type="Area2D" parent="." index="3"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 3
+collision_mask = 3
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Horizontal Collision" index="0"]
+
+position = Vector2( -0.42607, 0.564904 )
+scale = Vector2( 1.01444, 1.03519 )
+shape = SubResource( 4 )
+
+

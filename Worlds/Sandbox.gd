@@ -15,7 +15,7 @@ func _state_for(entity):
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	rewind_entities = [$Player, $"Moving Platform", $Key]
+	rewind_entities = [$Player, $Key]
 	for entity in rewind_entities: 
 		global_store[entity] = [_state_for(entity)]
 		print (global_store[entity])
@@ -54,4 +54,3 @@ func _physics_process(delta):
 			entity.rewinding = false
 			pass
 			
-

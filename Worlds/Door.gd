@@ -4,6 +4,7 @@ extends Area2D
 # var a = 2
 # var b = "textvar"
 var enabled = true
+var rewinding
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -18,6 +19,7 @@ func _physics_process(delta):
 			if body.name == "Player":
 				if get_parent().get_node("Player").hasKey:
 					self.enabled = false
+					get_parent().get_node("Player").hasKey = false
 					$Sprite.animation = "open"
 				else:
 					get_parent().get_node("Player").motion = Vector2(-100,0)

@@ -3,7 +3,8 @@ extends KinematicBody2D
 const GRAVITY = 15
 const ACC = 50
 const SPEED_UPPER = 210
-const JUMP_HEIGHT = -300
+const JUMP_HEIGHT = -270
+# const DOUBLE_JUMP_FACTOR = 1.3
 const UP = Vector2(0,-1)
 
 
@@ -17,18 +18,17 @@ var doubleJumped = false
 var rewinding = false
 var shader
 
-var hasKey
+var hasKey = false
 
 func _ready():
-	shader = get_node("RewindShader").get_material()
+	shader = $Shader.get_material()
 
 func _process(delta):
+	$Key.visible = hasKey
 	if rewinding && !$RewindSound.playing:
 		$RewindSound.play()
 		$RewindSound.pitch_scale -= 0.001
 	pass
-
-
 
 func _physics_process(delta):
 	# REWIND 
@@ -50,7 +50,6 @@ func _physics_process(delta):
 		motion.y += GRAVITY
 		$RewindSound.stop()
 
-
 		# Controls
 		if Input.is_action_pressed("ui_right"):
 			motion.x = min(motion.x + ACC , SPEED_UPPER)
@@ -67,21 +66,31 @@ func _physics_process(delta):
 			friction = true
 
 		if is_on_floor():
-			#rewinding = false
 			doubleJumped = false
 			if friction == true:
 				motion.x = lerp(motion.x, 0, 0.2)
 			if Input.is_action_just_pressed("ui_up"):
 				motion.y = JUMP_HEIGHT
 
-
-		elif Input.is_action_just_pressed("ui_up") && !doubleJumped:
-				doubleJumped = true
-				motion.y = JUMP_HEIGHT/ 1.5 # Double jump
+#  REMOVE DOUBLE JUMP
+		# elif Input.is_action_just_pressed("ui_up") && !doubleJumped:
+		# 		doubleJumped = true
+		# 		motion.y = JUMP_HEIGHT/ DOUBLE_JUMP_FACTOR # Double jump
 
 		else:
 			motion.x = lerp(motion.x, 0, 0.2)
 			$Sprite.animation = "jump" if motion.y < 0 else "fall"
-
+	if !enabled:
+		motion = Vector2(0, 0)
 	motion = move_and_slide(motion, UP)
 	pass
+
+func die():
+	$Shader.get_material().set_shader_param("died", true)
+	$DeathSound.connect("finished",self,"on_timeout")
+	$DeathSound.play()
+	enabled = false
+			
+func on_timeout():
+	$Shader.get_material().set_shader_param("died", false)
+	get_tree().reload_current_scene()	

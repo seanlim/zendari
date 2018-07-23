@@ -15,8 +15,8 @@ func _state_for(entity):
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	rewind_entities = [$Player, $Monster, $Monster2]
-	for entity in rewind_entities: 
+	rewind_entities = [$Player]
+	for entity in rewind_entities:
 		global_store[entity] = [_state_for(entity)]
 		print (global_store[entity])
 		pass
@@ -26,12 +26,12 @@ func _process(delta):
 	counter += delta
 	if counter > RECORD_FRAMERATE && !$Player.rewinding:
 		for entity in rewind_entities:
-			if entity.position != global_store[entity][-1][0] || entity.enabled  != global_store[entity][-1][1]:
+			if _state_for(entity) != global_store[entity][-1]:
 					global_store[entity].append(_state_for(entity))
-			pass 
+			pass
 		counter = 0
 	pass
-	
+
 func _physics_process(delta):
 	if Input.is_action_just_pressed('player_rewind'):
 		Engine.time_scale = TIME_WARP
@@ -53,4 +53,5 @@ func _physics_process(delta):
 		for entity in rewind_entities:
 			entity.rewinding = false
 			pass
-			
+
+
