@@ -3,7 +3,7 @@ extends KinematicBody2D
 const GRAVITY = 15
 const ACC = 50
 const SPEED_UPPER = 210
-const JUMP_HEIGHT = -250
+const JUMP_HEIGHT = -270
 const DOUBLE_JUMP_FACTOR = 1.3
 const UP = Vector2(0,-1)
 
