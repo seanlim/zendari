@@ -4,7 +4,7 @@
 [ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Components/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://main.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/Forest_Ambience.wav" type="AudioStream" id=5]
 [ext_resource path="res://Key.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Monster.tscn" type="PackedScene" id=8]
@@ -48,6 +48,7 @@ Next_Scene = "res://Worlds/Sandbox.tscn"
 
 [node name="Player" parent="." index="2" instance=ExtResource( 4 )]
 
+editor/display_folded = true
 position = Vector2( -576.211, 255.708 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 

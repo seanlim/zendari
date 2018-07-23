@@ -4,7 +4,7 @@ export var GRAVITY = 15
 export var ACC = 50
 export var SPEED_UPPER = 200
 
-var enabled = false
+var enabled = true
 var rewinding = false
 
 const UP = Vector2(0,-1)
@@ -20,17 +20,23 @@ func _ready():
 func _physics_process(delta):
 	# Update game logic here.
 	motion = Vector2(0, 0)
-	motion.y += GRAVITY
-	motion.x = ACC 
+	if enabled:
+		motion.y += GRAVITY
+		motion.x = ACC 
 	motion = move_and_slide(motion, UP)
 	pass
 
 func top_collide(object):
-	if object.name == "Player":
+	if _will_interact_player(object):
+		enabled = false
 		object.motion.y = object.JUMP_HEIGHT
 
 func side_collide(object):
-	if object.name == "Player":
+	if _will_interact_player(object):
+		enabled = false
 		object.die()
 	else:
 		ACC = -ACC
+		
+func _will_interact_player(object):
+	return object.name == "Player" && enabled && !rewinding

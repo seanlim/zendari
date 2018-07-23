@@ -4,7 +4,7 @@ const GRAVITY = 15
 const ACC = 50
 const SPEED_UPPER = 210
 const JUMP_HEIGHT = -270
-const DOUBLE_JUMP_FACTOR = 1.3
+# const DOUBLE_JUMP_FACTOR = 1.3
 const UP = Vector2(0,-1)
 
 
@@ -80,10 +80,17 @@ func _physics_process(delta):
 		else:
 			motion.x = lerp(motion.x, 0, 0.2)
 			$Sprite.animation = "jump" if motion.y < 0 else "fall"
-
+	if !enabled:
+		motion = Vector2(0, 0)
 	motion = move_and_slide(motion, UP)
 	pass
 
 func die():
-	shader.set_shader_param("died", false)
+	$Shader.get_material().set_shader_param("died", true)
+	$DeathSound.connect("finished",self,"on_timeout")
+	$DeathSound.play()
+	enabled = false
+			
+func on_timeout():
+	$Shader.get_material().set_shader_param("died", false)
 	get_tree().reload_current_scene()	

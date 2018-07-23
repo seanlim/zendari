@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://World.shader" type="Shader" id=2]
@@ -16,12 +16,13 @@
 [ext_resource path="res://Camera2D.gd" type="Script" id=14]
 [ext_resource path="res://Player/rewind.wav" type="AudioStream" id=15]
 [ext_resource path="res://key.png" type="Texture" id=16]
+[ext_resource path="res://Sounds/death.wav" type="AudioStream" id=17]
 
 [sub_resource type="ShaderMaterial" id=1]
 
 render_priority = 0
 shader = ExtResource( 2 )
-shader_param/rewind = false
+shader_param/rewind = true
 shader_param/died = false
 _sections_unfolded = [ "Resource", "shader_param" ]
 
@@ -350,5 +351,16 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/die = SubResource( 9 )
 blend_times = [  ]
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." index="8"]
+
+stream = ExtResource( 17 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 

@@ -11,16 +11,9 @@ func _ready():
 	pass		
 
 func _physics_process(delta):
-	var bodies = get_overlapping_bodies()
-	for body in bodies:
-		if body.name == "Player":
-			print("Player dies")
-			get_parent().get_node("Player/Sprite").animation = "fall"
-			if enabled:
-				get_parent().get_node("Player/Shader").get_material().set_shader_param("died", true)
-				$Audio.connect("finished",self,"on_timeout")
-				$Audio.play()
+	if enabled:
+		var bodies = get_overlapping_bodies()
+		for body in bodies:
+			if body.name == "Player":
+				body.die()
 				enabled = false
-			
-func on_timeout():
-	get_parent().get_node("Player").die()
