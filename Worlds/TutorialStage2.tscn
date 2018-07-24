@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Components/ParallaxBackground1.tscn" type="PackedScene" id=2]
@@ -6,10 +6,29 @@
 [ext_resource path="res://Components/Spikes.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Key.tscn" type="PackedScene" id=6]
-[ext_resource path="res://CloudPlatform.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Components/Lever.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Components/Lever.gd" type="Script" id=10]
+[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Components/Lever.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Components/Lever.gd" type="Script" id=9]
+[ext_resource path="res://Components/CloudPlatform.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "Move"
+length = 8.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 450, 0 ), Vector2( 450, 340 ), Vector2( 450, 0 ) ]
+}
 
 [node name="World" type="Node"]
 
@@ -38,7 +57,7 @@ _sections_unfolded = [ "Cell", "Transform" ]
 
 [node name="Portal" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 919.731, 125.309 )
+position = Vector2( 965.876, 129.382 )
 
 [node name="Spikes" parent="." index="3" instance=ExtResource( 4 )]
 
@@ -56,15 +75,28 @@ position = Vector2( 668.518, 115.315 )
 
 position = Vector2( -16.4065, 360.076 )
 
-[node name="CloudPlatform" parent="." index="7" instance=ExtResource( 7 )]
+[node name="Player" parent="." index="7" instance=ExtResource( 7 )]
 
-[node name="Player" parent="." index="8" instance=ExtResource( 8 )]
+position = Vector2( 84.0391, 126.294 )
 
-position = Vector2( 47.9391, 124.489 )
-
-[node name="Lever" parent="." index="9" instance=ExtResource( 9 )]
+[node name="Lever" parent="." index="8" instance=ExtResource( 8 )]
 
 position = Vector2( 847.798, 344.635 )
-script = ExtResource( 10 )
+script = ExtResource( 9 )
+
+[node name="CloudPlatform" parent="." index="9" instance=ExtResource( 10 )]
+
+position = Vector2( 450, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Move" type="AnimationPlayer" parent="CloudPlatform" index="2"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Move = SubResource( 1 )
+blend_times = [  ]
 
 

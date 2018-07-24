@@ -12,4 +12,4 @@ func _on_Quit_pressed():
 
 func _on_StartAnim_animation_finished(Start_Run):
 
-	get_tree().change_scene("res://Worlds/Sandbox.tscn")
+	get_tree().change_scene("res://Worlds/Tutorial.tscn")

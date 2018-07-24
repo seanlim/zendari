@@ -41,7 +41,9 @@ func _physics_process(delta):
 		$Camera2D.shake(0.8, 20, 2)
 		shader.set_shader_param("rewind", true)
 		$RewindParticles.set_emitting(rewinding)
-		$Music.pitch_scale = 0.8
+
+
+#		$Music.pitch_scale = 0.8
 	else:
 	# NORMAL LOOP
 		shader.set_shader_param("rewind", false)

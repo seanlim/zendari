@@ -12,5 +12,5 @@ func _process(delta):
 			else:
 				$Sprite.animation = "switch_on"
 				$Sound.play()
-				get_parent().get_node("TopCloud/Move2").play("MoveTop")
+				get_parent().get_node("CloudPlatform/Move").play("Move")
 				
