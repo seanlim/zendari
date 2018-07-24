@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const GRAVITY = 15
+var GRAVITY = 15
 const ACC = 50
 const SPEED_UPPER = 210
 const JUMP_HEIGHT = -270
@@ -51,12 +51,12 @@ func _physics_process(delta):
 		$RewindSound.stop()
 
 		# Controls
-		if Input.is_action_pressed("ui_right"):
+		if enabled && Input.is_action_pressed("ui_right"):
 			motion.x = min(motion.x + ACC , SPEED_UPPER)
 			$Sprite.flip_h = false
 			$Sprite.animation = "run"
 
-		elif Input.is_action_pressed("ui_left"):
+		elif enabled && Input.is_action_pressed("ui_left"):
 			motion.x = max(motion.x - ACC , -SPEED_UPPER)
 			$Sprite.flip_h = true
 			$Sprite.animation = "run"
@@ -69,7 +69,7 @@ func _physics_process(delta):
 			doubleJumped = false
 			if friction == true:
 				motion.x = lerp(motion.x, 0, 0.2)
-			if Input.is_action_just_pressed("ui_up"):
+			if enabled && Input.is_action_just_pressed("ui_up"):
 				motion.y = JUMP_HEIGHT
 
 #  REMOVE DOUBLE JUMP
@@ -80,8 +80,7 @@ func _physics_process(delta):
 		else:
 			motion.x = lerp(motion.x, 0, 0.2)
 			$Sprite.animation = "jump" if motion.y < 0 else "fall"
-	if !enabled:
-		motion = Vector2(0, 0)
+
 	motion = move_and_slide(motion, UP)
 	pass
 

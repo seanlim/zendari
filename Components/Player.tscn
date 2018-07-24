@@ -4,15 +4,15 @@
 [ext_resource path="res://World.shader" type="Shader" id=2]
 [ext_resource path="res://white.png" type="Texture" id=3]
 [ext_resource path="res://Player/Idle0.png" type="Texture" id=4]
-[ext_resource path="res://Player/Jump4.png" type="Texture" id=5]
-[ext_resource path="res://Player/Run0.png" type="Texture" id=6]
-[ext_resource path="res://Player/Run1.png" type="Texture" id=7]
-[ext_resource path="res://Player/Run2.png" type="Texture" id=8]
-[ext_resource path="res://Player/Run3.png" type="Texture" id=9]
-[ext_resource path="res://Player/Run4.png" type="Texture" id=10]
-[ext_resource path="res://Player/Run7.png" type="Texture" id=11]
-[ext_resource path="res://Player/Jump3.png" type="Texture" id=12]
-[ext_resource path="res://Player/Jump0.png" type="Texture" id=13]
+[ext_resource path="res://Player/Run0.png" type="Texture" id=5]
+[ext_resource path="res://Player/Run1.png" type="Texture" id=6]
+[ext_resource path="res://Player/Run2.png" type="Texture" id=7]
+[ext_resource path="res://Player/Run3.png" type="Texture" id=8]
+[ext_resource path="res://Player/Run4.png" type="Texture" id=9]
+[ext_resource path="res://Player/Run7.png" type="Texture" id=10]
+[ext_resource path="res://Player/Jump3.png" type="Texture" id=11]
+[ext_resource path="res://Player/Jump0.png" type="Texture" id=12]
+[ext_resource path="res://Player/Jump4.png" type="Texture" id=13]
 [ext_resource path="res://Camera2D.gd" type="Script" id=14]
 [ext_resource path="res://Player/rewind.wav" type="AudioStream" id=15]
 [ext_resource path="res://key.png" type="Texture" id=16]
@@ -22,7 +22,7 @@
 
 render_priority = 0
 shader = ExtResource( 2 )
-shader_param/rewind = true
+shader_param/rewind = false
 shader_param/died = false
 _sections_unfolded = [ "Resource", "shader_param" ]
 
@@ -34,25 +34,25 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "rewind",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "run",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "fall",
 "speed": 35.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "jump",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "rewind",
+"speed": 5.0
 } ]
 
 [sub_resource type="OccluderPolygon2D" id=3]
@@ -270,7 +270,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 6 )
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -298,7 +298,7 @@ limit_smoothed = true
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 smoothing_enabled = true
-smoothing_speed = 3.0
+smoothing_speed = 7.0
 offset_v = 0.0
 offset_h = 0.0
 drag_margin_left = 0.2
@@ -309,7 +309,7 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 script = ExtResource( 14 )
-_sections_unfolded = [ "Drag Margin", "Limit", "Offset", "Smoothing" ]
+_sections_unfolded = [ "Drag Margin", "Limit", "Smoothing" ]
 
 [node name="RewindSound" type="AudioStreamPlayer2D" parent="." index="5"]
 

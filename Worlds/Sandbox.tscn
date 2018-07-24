@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Worlds/Sandbox.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=2]
@@ -13,6 +13,10 @@
 [ext_resource path="res://Sounds/death.wav" type="AudioStream" id=11]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Components/ParallaxBackground1.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Worlds/Objective.gd" type="Script" id=14]
+[ext_resource path="res://shadowTexture.png" type="Texture" id=15]
+[ext_resource path="res://cookie.png" type="Texture" id=16]
+[ext_resource path="res://Sounds/assemble_gsharp_maj.wav" type="AudioStream" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -38,6 +42,92 @@ load_path = "res://.import/Spikes.png-49c30a95905db224cbdec0180761d34f.stex"
 
 custom_solver_bias = 0.0
 extents = Vector2( 10.2458, 10 )
+
+[sub_resource type="CircleShape2D" id=5]
+
+custom_solver_bias = 0.0
+radius = 18.0377
+
+[sub_resource type="SpriteFrames" id=6]
+
+animations = [ {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "close",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "open",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=7]
+
+resource_name = "open"
+length = 5.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:energy")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.01, 1.0, 0.01 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.53119, 7.7493 ), Vector2( 1.53119, 0 ), Vector2( 1.53119, 7.7493 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:animation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "open", "open" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.695735, 0.695735 ), Vector2( 1, 1 ), Vector2( 0.695735, 0.695735 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sound:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="World" type="Node" index="0"]
 
@@ -182,5 +272,87 @@ position = Vector2( 547.996, 174.494 )
 scale = Vector2( 1.21511, 1.0855 )
 
 [node name="ParallaxBackground" parent="." index="8" instance=ExtResource( 13 )]
+
+[node name="Objective" type="Area2D" parent="." index="9"]
+
+position = Vector2( 592.153, 295.162 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objective" index="0"]
+
+position = Vector2( 2.86966, 3.55688 )
+scale = Vector2( 1.22074, 1.27361 )
+shape = SubResource( 5 )
+
+[node name="Light2D" type="Light2D" parent="Objective" index="1"]
+
+position = Vector2( 2.0459, 13.558 )
+scale = Vector2( 0.499945, 0.501428 )
+enabled = true
+editor_only = false
+texture = ExtResource( 15 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 0.898438, 0.898438, 0, 1 )
+energy = 0.01
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 5.0
+shadow_filter = 1
+shadow_filter_smooth = 10.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Range", "Shadow" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Objective" index="2"]
+
+position = Vector2( 1.53119, 7.7493 )
+scale = Vector2( 0.697141, 0.697141 )
+frames = SubResource( 6 )
+animation = "open"
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objective" index="3"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/open = SubResource( 7 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Objective" index="4"]
+
+position = Vector2( 18.9789, 17.2433 )
+stream = ExtResource( 17 )
+volume_db = -3.11
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 
