@@ -5,7 +5,8 @@ func _ready():
 	$Player.enabled = false
 	
 func _on_Play_pressed():
-	pass	
+	print("lol")
+	get_tree().change_scene("res://Worlds/Tutorial.tscn")
 
 func _on_Quit_pressed():
 	get_tree().quit()

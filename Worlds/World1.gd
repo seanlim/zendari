@@ -9,6 +9,7 @@ var rewind_entities # Defines entities to track
 
 var counter = 0.0
 
+
 func _state_for(entity):
 	return [entity.position, entity.enabled, entity.get_node('Sprite').animation]
 

@@ -9,13 +9,16 @@ var rewind_entities # Defines entities to track
 
 var counter = 0.0
 
+var objective_count = 0
+export var OBJECTIVE_COUNT = 2
+
 func _state_for(entity):
 	return [entity.position, entity.enabled, entity.get_node('Sprite').animation]
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	rewind_entities = [$Player, $Key]
+	rewind_entities = [$Player, $"Moving Platform", $Key]
 	for entity in rewind_entities: 
 		global_store[entity] = [_state_for(entity)]
 		print (global_store[entity])
