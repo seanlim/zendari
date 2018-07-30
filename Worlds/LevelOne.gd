@@ -18,7 +18,14 @@ func _state_for(entity):
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	rewind_entities = [$Player, $"Moving Platform"]
+	rewind_entities = [	$Player, 
+						$"Moving Platform", 
+						$Key2, 
+						$Platform, 
+						$Platform3,
+						$Platform4,
+						$Platform5]
+						
 	for entity in rewind_entities: 
 		global_store[entity] = [_state_for(entity)]
 		print (global_store[entity])

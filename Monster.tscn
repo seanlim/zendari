@@ -43,6 +43,7 @@ __meta__ = {
 GRAVITY = 15
 ACC = 50
 JUMP = 1.0
+one_way = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 

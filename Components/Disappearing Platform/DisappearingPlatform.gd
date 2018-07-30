@@ -5,11 +5,16 @@ extends StaticBody2D
 # var b = "textvar"
 var enabled = true
 var rewinding = false;
-func _ready():
-	$Area2D.connect("body_entered", self , "stepped")
-	
-	# Called when the node is added to the scene for the first time.
 
+func _ready():
+	set_process(true)
+	$Area2D.connect("body_entered", self , "stepped")
+	# Called when the node is added to the scene for the first time.
+		
+func _process(delta):
+	if rewinding && enabled:
+		$"Actual Sprite".visible = true
+		$CollisionShape2D.disabled = false
 
 func stepped(object):
 	if object.name == "Player" && enabled:
@@ -18,4 +23,4 @@ func stepped(object):
 		$Disappear.connect("animation_finished", self, "done")
 
 func done(Disappear):
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.disabled = true 
