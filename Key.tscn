@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Worlds/Key.gd" type="Script" id=1]
 [ext_resource path="res://shadowTexture.png" type="Texture" id=2]
-[ext_resource path="res://Sounds/bell_ding1.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/assemble_g_maj.wav" type="AudioStream" id=3]
 [ext_resource path="res://key.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -95,7 +95,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 10, -10 ), Vector2( 5, -5 ) ]
 }
 
-[node name="Key" type="Area2D" index="0"]
+[node name="Key" type="Area2D"]
 
 position = Vector2( 475.705, 543.86 )
 input_pickable = true
@@ -142,8 +142,8 @@ _sections_unfolded = [ "Shadow" ]
 
 position = Vector2( 4.29501, 0.140015 )
 stream = ExtResource( 3 )
-volume_db = 1.0
-pitch_scale = 1.4
+volume_db = -3.11
+pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = -0.5

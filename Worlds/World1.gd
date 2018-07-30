@@ -2,12 +2,13 @@ extends Node
 
 const TIME_WARP = 0.3 # Factor in which time warps
 const REWIND_FRAMERATE = 0.001
-const RECORD_FRAMERATE = 0.05
+const RECORD_FRAMERATE = 0.03
 
 var global_store = Dictionary() # Stores global state
 var rewind_entities # Defines entities to track
 
 var counter = 0.0
+
 
 func _state_for(entity):
 	return [entity.position, entity.enabled, entity.get_node('Sprite').animation]

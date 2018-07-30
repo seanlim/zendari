@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/assemble_gsharp_maj.wav-08604fedf17c4f227f543bcc3c62f481.sample"
+
+[deps]
+
+source_file="res://Sounds/assemble_gsharp_maj.wav"
+dest_files=[ "res://.import/assemble_gsharp_maj.wav-08604fedf17c4f227f543bcc3c62f481.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

@@ -1,8 +1,10 @@
 extends KinematicBody2D
 
-export var GRAVITY = 15
+export var GRAVITY = 20
 export var ACC = 50
-export var SPEED_UPPER = 200
+export var JUMP = 1.0
+export var one_way = false
+export var disposable = false
 
 var enabled = true
 var rewinding = false
@@ -29,14 +31,19 @@ func _physics_process(delta):
 func top_collide(object):
 	if _will_interact_player(object):
 		enabled = false
-		object.motion.y = object.JUMP_HEIGHT
+		object.motion.y = object.JUMP_HEIGHT * JUMP
+		if disposable:
+			self.die()
 
 func side_collide(object):
 	if _will_interact_player(object):
 		enabled = false
 		object.die()
-	else:
+	elif !one_way:
 		ACC = -ACC
 		
 func _will_interact_player(object):
 	return object.name == "Player" && enabled && !rewinding
+	
+func die():
+	queue_free()

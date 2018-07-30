@@ -2,7 +2,7 @@ extends Node
 
 const TIME_WARP = 0.3 # Factor in which time warps
 const REWIND_FRAMERATE = 0.001
-const RECORD_FRAMERATE = 0.03
+const RECORD_FRAMERATE = 0.02
 
 var global_store = Dictionary() # Stores global state
 var rewind_entities # Defines entities to track
@@ -18,7 +18,13 @@ func _state_for(entity):
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	rewind_entities = [$Player, $"Moving Platform", $Key]
+	rewind_entities = [	$Player, 
+						$"Moving Platform", 
+						$Platform, 
+						$Platform3,
+						$Platform4,
+						$Platform5]
+						
 	for entity in rewind_entities: 
 		global_store[entity] = [_state_for(entity)]
 		print (global_store[entity])
@@ -29,9 +35,12 @@ func _process(delta):
 	counter += delta
 	if counter > RECORD_FRAMERATE && !$Player.rewinding:
 		for entity in rewind_entities:
-			if entity.position != global_store[entity][-1][0] || entity.enabled  != global_store[entity][-1][1]:
-					global_store[entity].append(_state_for(entity))
-			pass 
+			if entity == $Player:
+				if entity.position != global_store[entity][-1][0] || entity.enabled  != global_store[entity][-1][1]:
+						global_store[entity].append(_state_for(entity))
+				pass 
+			else:
+				global_store[entity].append(_state_for(entity))
 		counter = 0
 	pass
 	

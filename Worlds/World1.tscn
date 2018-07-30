@@ -3,13 +3,13 @@
 [ext_resource path="res://Worlds/World1.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sounds/Forest_Ambience.wav" type="AudioStream" id=5]
+[ext_resource path="res://Components/Spikes.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Key.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Door.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Monster.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Components/ParallaxBackground1.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Components/Spikes.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sounds/Forest_Ambience.wav" type="AudioStream" id=8]
+[ext_resource path="res://Monster.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Components/ParallaxBackground1.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -45,46 +45,53 @@ _sections_unfolded = [ "Cell", "Transform" ]
 
 position = Vector2( 507.169, 192.172 )
 Next_Scene = "res://Worlds/Sandbox.tscn"
+enabled = true
 
-[node name="Player" parent="." index="2" instance=ExtResource( 4 )]
+[node name="Spikes" parent="." index="2" instance=ExtResource( 4 )]
 
-editor/display_folded = true
+position = Vector2( -352, 480.26 )
+
+[node name="Spikes2" parent="." index="3" instance=ExtResource( 4 )]
+
+position = Vector2( -302.091, 480.26 )
+
+[node name="Door" parent="." index="4" instance=ExtResource( 5 )]
+
+[node name="Key" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( -334.788, 369.479 )
+
+[node name="Player" parent="." index="6" instance=ExtResource( 7 )]
+
 position = Vector2( -576.211, 255.708 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 
 [node name="Music" type="AudioStreamPlayer" parent="Player" index="6"]
 
-stream = ExtResource( 5 )
-volume_db = 0.0
-pitch_scale = 0.9
+stream = ExtResource( 8 )
+volume_db = -5.08
+pitch_scale = 1.0
 autoplay = true
 mix_target = 0
 bus = "Master"
 
-[node name="Key" parent="." index="3" instance=ExtResource( 6 )]
-
-position = Vector2( -334.788, 369.479 )
-
-[node name="Door" parent="." index="4" instance=ExtResource( 7 )]
-
-[node name="Monster" parent="." index="5" instance=ExtResource( 8 )]
+[node name="Monster" parent="." index="7" instance=ExtResource( 9 )]
 
 position = Vector2( 381, 278 )
-ACC = 100
+ACC = 80
+JUMP = 1.2
 
-[node name="ParallaxBackground" parent="." index="6" instance=ExtResource( 9 )]
+[node name="ParallaxBackground" parent="." index="8" instance=ExtResource( 10 )]
 
-[node name="Spikes" parent="." index="7" instance=ExtResource( 10 )]
-
-position = Vector2( -352, 480 )
-
-[node name="Monster2" parent="." index="8" instance=ExtResource( 8 )]
+[node name="Monster2" parent="." index="9" instance=ExtResource( 9 )]
 
 position = Vector2( 94.0303, 342.899 )
 ACC = 100
+JUMP = 1.2
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="9"]
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="10"]
 
+editor/display_folded = true
 position = Vector2( 293.823, 268.288 )
 scale = Vector2( 0.328395, 0.997087 )
 input_pickable = false
