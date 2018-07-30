@@ -1,9 +1,5 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 onready var monster = preload("res://Monster.tscn")
 
 var timer = 0
@@ -20,10 +16,11 @@ func _process(delta):
 			print('Will spawn')
 			timer -= rate
 			var addMonster = monster.instance()
-			addMonster.GRAVITY = 200
+			addMonster.GRAVITY = 180
 			addMonster.name = 'Monster'
 			addMonster.one_way = true
-			addMonster.ACC = -60
+			addMonster.JUMP = 1.3
+			addMonster.ACC = -70
 			addMonster.position = self.position
 			get_parent().add_child(addMonster)
 

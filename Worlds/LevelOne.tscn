@@ -172,11 +172,11 @@ position = Vector2( -169.635, 160.892 )
 
 [node name="Spawner" parent="." index="13" instance=ExtResource( 10 )]
 
-position = Vector2( 559.244, 134.207 )
+position = Vector2( 559.566, 134.207 )
 
 [node name="Moving Platform" parent="." index="14" instance=ExtResource( 11 )]
 
-position = Vector2( 406.468, 206.176 )
+position = Vector2( 405.825, 206.819 )
 scale = Vector2( 1.04571, 0.934166 )
 bounces = false
 
