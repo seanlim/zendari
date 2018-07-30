@@ -15,17 +15,17 @@
 [ext_resource path="res://Objective.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Monster.tscn" type="PackedScene" id=14]
 
-[sub_resource type="StreamTexture" id=3]
+[sub_resource type="StreamTexture" id=1]
 
 flags = 0
 load_path = "res://.import/Spikes.png-49c30a95905db224cbdec0180761d34f.stex"
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10.2458, 10 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 2.0813, 136.341 )
@@ -122,7 +122,7 @@ area_mask = 1
 
 position = Vector2( 14.9723, 10.3792 )
 scale = Vector2( 1.59283, 1.59283 )
-texture = SubResource( 3 )
+texture = SubResource( 1 )
 region_rect = Rect2( 16, 32, 0, 0 )
 _sections_unfolded = [ "Offset", "Region" ]
 
@@ -130,13 +130,13 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 position = Vector2( -16.724, 10.1865 )
 scale = Vector2( 1.59038, 1.60721 )
-texture = SubResource( 3 )
+texture = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes" index="3"]
 
 position = Vector2( -0.921112, 23.0425 )
 scale = Vector2( 3.05519, 0.357178 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="Door" parent="." index="7" instance=ExtResource( 11 )]
 
@@ -169,7 +169,7 @@ bounce = 0.0
 
 position = Vector2( 54.7245, 27.8571 )
 scale = Vector2( 1.05684, 0.646816 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 one_way_collision = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." index="12"]
@@ -188,7 +188,7 @@ bounce = 0.0
 
 position = Vector2( -127.735, 29.158 )
 scale = Vector2( 1.05684, 0.646816 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 one_way_collision = true
 
 [node name="Monster" parent="." index="13" instance=ExtResource( 14 )]
@@ -197,6 +197,5 @@ position = Vector2( 1027.18, 242.984 )
 GRAVITY = 20
 ACC = 100
 JUMP = 1.5
-one_way = false
 
 

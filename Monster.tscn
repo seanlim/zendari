@@ -3,10 +3,11 @@
 [ext_resource path="res://Monster.gd" type="Script" id=1]
 [ext_resource path="res://rainbow.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=5]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 13.7232 )
+radius = 10.0
+height = 20.0
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -22,14 +23,15 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 20.2688 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 38.035, 13.0516 )
+radius = 21.0577
+height = 20.0
 
 [node name="Monster" type="KinematicBody2D" index="0"]
 
-position = Vector2( 249.421, 325.686 )
+position = Vector2( 249.55, 325.686 )
 scale = Vector2( 0.708409, 0.680123 )
 input_pickable = false
 collision_layer = 3
@@ -44,12 +46,13 @@ GRAVITY = 15
 ACC = 50
 JUMP = 1.0
 one_way = false
+disposable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-position = Vector2( -0.069763, 2.13172 )
-scale = Vector2( 3.22303, 1.21047 )
-shape = SubResource( 1 )
+position = Vector2( 0.164182, 1.97198 )
+scale = Vector2( 3.55146, 0.879054 )
+shape = SubResource( 5 )
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="1"]
 
@@ -92,8 +95,8 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Horizontal Collision" index="0"]
 
-position = Vector2( -0.42607, 0.564904 )
-scale = Vector2( 1.01444, 1.03519 )
+position = Vector2( -0.198632, 0.649325 )
+scale = Vector2( 1.78336, 0.443848 )
 shape = SubResource( 4 )
 
 

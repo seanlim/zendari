@@ -20,7 +20,6 @@ func _ready():
 	# Initialization here
 	rewind_entities = [	$Player, 
 						$"Moving Platform", 
-						$Key2, 
 						$Platform, 
 						$Platform3,
 						$Platform4,

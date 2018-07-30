@@ -4,6 +4,7 @@ export var GRAVITY = 20
 export var ACC = 50
 export var JUMP = 1.0
 export var one_way = false
+export var disposable = false
 
 var enabled = true
 var rewinding = false
@@ -31,6 +32,8 @@ func top_collide(object):
 	if _will_interact_player(object):
 		enabled = false
 		object.motion.y = object.JUMP_HEIGHT * JUMP
+		if disposable:
+			self.die()
 
 func side_collide(object):
 	if _will_interact_player(object):
