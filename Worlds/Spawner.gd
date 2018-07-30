@@ -14,6 +14,7 @@ func _process(delta):
 		timer += delta
 		if (timer > rate):
 			print('Will spawn')
+			$AnimationPlayer.current_animation = 'spawn'
 			timer -= rate
 			var addMonster = monster.instance()
 			addMonster.GRAVITY = 180

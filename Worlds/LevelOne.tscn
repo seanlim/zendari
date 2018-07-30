@@ -212,7 +212,7 @@ shape = SubResource( 3 )
 [node name="Player" parent="." index="16" instance=ExtResource( 16 )]
 
 editor/display_folded = true
-position = Vector2( -178.155, 279.917 )
+position = Vector2( -180, 280 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Player" index="9"]
 
