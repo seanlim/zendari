@@ -100,6 +100,8 @@ area_mask = 1
 
 [node name="Lever" parent="." index="3" instance=ExtResource( 6 )]
 
+targetNode = "Moving Platform"
+
 [node name="Moving Platform" type="KinematicBody2D" parent="." index="4"]
 
 editor/display_folded = true
@@ -193,12 +195,10 @@ scale = Vector2( 1.21511, 1.0855 )
 
 [node name="Objective2" parent="." index="9" instance=ExtResource( 14 )]
 
-editor/display_folded = false
 position = Vector2( 1024.31, 78.324 )
 
 [node name="Objective" parent="." index="10" instance=ExtResource( 14 )]
 
-editor/display_folded = false
 position = Vector2( 592.153, 295.304 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="11"]
