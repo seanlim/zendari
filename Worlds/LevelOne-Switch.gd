@@ -12,10 +12,10 @@ func _process(delta):
 	for body in bodies:
 		if body.name == "Player" && Input.is_action_just_pressed("ui_interact"):
 			sw = !sw 
+			get_parent().get_node("Moving Platform").speed = - get_parent().get_node("Moving Platform").speed
 			if sw:
 				$Sprite.animation = "off"
 			else:
 				$Sprite.animation = "on"
-				get_parent().get_node("Moving Platform").speed = - get_parent().get_node("Moving Platform").speed
 
 
