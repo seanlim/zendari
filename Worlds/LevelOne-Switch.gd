@@ -13,6 +13,8 @@ func _process(delta):
 		if body.name == "Player" && Input.is_action_just_pressed("ui_interact"):
 			sw = !sw 
 			get_parent().get_node("Moving Platform").speed = - get_parent().get_node("Moving Platform").speed
+			get_parent().get_node("Spawner").enabled = true
+			get_parent().get_node("Spawner/AnimationPlayer").current_animation = "active"
 			if sw:
 				$Sprite.animation = "off"
 			else:
