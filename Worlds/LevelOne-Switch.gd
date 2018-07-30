@@ -6,8 +6,6 @@ extends Area2D
 # TODO make lever class send done signal
 
 var sw = true
-export var targetNode = ""
-export var persistent = false
 
 func _process(delta):
 	var bodies = get_overlapping_bodies()
@@ -18,7 +16,6 @@ func _process(delta):
 				$Sprite.animation = "off"
 			else:
 				$Sprite.animation = "on"
-				get_parent().get_node(targetNode).enabled = true
-	if persistent && $Sprite.animation == "switch_on":
-		get_parent().get_node(targetNode).enabled = true
+				get_parent().get_node("Moving Platform").speed = - get_parent().get_node("Moving Platform").speed
+
 

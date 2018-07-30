@@ -1,7 +1,9 @@
 extends Area2D
 
 var sw = true
+# Node that is enabled
 export var targetNode = ""
+# Force target node enabled
 export var persistent = false
 
 func _process(delta):

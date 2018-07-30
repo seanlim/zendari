@@ -190,7 +190,7 @@ position = Vector2( -169.635, 160.892 )
 [node name="Spawner" type="Node2D" parent="." index="14"]
 
 editor/display_folded = true
-position = Vector2( 565.423, 65.2132 )
+position = Vector2( 551.836, 111.151 )
 scale = Vector2( 0.511612, 0.498565 )
 script = ExtResource( 12 )
 __meta__ = {
@@ -214,6 +214,7 @@ bounces = false
 
 [node name="Switch" type="Area2D" parent="." index="16"]
 
+editor/display_folded = true
 position = Vector2( 644.601, 290.806 )
 scale = Vector2( 0.751539, 0.751539 )
 input_pickable = true
