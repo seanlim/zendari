@@ -2,6 +2,7 @@ extends Area2D
 
 var sw = true
 export var targetNode = ""
+export var persistent = false
 
 func _process(delta):
 	var bodies = get_overlapping_bodies()
@@ -14,3 +15,5 @@ func _process(delta):
 				$Sprite.animation = "switch_on"
 				$Sound.play()
 				get_parent().get_node(targetNode).enabled = true
+	if persistent && $Sprite.animation == "switch_on":
+		get_parent().get_node(targetNode).enabled = true

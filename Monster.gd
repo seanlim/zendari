@@ -1,8 +1,9 @@
 extends KinematicBody2D
 
-export var GRAVITY = 15
+export var GRAVITY = 20
 export var ACC = 50
 export var JUMP = 1.0
+export var one_way = false
 
 var enabled = true
 var rewinding = false
@@ -35,8 +36,11 @@ func side_collide(object):
 	if _will_interact_player(object):
 		enabled = false
 		object.die()
-	else:
+	elif !one_way:
 		ACC = -ACC
 		
 func _will_interact_player(object):
 	return object.name == "Player" && enabled && !rewinding
+	
+func die():
+	queue_free()
