@@ -1,9 +1,23 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Monster.gd" type="Script" id=1]
-[ext_resource path="res://rainbow.png" type="Texture" id=2]
+[ext_resource path="res://Components/Monster/tile000.png" type="Texture" id=2]
+[ext_resource path="res://Components/Monster/tile001.png" type="Texture" id=3]
+[ext_resource path="res://Components/Monster/tile010.png" type="Texture" id=4]
+[ext_resource path="res://Components/Monster/tile011.png" type="Texture" id=5]
+[ext_resource path="res://Components/Monster/tile012.png" type="Texture" id=6]
+[ext_resource path="res://Components/Monster/tile013.png" type="Texture" id=7]
+[ext_resource path="res://Components/Monster/tile014.png" type="Texture" id=8]
+[ext_resource path="res://Components/Monster/tile008.png" type="Texture" id=9]
+[ext_resource path="res://Components/Monster/tile009.png" type="Texture" id=10]
+[ext_resource path="res://Components/Monster/tile002.png" type="Texture" id=11]
+[ext_resource path="res://Components/Monster/tile003.png" type="Texture" id=12]
+[ext_resource path="res://Components/Monster/tile004.png" type="Texture" id=13]
+[ext_resource path="res://Components/Monster/tile005.png" type="Texture" id=14]
+[ext_resource path="res://Components/Monster/tile006.png" type="Texture" id=15]
+[ext_resource path="res://Components/Monster/tile007.png" type="Texture" id=16]
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 10.0
@@ -12,9 +26,29 @@ height = 20.0
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "die",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "default",
+"name": "falling",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "moving",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "attack",
 "speed": 5.0
 } ]
 
@@ -31,7 +65,7 @@ height = 20.0
 
 [node name="Monster" type="KinematicBody2D" index="0"]
 
-position = Vector2( 249.55, 325.686 )
+position = Vector2( 249.55, 325.746 )
 scale = Vector2( 0.708409, 0.680123 )
 input_pickable = false
 collision_layer = 3
@@ -52,17 +86,20 @@ disposable = false
 
 position = Vector2( 0.164182, 1.97198 )
 scale = Vector2( 3.55146, 0.879054 )
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="1"]
 
-position = Vector2( -0.182077, 1.43234 )
-scale = Vector2( 0.131669, 0.0521188 )
+position = Vector2( 0.999071, -3.71317 )
+scale = Vector2( 1.46356, 1.3416 )
 frames = SubResource( 2 )
-animation = "default"
+animation = "idle"
+frame = 1
+playing = true
 
 [node name="Vertical Collision" type="Area2D" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( 0.0915049, -8.83223 )
 scale = Vector2( 0.806677, 0.723992 )
 input_pickable = true
@@ -82,6 +119,7 @@ shape = SubResource( 3 )
 
 [node name="Horizontal Collision" type="Area2D" parent="." index="3"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
