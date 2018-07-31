@@ -11,11 +11,11 @@ dest_files=[ "res://.import/assemble_gsharp_maj.wav-08604fedf17c4f227f543bcc3c62
 
 [params]
 
-force/8_bit=false
-force/mono=false
+force/8_bit=true
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=true
 edit/normalize=true
-edit/loop=true
+edit/loop=false
 compress/mode=0

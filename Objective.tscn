@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Worlds/Objective.gd" type="Script" id=1]
 [ext_resource path="res://shadowTexture.png" type="Texture" id=2]
 [ext_resource path="res://Components/Collectibles/Book stained glass window.png" type="Texture" id=3]
-[ext_resource path="res://Sounds/assemble_gsharp_maj.wav" type="AudioStream" id=4]
-
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -122,18 +120,6 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 0.695735, 0.695735 ), Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sound:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
 
 [node name="Objective" type="Area2D" index="0"]
 
@@ -185,9 +171,9 @@ __meta__ = {
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="2"]
 
-position = Vector2( 2.80813, 3.06184 )
-rotation = 0.302828
-scale = Vector2( 0.835906, 0.835906 )
+position = Vector2( 1.53119, 7.7493 )
+rotation = 0.0321382
+scale = Vector2( 1e-05, 1e-05 )
 frames = SubResource( 2 )
 animation = "open"
 _sections_unfolded = [ "Transform" ]
@@ -206,18 +192,5 @@ anims/hover = SubResource( 3 )
 anims/open = SubResource( 4 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
-
-[node name="Sound" type="AudioStreamPlayer2D" parent="." index="4"]
-
-position = Vector2( 6.67645, 4.81097 )
-scale = Vector2( 0.624752, 0.605357 )
-stream = ExtResource( 4 )
-volume_db = -3.11
-pitch_scale = 1.0
-autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 
 

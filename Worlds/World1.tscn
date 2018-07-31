@@ -14,11 +14,12 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 8.40741, 10 )
+extents = Vector2( 8.40741, 54.4097 )
 
 [node name="World1" type="Node" index="0"]
 
 script = ExtResource( 1 )
+OBJECTIVE_COUNT = 1
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
@@ -91,9 +92,8 @@ JUMP = 1.2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="10"]
 
-editor/display_folded = true
-position = Vector2( 293.823, 268.288 )
-scale = Vector2( 0.328395, 0.997087 )
+position = Vector2( 294.083, 241.938 )
+scale = Vector2( 0.328395, 1.82863 )
 input_pickable = false
 collision_layer = 3
 collision_mask = 3

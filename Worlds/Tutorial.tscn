@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Worlds/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://Components/ParallaxBackground1.tscn" type="PackedScene" id=2]
@@ -11,8 +11,9 @@
 [ext_resource path="res://Key.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Monster.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objective.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Door.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Keyboard Buttons.png" type="Texture" id=13]
+[ext_resource path="res://Sounds/assemble_asharp_maj.wav" type="AudioStream" id=12]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Keyboard Buttons.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -171,7 +172,6 @@ Next_Scene = "res://Worlds/World1.tscn"
 
 [node name="Player" parent="." index="3" instance=ExtResource( 5 )]
 
-editor/display_folded = true
 position = Vector2( 245.008, 216.627 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Player" index="6"]
@@ -230,7 +230,18 @@ position = Vector2( 882.898, 369.566 )
 position = Vector2( 1024.9, 163.657 )
 scale = Vector2( 0.774344, 0.774344 )
 
-[node name="Door" parent="." index="11" instance=ExtResource( 12 )]
+[node name="Sound" type="AudioStreamPlayer2D" parent="Objective" index="4"]
+
+stream = ExtResource( 12 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Door" parent="." index="11" instance=ExtResource( 13 )]
 
 position = Vector2( 938.769, 147.189 )
 
@@ -240,7 +251,7 @@ position = Vector2( 938.769, 147.189 )
 
 position = Vector2( 159.46, 291.989 )
 scale = Vector2( 2.03978, 2.33978 )
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 176, 179, 16, 13 )
@@ -250,7 +261,7 @@ _sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]
 
 position = Vector2( 607, 290.989 )
 scale = Vector2( 2.01989, 2.31989 )
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 192, 163, 16, 13 )
@@ -260,7 +271,7 @@ _sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]
 
 position = Vector2( 260.54, 292.529 )
 scale = Vector2( 2.01989, 2.31989 )
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 208, 179, 16, 13 )

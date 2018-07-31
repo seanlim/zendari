@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Worlds/LevelOne.gd" type="Script" id=1]
 [ext_resource path="res://Components/ParallaxBackground1.tscn" type="PackedScene" id=2]
@@ -9,15 +9,16 @@
 [ext_resource path="res://Components/Lever.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Components/Spikes.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objective.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Spawner.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Moving Platform.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Worlds/LevelOne-Switch.gd" type="Script" id=12]
-[ext_resource path="res://Tiles/Lever/lever0.png" type="Texture" id=13]
-[ext_resource path="res://Tiles/Lever/lever1.png" type="Texture" id=14]
-[ext_resource path="res://Tiles/Lever/lever2.png" type="Texture" id=15]
-[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Sounds/Forest_Ambience.wav" type="AudioStream" id=17]
-[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Sounds/assemble_asharp_maj.wav" type="AudioStream" id=10]
+[ext_resource path="res://Spawner.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Moving Platform.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Worlds/LevelOne-Switch.gd" type="Script" id=13]
+[ext_resource path="res://Tiles/Lever/lever0.png" type="Texture" id=14]
+[ext_resource path="res://Tiles/Lever/lever1.png" type="Texture" id=15]
+[ext_resource path="res://Tiles/Lever/lever2.png" type="Texture" id=16]
+[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Sounds/Forest_Ambience.wav" type="AudioStream" id=18]
+[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -27,12 +28,12 @@ extents = Vector2( 10, 147.604 )
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "on",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 14 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 16 ), ExtResource( 15 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "off",
 "speed": 5.0
@@ -171,12 +172,23 @@ one_way_collision = true
 
 position = Vector2( -169.635, 160.892 )
 
-[node name="Spawner" parent="." index="13" instance=ExtResource( 10 )]
+[node name="Sound" type="AudioStreamPlayer2D" parent="Objective" index="4"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Spawner" parent="." index="13" instance=ExtResource( 11 )]
 
 position = Vector2( 600, 70 )
 enabled = true
 
-[node name="Moving Platform" parent="." index="14" instance=ExtResource( 11 )]
+[node name="Moving Platform" parent="." index="14" instance=ExtResource( 12 )]
 
 position = Vector2( 405.184, 206.884 )
 scale = Vector2( 1.04571, 0.934166 )
@@ -195,7 +207,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -210,24 +222,23 @@ animation = "off"
 position = Vector2( 16.7958, -1.11975 )
 shape = SubResource( 3 )
 
-[node name="Player" parent="." index="16" instance=ExtResource( 16 )]
+[node name="Player" parent="." index="16" instance=ExtResource( 17 )]
 
-editor/display_folded = true
 position = Vector2( -160, 280 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Player" index="9"]
 
-stream = ExtResource( 17 )
+stream = ExtResource( 18 )
 volume_db = -3.3
 pitch_scale = 1.0
-autoplay = false
+autoplay = true
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="Portal" parent="." index="17" instance=ExtResource( 18 )]
+[node name="Portal" parent="." index="17" instance=ExtResource( 19 )]
 
-position = Vector2( -200, 290 )
+position = Vector2( -196.461, 290.643 )
 
 

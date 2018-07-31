@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Worlds/Sandbox.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=2]
@@ -13,7 +13,9 @@
 [ext_resource path="res://Door.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Components/ParallaxBackground1.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Objective.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Monster.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sounds/assemble_asharp_maj.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/assemble_gsharp_maj.wav" type="AudioStream" id=15]
+[ext_resource path="res://Monster.tscn" type="PackedScene" id=16]
 
 [sub_resource type="StreamTexture" id=1]
 
@@ -149,9 +151,31 @@ scale = Vector2( 1.21511, 1.0855 )
 
 position = Vector2( 1024.31, 78.324 )
 
+[node name="Sound" type="AudioStreamPlayer2D" parent="Objective2" index="4"]
+
+stream = ExtResource( 14 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
 [node name="Objective" parent="." index="10" instance=ExtResource( 13 )]
 
-position = Vector2( 592.153, 295.304 )
+position = Vector2( 592.085, 295.304 )
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Objective" index="4"]
+
+stream = ExtResource( 15 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="11"]
 
@@ -191,7 +215,7 @@ scale = Vector2( 1.05684, 0.646816 )
 shape = SubResource( 3 )
 one_way_collision = true
 
-[node name="Monster" parent="." index="13" instance=ExtResource( 14 )]
+[node name="Monster" parent="." index="13" instance=ExtResource( 16 )]
 
 position = Vector2( 1027.18, 242.984 )
 GRAVITY = 20
