@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Worlds/World1.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Sounds/Forest_Ambience.wav" type="AudioStream" id=8]
 [ext_resource path="res://Monster.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Components/ParallaxBackground1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Objective.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sounds/assemble_g_maj.wav" type="AudioStream" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -46,7 +48,6 @@ _sections_unfolded = [ "Cell", "Transform" ]
 
 position = Vector2( 507.169, 192.172 )
 Next_Scene = "res://Worlds/Sandbox.tscn"
-enabled = true
 
 [node name="Spikes" parent="." index="2" instance=ExtResource( 4 )]
 
@@ -93,8 +94,8 @@ JUMP = 1.2
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="10"]
 
 editor/display_folded = true
-position = Vector2( 294.083, 241.938 )
-scale = Vector2( 0.328395, 1.82863 )
+position = Vector2( 298.17, 241.938 )
+scale = Vector2( 0.522166, 1.82863 )
 input_pickable = false
 collision_layer = 3
 collision_mask = 3
@@ -113,5 +114,20 @@ position = Vector2( 0.0822449, 7.69437 )
 scale = Vector2( 1.66512, 1.0974 )
 shape = SubResource( 1 )
 one_way_collision = true
+
+[node name="Objective" parent="." index="11" instance=ExtResource( 11 )]
+
+position = Vector2( 217.894, 321.651 )
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Objective" index="4"]
+
+stream = ExtResource( 12 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 

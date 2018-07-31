@@ -20,7 +20,10 @@ func _ready():
 	# Initialization here
 	rewind_entities = [	$Player, 
 						$Monster,
-						$Platform]
+						$Platform,
+						$Platform4,
+						$Platform2,
+						$Platform3]
 						
 	for entity in rewind_entities: 
 		global_store[entity] = [_state_for(entity)]

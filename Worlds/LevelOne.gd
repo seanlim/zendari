@@ -2,7 +2,7 @@ extends Node
 
 const TIME_WARP = 0.3 # Factor in which time warps
 const REWIND_FRAMERATE = 0.001
-const RECORD_FRAMERATE = 0.02
+const RECORD_FRAMERATE = 0.03
 
 var global_store = Dictionary() # Stores global state
 var rewind_entities # Defines entities to track
@@ -23,8 +23,7 @@ func _ready():
 						$Platform, 
 						$Platform3,
 						$Platform4,
-						$Platform5]
-						
+						$Platform5]	
 	for entity in rewind_entities: 
 		global_store[entity] = [_state_for(entity)]
 		print (global_store[entity])
