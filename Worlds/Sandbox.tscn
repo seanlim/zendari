@@ -62,7 +62,7 @@ __meta__ = {
 [node name="Portal" parent="." index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 1150.12, 224.674 )
-Next_Scene = "res://Worlds/World1.tscn"
+Next_Scene = "res://Worlds/LevelOne.tscn"
 
 [node name="Player" parent="." index="2" instance=ExtResource( 4 )]
 
