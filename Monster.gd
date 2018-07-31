@@ -23,6 +23,15 @@ func _physics_process(delta):
 	# Update game logic here.
 	motion = Vector2(0, 0)
 	if enabled:
+		# Sprite
+		$Sprite.flip_h = ACC < 0
+
+		if ACC != 0:
+			$Sprite.animation = 'moving'
+		elif is_on_floor():
+			$Sprite.animation = 'idle'
+		else:
+			$Sprite.animation = 'falling'
 		motion.y += GRAVITY
 		motion.x = ACC 
 	motion = move_and_slide(motion, UP)
@@ -32,12 +41,14 @@ func top_collide(object):
 	if _will_interact_player(object):
 		enabled = false
 		object.motion.y = object.JUMP_HEIGHT * JUMP
+		$Sprite.animation = 'die'
 		if disposable:
 			self.die()
 
 func side_collide(object):
 	if _will_interact_player(object):
 		enabled = false
+		$Sprite.animation = 'attack'
 		object.die()
 	elif !one_way:
 		ACC = -ACC
