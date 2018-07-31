@@ -172,7 +172,7 @@ Next_Scene = "res://Worlds/World1.tscn"
 
 [node name="Player" parent="." index="3" instance=ExtResource( 5 )]
 
-position = Vector2( 245.008, 216.627 )
+position = Vector2( 245.594, 216.627 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Player" index="6"]
 
@@ -232,6 +232,7 @@ scale = Vector2( 0.774344, 0.774344 )
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="Objective" index="4"]
 
+position = Vector2( 2.58283, 0 )
 stream = ExtResource( 12 )
 volume_db = 0.0
 pitch_scale = 1.0
@@ -257,7 +258,16 @@ region_enabled = true
 region_rect = Rect2( 176, 179, 16, 13 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]
 
-[node name="Arrow-Up" type="Sprite" parent="Arrows" index="1"]
+[node name="Shift" type="Sprite" parent="Arrows" index="1"]
+
+position = Vector2( 874.029, 316.657 )
+scale = Vector2( 1.41786, 1.41786 )
+texture = ExtResource( 14 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 48, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Arrow-Up" type="Sprite" parent="Arrows" index="2"]
 
 position = Vector2( 607, 290.989 )
 scale = Vector2( 2.01989, 2.31989 )
@@ -267,7 +277,7 @@ region_enabled = true
 region_rect = Rect2( 192, 163, 16, 13 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]
 
-[node name="Arrow-Right" type="Sprite" parent="Arrows" index="2"]
+[node name="Arrow-Right" type="Sprite" parent="Arrows" index="3"]
 
 position = Vector2( 260.54, 292.529 )
 scale = Vector2( 2.01989, 2.31989 )
@@ -277,7 +287,7 @@ region_enabled = true
 region_rect = Rect2( 208, 179, 16, 13 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Arrows" index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Arrows" index="4"]
 
 root_node = NodePath("..")
 autoplay = "idle"

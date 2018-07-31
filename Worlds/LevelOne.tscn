@@ -170,7 +170,7 @@ one_way_collision = true
 
 [node name="Objective" parent="." index="12" instance=ExtResource( 9 )]
 
-position = Vector2( -169.635, 160.892 )
+position = Vector2( -201.635, 160.892 )
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="Objective" index="4"]
 
@@ -239,6 +239,6 @@ area_mask = 1
 
 [node name="Portal" parent="." index="17" instance=ExtResource( 19 )]
 
-position = Vector2( -196.461, 290.643 )
+position = Vector2( -227.611, 291.79 )
 
 

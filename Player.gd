@@ -32,6 +32,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	# REWIND 
+	$RewindIcon.visible = rewinding
 	if rewinding:
 		# Cuts player motion
 		motion = Vector2(0,0)

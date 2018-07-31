@@ -1,22 +1,23 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://World.shader" type="Shader" id=2]
 [ext_resource path="res://white.png" type="Texture" id=3]
 [ext_resource path="res://Player/Idle0.png" type="Texture" id=4]
-[ext_resource path="res://Player/Run0.png" type="Texture" id=5]
-[ext_resource path="res://Player/Run1.png" type="Texture" id=6]
-[ext_resource path="res://Player/Run2.png" type="Texture" id=7]
-[ext_resource path="res://Player/Run3.png" type="Texture" id=8]
-[ext_resource path="res://Player/Run4.png" type="Texture" id=9]
-[ext_resource path="res://Player/Run7.png" type="Texture" id=10]
-[ext_resource path="res://Player/Jump3.png" type="Texture" id=11]
-[ext_resource path="res://Player/Jump0.png" type="Texture" id=12]
-[ext_resource path="res://Player/Jump4.png" type="Texture" id=13]
+[ext_resource path="res://Player/Jump4.png" type="Texture" id=5]
+[ext_resource path="res://Player/Run0.png" type="Texture" id=6]
+[ext_resource path="res://Player/Run1.png" type="Texture" id=7]
+[ext_resource path="res://Player/Run2.png" type="Texture" id=8]
+[ext_resource path="res://Player/Run3.png" type="Texture" id=9]
+[ext_resource path="res://Player/Run4.png" type="Texture" id=10]
+[ext_resource path="res://Player/Run7.png" type="Texture" id=11]
+[ext_resource path="res://Player/Jump3.png" type="Texture" id=12]
+[ext_resource path="res://Player/Jump0.png" type="Texture" id=13]
 [ext_resource path="res://Camera2D.gd" type="Script" id=14]
 [ext_resource path="res://Player/rewind.wav" type="AudioStream" id=15]
 [ext_resource path="res://key.png" type="Texture" id=16]
 [ext_resource path="res://Sounds/death.wav" type="AudioStream" id=17]
+[ext_resource path="res://rewind.png" type="Texture" id=18]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -34,25 +35,25 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "rewind",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "run",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "fall",
 "speed": 35.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "jump",
 "speed": 10.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "rewind",
-"speed": 5.0
 } ]
 
 [sub_resource type="OccluderPolygon2D" id=3]
@@ -270,7 +271,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 6 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -362,5 +363,12 @@ max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
+
+[node name="RewindIcon" type="Sprite" parent="." index="9"]
+
+visible = false
+position = Vector2( -17, -43 )
+scale = Vector2( 0.0546875, 0.0546875 )
+texture = ExtResource( 18 )
 
 

@@ -90,10 +90,11 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="1"]
 
-position = Vector2( 0.999071, -3.71317 )
-scale = Vector2( 1.46356, 1.3416 )
+position = Vector2( -0.321602, -3.09117 )
+scale = Vector2( 1.69306, 1.55197 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="Vertical Collision" type="Area2D" parent="." index="2"]
@@ -119,6 +120,8 @@ shape = SubResource( 3 )
 [node name="Horizontal Collision" type="Area2D" parent="." index="3"]
 
 editor/display_folded = true
+position = Vector2( -0.160987, 0.974512 )
+scale = Vector2( 1.15261, 1.03045 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
