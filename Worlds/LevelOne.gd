@@ -10,7 +10,7 @@ var rewind_entities # Defines entities to track
 var counter = 0.0
 
 var objective_count = 0
-export var OBJECTIVE_COUNT = 2
+export var OBJECTIVE_COUNT = 1
 
 func _state_for(entity):
 	return [entity.position, entity.enabled, entity.get_node('Sprite').animation]

@@ -17,5 +17,5 @@ func _physics_process(delta):
 			if body.name == "Player":
 				body.die()
 				enabled = false
-			elif body.name == "Monster":
+			elif body is KinematicBody2D:
 				body.die()
