@@ -3,9 +3,9 @@
 [ext_resource path="res://Worlds/StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://Components/ParallaxBackground1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=3]
-[ext_resource path="res://Title.png" type="Texture" id=4]
-[ext_resource path="res://play.png" type="Texture" id=5]
-[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Title.png" type="Texture" id=5]
+[ext_resource path="res://play.png" type="Texture" id=6]
 
 [node name="StartMenu" type="Control" index="0"]
 
@@ -52,8 +52,26 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="." index="2"]
+[node name="Player" parent="." index="2" instance=ExtResource( 4 )]
 
+editor/display_folded = true
+position = Vector2( 384, -1152 )
+
+[node name="Music" type="AudioStreamPlayer2D" parent="Player" index="9"]
+
+position = Vector2( -384, 10000 )
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="3"]
+
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -102,7 +120,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 stretch_mode = 0
 
 [node name="Spacer" type="Control" parent="CenterContainer/VBoxContainer" index="1"]
@@ -176,24 +194,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 6 )
 _sections_unfolded = [ "Size Flags", "Textures" ]
-
-[node name="Player" parent="." index="3" instance=ExtResource( 6 )]
-
-position = Vector2( 384, -1152 )
-
-[node name="Music" type="AudioStreamPlayer2D" parent="Player" index="9"]
-
-position = Vector2( -384, 10000 )
-stream = null
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
 

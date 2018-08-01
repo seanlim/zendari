@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/assemble_asharp_maj.wav-b7ebadca3091d837d3c612fb382279f7.sample"
+
+[deps]
+
+source_file="res://Sounds/assemble_asharp_maj.wav"
+dest_files=[ "res://.import/assemble_asharp_maj.wav-b7ebadca3091d837d3c612fb382279f7.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

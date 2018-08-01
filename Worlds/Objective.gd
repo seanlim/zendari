@@ -13,6 +13,7 @@ func entered(object):
 		incr_objective()
 		
 func incr_objective():
+	$Sound.play()
 	get_parent().objective_count += 1
 	if get_parent().objective_count == get_parent().OBJECTIVE_COUNT:
 		get_parent().get_node("Portal").enabled = true
