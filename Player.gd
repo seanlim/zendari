@@ -3,7 +3,7 @@ extends KinematicBody2D
 var GRAVITY = 15
 const ACC = 50
 const SPEED_UPPER = 210
-const JUMP_HEIGHT = -270
+export var JUMP_HEIGHT = -270
 # const DOUBLE_JUMP_FACTOR = 1.3
 const UP = Vector2(0,-1)
 
@@ -19,7 +19,6 @@ var rewinding = false
 var shader
 
 var hasKey = false
-
 
 func _ready():
 	shader = $Shader.get_material()
@@ -49,6 +48,7 @@ func _physics_process(delta):
 		$Music.pitch_scale = 0.8
 	else:
 	# NORMAL LOOP
+		var animation_ = 'idle'
 		shader.set_shader_param("rewind", false)
 		$RewindParticles.set_emitting(false)
 		$Music.pitch_scale = 1.0
@@ -61,15 +61,14 @@ func _physics_process(delta):
 		if enabled && Input.is_action_pressed("ui_right"):
 			motion.x = min(motion.x + ACC , SPEED_UPPER)
 			$Sprite.flip_h = false
-			$Sprite.animation = "run"
+			animation_ = 'run'
 
 		elif enabled && Input.is_action_pressed("ui_left"):
 			motion.x = max(motion.x - ACC , -SPEED_UPPER)
 			$Sprite.flip_h = true
-			$Sprite.animation = "run"
+			animation_ = "run"
 		else:
 			motion.x = 0
-			$Sprite.animation = "idle"
 			friction = true
 
 		if is_on_floor():
@@ -86,7 +85,9 @@ func _physics_process(delta):
 
 		else:
 			motion.x = lerp(motion.x, 0, 0.2)
-			$Sprite.animation = "jump" if motion.y < 0 else "fall"
+			animation_ = "jump" if motion.y < 0 else "fall"
+
+		$Sprite.animation = animation_
 
 	motion = move_and_slide(motion, UP)
 	pass

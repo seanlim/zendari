@@ -3,8 +3,8 @@
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://World.shader" type="Shader" id=2]
 [ext_resource path="res://white.png" type="Texture" id=3]
-[ext_resource path="res://Player/Jump4.png" type="Texture" id=4]
-[ext_resource path="res://Player/Idle0.png" type="Texture" id=5]
+[ext_resource path="res://Player/Idle0.png" type="Texture" id=4]
+[ext_resource path="res://Player/Jump4.png" type="Texture" id=5]
 [ext_resource path="res://Player/Run0.png" type="Texture" id=6]
 [ext_resource path="res://Player/Run1.png" type="Texture" id=7]
 [ext_resource path="res://Player/Run2.png" type="Texture" id=8]
@@ -33,12 +33,12 @@ _sections_unfolded = [ "Resource", "shader_param" ]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "rewind",
+"name": "idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "idle",
+"name": "rewind",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
@@ -206,7 +206,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -217,6 +217,7 @@ _sections_unfolded = [ "Pickable", "Transform", "collision" ]
 __meta__ = {
 "_edit_group_": true
 }
+JUMP_HEIGHT = -270
 
 [node name="Shader" type="TextureRect" parent="." index="0"]
 
@@ -244,7 +245,7 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material" ]
 
 editor/display_folded = true
 frames = SubResource( 2 )
-animation = "fall"
+animation = "idle"
 playing = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite" index="0"]
