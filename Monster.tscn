@@ -90,11 +90,10 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="1"]
 
-position = Vector2( -0.321602, -3.09117 )
-scale = Vector2( 1.69306, 1.55197 )
+position = Vector2( -0.520347, -6.61457 )
+scale = Vector2( 1.91097, 1.75172 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="Vertical Collision" type="Area2D" parent="." index="2"]
