@@ -20,10 +20,16 @@ var shader
 
 var hasKey = false
 
+
 func _ready():
 	shader = $Shader.get_material()
 
 func _process(delta):
+	# Pause menu
+	if Input.is_action_just_pressed('ui_pause'):
+		get_tree().set_pause(true)
+		$cntr_pause.show()
+
 	$Key.visible = hasKey
 	if rewinding && !$RewindSound.playing:
 		$RewindSound.play()
