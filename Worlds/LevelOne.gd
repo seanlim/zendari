@@ -4,7 +4,7 @@ const TIME_WARP = 0.3 # Factor in which time warps
 const REWIND_FRAMERATE = 0.001
 const RECORD_FRAMERATE = 0.03
 
-var global_store = Dictionary() # Stores global state
+var global_store = Dictionary() # Global state store
 var rewind_entities # Defines entities to track
 
 var counter = 0.0
