@@ -16,7 +16,7 @@
 [ext_resource path="res://Monster.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Keyboard Buttons.png" type="Texture" id=15]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 2.0813, 136.341 )
@@ -142,7 +142,7 @@ bounce = 0.0
 
 position = Vector2( 54.7245, 27.8571 )
 scale = Vector2( 1.05684, 0.646816 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 one_way_collision = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." index="11"]
@@ -161,7 +161,7 @@ bounce = 0.0
 
 position = Vector2( -127.735, 29.158 )
 scale = Vector2( 1.05684, 0.646816 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 one_way_collision = true
 
 [node name="Monster" parent="." index="12" instance=ExtResource( 14 )]

@@ -42,17 +42,8 @@ func _physics_process(delta):
 
 func top_collide(object):
 	if _will_interact_player(object):
-		enabled = false
 		object.motion.y = object.JUMP_HEIGHT * JUMP
-		$Sprite.animation = 'die'
-		if disposable:
-			timer = Timer.new()
-			timer.set_one_shot(true)
-			timer.set_timer_process_mode(Timer.TIMER_PROCESS_IDLE)
-			timer.set_wait_time(0.5)
-			timer.connect("timeout", self, "die")
-			timer.start()
-			add_child(timer)
+		die()
 
 func side_collide(object):
 	if _will_interact_player(object):
@@ -66,4 +57,6 @@ func _will_interact_player(object):
 	return object.name == "Player" && enabled && !rewinding
 	
 func die():
-	queue_free()
+	enabled = false
+	$Sprite.animation = 'die'
+	pass

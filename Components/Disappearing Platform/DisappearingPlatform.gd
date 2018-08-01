@@ -17,7 +17,7 @@ func _process(delta):
 		$CollisionShape2D.disabled = false
 
 func stepped(object):
-	if object.name == "Player" && enabled:
+	if object.name == "Player" && enabled && !rewinding:
 		enabled = false
 		$Disappear.play("Disappear")
 		$Disappear.connect("animation_finished", self, "done")
