@@ -159,16 +159,16 @@ JUMP = 1.3
 [node name="Sprite" type="Sprite" parent="." index="12"]
 
 position = Vector2( 591.629, 400.729 )
-scale = Vector2( 1.17218, 1.17218 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 12 )
 region_enabled = true
 region_rect = Rect2( 80, 32, 16, 16 )
-_sections_unfolded = [ "Region" ]
+_sections_unfolded = [ "Region", "Transform" ]
 
 [node name="Player" parent="." index="13" instance=ExtResource( 13 )]
 
 editor/display_folded = true
-position = Vector2( 44.0001, 222.53 )
+position = Vector2( 44.1438, 222.53 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Player" index="6"]
 
