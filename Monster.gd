@@ -25,7 +25,7 @@ func _physics_process(delta):
 	# Update game logic here.
 	$CollisionShape2D.disabled = !enabled
 	motion = Vector2(0, 0)
-	if enabled:
+	if enabled && !rewinding:
 		# Sprite
 		$Sprite.flip_h = ACC < 0
 		if is_on_floor():
@@ -56,7 +56,9 @@ func side_collide(object):
 func _will_interact_player(object):
 	return object.name == "Player" && enabled && !rewinding
 	
-func die():
+func die(untracks = false):
 	enabled = false
 	$Sprite.animation = 'die'
+	if untracks:
+		get_parent().remove(self)
 	pass

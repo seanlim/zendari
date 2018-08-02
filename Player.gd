@@ -7,7 +7,6 @@ export var JUMP_HEIGHT = -270
 # const DOUBLE_JUMP_FACTOR = 1.3
 const UP = Vector2(0,-1)
 
-
 var enabled = true
 
 var motion = Vector2()
@@ -38,6 +37,7 @@ func _process(delta):
 func _physics_process(delta):
 	# REWIND 
 	$RewindIcon.visible = rewinding
+	$CollisionShape2D.disabled = !enabled
 	if rewinding:
 		# Cuts player motion
 		motion = Vector2(0,0)

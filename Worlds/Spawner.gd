@@ -10,7 +10,7 @@ func ready():
 	set_process(true)
 	
 func _process(delta):
-	if enabled:
+	if enabled && !get_parent().get_node("Player").rewinding:
 		timer += delta
 		if (timer > rate):
 			print('Will spawn')
