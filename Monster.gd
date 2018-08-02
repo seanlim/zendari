@@ -4,12 +4,9 @@ export var GRAVITY = 40
 export var ACC = 50
 export var JUMP = 1.0
 export var one_way = false
-export var disposable = false
 
 var enabled = true
 var rewinding = false
-
-var timer = null # Thanks GDScript >:(
 
 const UP = Vector2(0,-1)
 var motion = Vector2()

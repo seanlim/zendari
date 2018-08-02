@@ -225,7 +225,7 @@ shape = SubResource( 3 )
 [node name="Player" parent="." index="16" instance=ExtResource( 17 )]
 
 editor/display_folded = true
-position = Vector2( -160, 280.639 )
+position = Vector2( -160, 280 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Player" index="9"]
 
@@ -240,7 +240,7 @@ area_mask = 1
 
 [node name="Portal" parent="." index="17" instance=ExtResource( 19 )]
 
-position = Vector2( -227.611, 292.052 )
+position = Vector2( -230, 290 )
 Next_Scene = "res://Worlds/Leveltwo.tscn"
 
 
