@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Components/Spikes.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=3]
+
+[node name="Node" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 589813, 19, 0, 589814, 19, 0, 589815, 19, 0, 589816, 19, 0, 589817, 19, 0, 589818, 19, 0, 589819, 19, 0, 589820, 19, 0, 589821, 19, 0, 589822, 19, 0, 589823, 19, 0, 524288, 19, 0, 524289, 19, 0, 524290, 19, 0, 524291, 19, 0, 524292, 41, 0, 655348, 9, 0, 655349, 43, 0, 655350, 43, 0, 655351, 43, 0, 655352, 43, 0, 655353, 43, 0, 655354, 43, 0, 655355, 43, 0, 655356, 43, 0, 655357, 43, 0, 655358, 43, 0, 655359, 43, 0, 589824, 43, 0, 589825, 43, 0, 589826, 43, 0, 589827, 43, 0, 589828, 8, 0, 720884, 12, 0, 786420, 12, 0, 851956, 12, 0, 917492, 12, 0, 983025, 19, 0, 983026, 19, 0, 983027, 19, 0, 983028, 19, 0, 983029, 19, 0, 983030, 19, 0, 983031, 19, 0, 983032, 19, 0, 983033, 41, 0, 983037, 40, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Spikes" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( -152.41, 456.459 )
+
+[node name="Player" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( -267.995, 378.185 )
+
+

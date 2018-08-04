@@ -36,6 +36,7 @@ func _ready():
 	track($Player)
 	track($Monster)
 	track($Monster2)
+	track($Monster3)
 	pass
 
 func _process(delta):

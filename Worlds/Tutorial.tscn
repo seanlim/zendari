@@ -296,7 +296,7 @@ Next_Scene = "res://Worlds/World1.tscn"
 [node name="Player" parent="." index="15" instance=ExtResource( 13 )]
 
 editor/display_folded = true
-position = Vector2( -314.406, 216.028 )
+position = Vector2( -310.325, -168.958 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Player" index="6"]
 
