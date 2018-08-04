@@ -17,7 +17,7 @@ func stepped(object):
 		enabled = false
 		$Disappear.play("Disappear")
 		$Disappear.connect("animation_finished", self, "done")
-	else:
+	elif enabled:
 		$"Actual Sprite".visible = true
 
 func done(Disappear):

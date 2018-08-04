@@ -21,7 +21,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 2.0813, 136.341 )
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 OBJECTIVE_COUNT = 2
@@ -88,7 +88,6 @@ area_mask = 1
 
 [node name="Objective" parent="." index="7" instance=ExtResource( 8 )]
 
-editor/display_folded = true
 position = Vector2( 540.523, 385.856 )
 scale = Vector2( 0.642048, 0.642048 )
 _sections_unfolded = [ "Transform" ]

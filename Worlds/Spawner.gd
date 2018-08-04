@@ -20,7 +20,6 @@ func _process(delta):
 			addMonster.GRAVITY = 180
 			addMonster.name = 'Monster'
 			addMonster.one_way = true
-			addMonster.disposable = true
 			addMonster.JUMP = 1.3
 			addMonster.ACC = -70
 			addMonster.position = self.position
