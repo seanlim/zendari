@@ -40,8 +40,6 @@ func _ready():
 	track($Platform4)
 	track($Platform5)
 	track($Platform6)
-	track($Platform7)
-	track($Platform8)
 	track($Platform9)
 	track($Platform10)
 	track($Platform11)
