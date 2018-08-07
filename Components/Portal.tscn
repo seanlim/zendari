@@ -111,7 +111,7 @@ tracks/4/keys = {
 "values": [ false, true ]
 }
 
-[node name="Portal" type="Area2D" index="0"]
+[node name="Portal" type="Area2D"]
 
 scale = Vector2( 0.5, 1 )
 input_pickable = true
@@ -168,7 +168,6 @@ position = Vector2( 8.02568, 0 )
 scale = Vector2( 1e-05, 1e-05 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 

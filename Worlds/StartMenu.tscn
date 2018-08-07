@@ -1,10 +1,215 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Worlds/StartMenu.gd" type="Script" id=1]
-[ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=2]
-[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://title.png" type="Texture" id=4]
-[ext_resource path="res://Components/ParallaxBackground.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Components/ParallaxBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player.gd" type="Script" id=3]
+[ext_resource path="res://World.shader" type="Shader" id=4]
+[ext_resource path="res://white.png" type="Texture" id=5]
+[ext_resource path="res://Player/Idle0.png" type="Texture" id=6]
+[ext_resource path="res://Player/Jump4.png" type="Texture" id=7]
+[ext_resource path="res://Player/Run0.png" type="Texture" id=8]
+[ext_resource path="res://Player/Run1.png" type="Texture" id=9]
+[ext_resource path="res://Player/Run2.png" type="Texture" id=10]
+[ext_resource path="res://Player/Run3.png" type="Texture" id=11]
+[ext_resource path="res://Player/Run4.png" type="Texture" id=12]
+[ext_resource path="res://Player/Run7.png" type="Texture" id=13]
+[ext_resource path="res://Player/Jump3.png" type="Texture" id=14]
+[ext_resource path="res://Player/Jump0.png" type="Texture" id=15]
+[ext_resource path="res://Camera2D.gd" type="Script" id=16]
+[ext_resource path="res://Player/rewind.wav" type="AudioStream" id=17]
+[ext_resource path="res://key.png" type="Texture" id=18]
+[ext_resource path="res://Sounds/death.wav" type="AudioStream" id=19]
+[ext_resource path="res://rewind.png" type="Texture" id=20]
+[ext_resource path="res://pauseMenu.tscn" type="PackedScene" id=21]
+[ext_resource path="res://title.png" type="Texture" id=22]
+[ext_resource path="res://prologue.png" type="Texture" id=23]
+[ext_resource path="res://Sounds/departed souls.wav" type="AudioStream" id=24]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+shader = ExtResource( 4 )
+shader_param/rewind = false
+shader_param/died = false
+_sections_unfolded = [ "Resource", "shader_param" ]
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "rewind",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "fall",
+"speed": 35.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "jump",
+"speed": 10.0
+} ]
+
+[sub_resource type="OccluderPolygon2D" id=3]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( 0, -24, -4, -24, -8, -20, -16, -12, -16, 0, -12, 8, -12, 20, -12, 28, -8, 32, 0, 32, 8, 32, 8, 28, 16, 24, 16, 16, 12, 12, 16, -4, 16, -16, 12, -20, 8, -24, 0, -24 )
+
+[sub_resource type="Gradient" id=4]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1 )
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="GradientTexture" id=5]
+
+flags = 4
+gradient = SubResource( 4 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=6]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 0.0
+flatness = 1.0
+gravity = Vector3( 0, -60, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = -2.65901e-23
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.14
+damping_random = 0.0
+angle = 0.0
+angle_random = 1.0
+scale = 0.9
+scale_random = 0.4
+color_ramp = SubResource( 5 )
+hue_variation = 0.6
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Angular Velocity", "Animation", "Color", "Damping", "Gravity", "Hue Variation", "Scale", "Spread" ]
+
+[sub_resource type="CapsuleShape2D" id=7]
+
+custom_solver_bias = 0.0
+radius = 13.0
+height = 33.0
+
+[sub_resource type="Animation" id=8]
+
+resource_name = "hover"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 28.9967, -23.4356 ), Vector2( 28.9967, -15 ), Vector2( 28.9967, -23.4356 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+
+resource_name = "die"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
 
 [node name="StartMenu" type="Control" index="0"]
 
@@ -13,9 +218,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -320.0
-margin_top = 96.0
+margin_top = 1376.0
 margin_right = -320.0
-margin_bottom = 96.0
+margin_bottom = 1376.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -25,33 +230,169 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="TileMap" type="TileMap" parent="." index="0"]
+[node name="ParallaxBackground" parent="." index="0" instance=ExtResource( 2 )]
 
-mode = 0
-tile_set = ExtResource( 2 )
-cell_size = Vector2( 32, 32 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
+[node name="Player" type="KinematicBody2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 384, -1152 )
+input_pickable = false
 collision_layer = 1
 collision_mask = 1
-occluder_light_mask = 1
-format = 1
-tile_data = PoolIntArray( -2097149, 28, 0, -2031615, 29, 0, -2031610, 29, 0, -2031597, 28, 0, -1966080, 31, 0, -1966079, 31, 0, -1966078, 31, 0, -1966077, 31, 0, -1966076, 31, 0, -1966075, 31, 0, -1966074, 31, 0, -1966073, 32, 0, -1835009, 13, 0, -1900544, 13, 0, -1900543, 13, 0, -1900542, 13, 0, -1900541, 13, 0, -1900540, 13, 0, -1900539, 13, 0, -1900538, 13, 0, -1900537, 13, 0, -1900536, 13, 0, -1900526, 31, 0, -1900525, 30, 0, -1900524, 31, 0, -1900523, 31, 0, -1769473, 7, 0, -1835008, 4, 0, -1835007, 4, 0, -1835006, 4, 0, -1835005, 4, 0, -1835004, 4, 0, -1835003, 4, 0, -1835002, 4, 0, -1835001, 4, 0, -1835000, -1073741817, 0, -1834990, 13, 0, -1834989, 13, 0, -1834988, 13, 0, -1834987, 13, 0, -1769471, 4, 0, -1769470, 4, 0, -1769469, 4, 0, -1769468, 4, 0, -1769467, 4, 0, -1769466, 4, 0, -1769465, -1073741817, 0, -1703935, 7, 0, -1703934, 4, 0, -1703933, 4, 0, -1703932, 4, 0, -1703931, 4, 0, -1703930, -1073741817, 0, -1638398, 4, 0, -1638397, 4, 0, -1638396, 4, 0, -1638395, 8, 0, -1572862, 5, 0, -1572861, -1610612724, 0, -1572860, 8, 0, -1376238, 31, 0, -1376237, 31, 0, -1376236, 31, 0, -1376235, 31, 0, -1310702, 18, 0, -1310701, 15, 0, -1310700, 15, 0, -1310699, 18, 0, -1245180, 29, 0, -1245165, 17, 0, -1245164, 16, 0, -1179644, 31, 0, -1179643, 31, 0, -1179642, 31, 0, -1179641, 31, 0, -1179628, 17, 0, -1114108, 15, 0, -1114107, 15, 0, -1114106, 15, 0, -1114105, 15, 0, -1048572, 16, 0, -1048571, 16, 0, -1048570, 16, 0, -1048569, 16, 0, -983036, 16, 0, -983035, 16, 0, -983034, 16, 0, -983033, 16, 0, -917500, 17, 0, -917499, 16, 0, -917498, 16, 0, -917497, 17, 0, -851963, 17, 0, -851962, 16, 0, -786426, 17, 0, -524282, 29, 0, -458747, 31, 0, -458746, 31, 0, -458745, 31, 0, -458744, 31, 0, -458743, 31, 0, -458734, 31, 0, -458733, 31, 0, -393211, 18, 0, -393210, 18, 0, -393209, 15, 0, -393208, 15, 0, -393207, 15, 0, -393198, 18, 0, -393197, 18, 0, -327673, 17, 0, -327672, 16, 0, -327671, 17, 0, -262136, 17, 0, 393224, 28, 0, 458760, 33, 0, 458768, 33, 0, 458769, 33, 0, 458770, 33, 0, 524291, 31, 0, 524292, 31, 0, 524293, 31, 0, 524294, 31, 0, 524295, 31, 0, 524296, 31, 0, 524297, 31, 0, 524298, 31, 0, 524299, 31, 0, 524300, 31, 0, 524301, 31, 0, 524302, 31, 0, 524303, 31, 0, 524304, 31, 0, 524305, 31, 0, 524306, 31, 0, 524307, 31, 0, 524308, 32, 0, 524309, 31, 0, 589827, 19, 0, 589828, 19, 0, 589829, 19, 0, 589830, 19, 0, 589831, 19, 0, 589832, 19, 0, 589833, 19, 0, 589834, 19, 0, 589835, 19, 0, 589836, 19, 0, 589837, 19, 0, 589838, 19, 0, 589839, 19, 0, 589840, 19, 0, 589841, 19, 0, 589842, 19, 0, 589843, 19, 0, 589844, 19, 0, 589845, 19, 0, 655363, 3, 0, 655364, 4, 0, 655365, 16, 0, 655366, 4, 0, 655367, 4, 0, 655368, 4, 0, 655369, 4, 0, 655370, 4, 0, 655371, 16, 0, 655372, 4, 0, 655373, 4, 0, 655374, 4, 0, 655375, 4, 0, 655376, 4, 0, 655377, 16, 0, 655378, 4, 0, 655379, 4, 0, 655380, 16, 0, 655381, 1610612739, 0, 720900, 5, 0, 720901, 4, 0, 720902, 4, 0, 720903, 16, 0, 720904, 4, 0, 720905, 4, 0, 720906, 4, 0, 720907, 4, 0, 720908, 4, 0, 720909, 4, 0, 720910, 16, 0, 720911, 4, 0, 720912, 4, 0, 720913, 4, 0, 720914, 16, 0, 720915, 4, 0, 720916, -1073741819, 0, 786437, 5, 0, 786438, 43, 0, 786439, 43, 0, 786440, 43, 0, 786441, 43, 0, 786442, 43, 0, 786443, 43, 0, 786444, 43, 0, 786445, 43, 0, 786446, 43, 0, 786447, 43, 0, 786448, 43, 0, 786449, 43, 0, 786450, 43, 0, 786451, -1073741819, 0, 1179662, 33, 0, 1179663, 33, 0, 1179664, 33, 0 )
-_sections_unfolded = [ "Cell" ]
+collision/safe_margin = 0.08
+script = ExtResource( 3 )
+_sections_unfolded = [ "Pickable", "Transform", "collision" ]
 __meta__ = {
-"_edit_lock_": true
+"_edit_group_": true
 }
+JUMP_HEIGHT = -270
 
-[node name="Player" parent="." index="1" instance=ExtResource( 3 )]
+[node name="Shader" type="TextureRect" parent="Player" index="0"]
 
-position = Vector2( 384, -1152 )
+material = SubResource( 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -699.0
+margin_top = -453.0
+margin_right = 672.0
+margin_bottom = 384.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material" ]
+
+[node name="Sprite" type="AnimatedSprite" parent="Player" index="1"]
+
+editor/display_folded = true
+frames = SubResource( 2 )
+animation = "idle"
+playing = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Player/Sprite" index="0"]
+
+modulate = Color( 0.0859375, 0.0713836, 0.0713836, 0 )
+occluder = SubResource( 3 )
+light_mask = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="RewindParticles" type="Particles2D" parent="Player" index="2"]
+
+modulate = Color( 0.26468, 0.878906, 0.0926971, 0.685098 )
+show_behind_parent = true
+emitting = false
+amount = 104
+lifetime = 0.08
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = false
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 6 )
+texture = ExtResource( 14 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Transform", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="3"]
+
+visible = false
+shape = SubResource( 7 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Camera2D" type="Camera2D" parent="Player" index="4"]
+
+position = Vector2( 0.294867, -54.7369 )
+scale = Vector2( 4.46954, 4.10319 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1.2, 1.2 )
+limit_left = -799993
+limit_top = -800000
+limit_right = 800000
+limit_bottom = 800000
+limit_smoothed = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+smoothing_enabled = true
+smoothing_speed = 7.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+script = ExtResource( 16 )
+_sections_unfolded = [ "Drag Margin", "Limit", "Smoothing" ]
+
+[node name="RewindSound" type="AudioStreamPlayer2D" parent="Player" index="5"]
+
+stream = ExtResource( 17 )
+volume_db = 1.0
+pitch_scale = 2.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 0.615572
+bus = "Master"
+area_mask = 1
+
+[node name="Key" type="Sprite" parent="Player" index="6"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 28.9967, -20.1775 )
+rotation = 0.0674099
+scale = Vector2( 1.03862, 1.03862 )
+texture = ExtResource( 18 )
+_sections_unfolded = [ "Animation", "Visibility" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Key" index="0"]
+
+root_node = NodePath("..")
+autoplay = "hover"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/hover = SubResource( 8 )
+blend_times = [  ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player" index="7"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/die = SubResource( 9 )
+blend_times = [  ]
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="Player" index="8"]
+
+stream = ExtResource( 19 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Player" index="9"]
 
@@ -65,13 +406,52 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
+[node name="RewindIcon" type="Sprite" parent="Player" index="10"]
+
+visible = false
+position = Vector2( -17, -43 )
+scale = Vector2( 0.0546875, 0.0546875 )
+texture = ExtResource( 20 )
+
+[node name="cntr_pause" parent="Player" index="11" instance=ExtResource( 21 )]
+
+visible = false
+
 [node name="Title" type="Sprite" parent="Player" index="12"]
 
 position = Vector2( -2.16621, -71.144 )
 scale = Vector2( 0.492801, 0.492801 )
-texture = ExtResource( 4 )
+texture = ExtResource( 22 )
 _sections_unfolded = [ "Material" ]
 
-[node name="ParallaxBackground" parent="." index="2" instance=ExtResource( 5 )]
+[node name="Sprite" type="Sprite" parent="." index="2"]
+
+position = Vector2( 384, -736 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 23 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 960, 240 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Sprite2" type="Sprite" parent="." index="3"]
+
+position = Vector2( 352, -416 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 23 )
+region_enabled = true
+region_rect = Rect2( 0, 330, 780, 270 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="4"]
+
+position = Vector2( 320, -1184 )
+stream = ExtResource( 24 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 

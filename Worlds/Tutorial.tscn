@@ -12,7 +12,7 @@
 [ext_resource path="res://Door.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Components/Player.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Sounds/main.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sounds/Ephemeral Memory.wav" type="AudioStream" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -128,7 +128,6 @@ Next_Scene = "res://Worlds/LevelFour.tscn"
 
 [node name="Player" parent="." index="14" instance=ExtResource( 12 )]
 
-editor/display_folded = true
 position = Vector2( -277.608, 220.761 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Player" index="6"]
