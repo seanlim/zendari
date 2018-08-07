@@ -38,6 +38,7 @@ func _ready():
 	track($Platform3)
 	track($Platform4)
 	track($Platform5)
+	track($Switch)
 	pass
 
 func _process(delta):

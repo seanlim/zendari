@@ -1,8 +1,8 @@
 extends Node
 
 const TIME_WARP = 0.3 # Factor in which time warps
-const REWIND_FRAMERATE = 0.001
-const RECORD_FRAMERATE = 0.03
+const REWIND_FRAMERATE = 0.0001
+const RECORD_FRAMERATE = 0.02
 
 var global_store = Dictionary() # Global state store
 var rewind_entities = Array() # Defines entities to track
@@ -10,7 +10,7 @@ var rewind_entities = Array() # Defines entities to track
 var counter = 0.0
 
 var objective_count = 0
-export var OBJECTIVE_COUNT = 2
+export var OBJECTIVE_COUNT = 1
 
 ##### HELPERS
 # Creates trackable entity
@@ -28,18 +28,16 @@ func remove(entity):
 func _state_for(entity):
 	return [entity.position, entity.enabled, entity.get_node('Sprite').animation]
 
-
 #####
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	track($Player)
-	track($Monster)
-	track($Monster2)
-	track($Monster3)
-	track($Monster4)
 	track($Platform)
 	track($Platform2)
+	track($Platform3)
+	track($Platform4)
+	track($Platform5)
 	pass
 
 func _process(delta):

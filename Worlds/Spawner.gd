@@ -24,4 +24,4 @@ func _process(delta):
 			addMonster.ACC = -70
 			addMonster.position = self.position
 			get_parent().add_child(addMonster)
-			get_parent().track(addMonster)
+			# get_parent().track(addMonster)

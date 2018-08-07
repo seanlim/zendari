@@ -426,7 +426,7 @@ _sections_unfolded = [ "Material" ]
 
 [node name="Sprite" type="Sprite" parent="." index="2"]
 
-position = Vector2( 384, -736 )
+position = Vector2( 192, -896 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 23 )
 region_enabled = true
@@ -435,7 +435,7 @@ _sections_unfolded = [ "Region", "Transform" ]
 
 [node name="Sprite2" type="Sprite" parent="." index="3"]
 
-position = Vector2( 352, -416 )
+position = Vector2( 160, -576 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 23 )
 region_enabled = true

@@ -157,7 +157,8 @@ JUMP = 1.5
 
 [node name="Portal" parent="." index="14" instance=ExtResource( 8 )]
 
-position = Vector2( 1056, 160 )
+position = Vector2( 1072, 160 )
+Next_Scene = "res://Worlds/World1.tscn"
 
 [node name="Lever" parent="." index="15" instance=ExtResource( 9 )]
 
