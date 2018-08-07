@@ -64,7 +64,7 @@ extents = Vector2( 10, 32.917 )
 custom_solver_bias = 0.0
 extents = Vector2( 1.33319, 268.667 )
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 script = ExtResource( 1 )
 OBJECTIVE_COUNT = 1
