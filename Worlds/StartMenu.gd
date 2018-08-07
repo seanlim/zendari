@@ -14,7 +14,7 @@ func _process(detla):
 		timer = Timer.new()
 		timer.set_one_shot(true)
 		timer.set_timer_process_mode(Timer.TIMER_PROCESS_IDLE)
-		timer.set_wait_time(0.40)
+		timer.set_wait_time(0.50)
 		timer.connect("timeout", self, "transition")
 		timer.start()
 		add_child(timer)
