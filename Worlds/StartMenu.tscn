@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Worlds/StartMenu.gd" type="Script" id=1]
-[ext_resource path="res://Components/ParallaxBackground1.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=3]
-[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://title.png" type="Texture" id=5]
+[ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://title.png" type="Texture" id=4]
+[ext_resource path="res://Components/ParallaxBackground.tscn" type="PackedScene" id=5]
 
 [node name="StartMenu" type="Control" index="0"]
 
@@ -25,12 +25,10 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="ParallaxBackground" parent="." index="0" instance=ExtResource( 2 )]
-
-[node name="TileMap" type="TileMap" parent="." index="1"]
+[node name="TileMap" type="TileMap" parent="." index="0"]
 
 mode = 0
-tile_set = ExtResource( 3 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -51,7 +49,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Player" parent="." index="2" instance=ExtResource( 4 )]
+[node name="Player" parent="." index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 384, -1152 )
 
@@ -71,7 +69,9 @@ area_mask = 1
 
 position = Vector2( -2.16621, -71.144 )
 scale = Vector2( 0.492801, 0.492801 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Material" ]
+
+[node name="ParallaxBackground" parent="." index="2" instance=ExtResource( 5 )]
 
 

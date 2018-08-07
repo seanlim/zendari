@@ -12,6 +12,6 @@ void fragment() {
 		COLOR = vec4(col.r * 0.03, col.b * 0.07, col.g * 0.0, 0.7);
 	}
 	else {
-		COLOR = vec4(0, 0, 0, 0.15);
+		COLOR = vec4(0, 0, 0, 0.0 );
 	}
 }

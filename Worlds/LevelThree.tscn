@@ -88,6 +88,7 @@ position = Vector2( 416.571, 403.447 )
 
 [node name="Portal" parent="." index="8" instance=ExtResource( 11 )]
 
-position = Vector2( 529.593, 222.756 )
+position = Vector2( 530.555, 222.756 )
+Next_Scene = "res://Worlds/Tutorial.tscn"
 
 

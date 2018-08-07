@@ -34,6 +34,7 @@ func _ready():
 	# Initialization here
 	track($Player)
 	track($Monster)
+	track($Monster2)
 	track($Platform)
 	track($Platform3)
 	track($Platform4)

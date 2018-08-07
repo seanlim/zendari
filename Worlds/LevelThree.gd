@@ -2,7 +2,7 @@ extends Node
 
 const TIME_WARP = 0.3 # Factor in which time warps
 const REWIND_FRAMERATE = 0.001
-const RECORD_FRAMERATE = 0.03
+const RECORD_FRAMERATE = 0.05
 
 var global_store = Dictionary() # Global state store
 var rewind_entities = Array() # Defines entities to track
