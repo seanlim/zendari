@@ -80,10 +80,10 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="LevelTitle" parent="." index="2" instance=ExtResource( 4 )]
 
-margin_left = 125.0
-margin_top = 98.0
-margin_right = 1137.0
-margin_bottom = 138.0
+margin_left = -245.0
+margin_top = 8.0
+margin_right = 767.0
+margin_bottom = 48.0
 
 [node name="Objective" parent="." index="3" instance=ExtResource( 5 )]
 
@@ -201,7 +201,6 @@ rotation = 1.5708
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 

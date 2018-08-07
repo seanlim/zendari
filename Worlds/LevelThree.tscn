@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Worlds/LevelThree.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=2]
@@ -10,11 +10,10 @@
 [ext_resource path="res://Components/Spikes.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Components/Key.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objective.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Sounds/assemble_asharp_maj.wav" type="AudioStream" id=11]
-[ext_resource path="res://Door.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Instruction4.png" type="Texture" id=13]
-[ext_resource path="res://Keyboard Buttons.png" type="Texture" id=14]
-[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Instruction4.png" type="Texture" id=12]
+[ext_resource path="res://Keyboard Buttons.png" type="Texture" id=13]
+[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=14]
 
 [node name="Node" type="Node" index="0"]
 
@@ -44,10 +43,10 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="LevelTitle" parent="." index="1" instance=ExtResource( 3 )]
 
-margin_left = -355.0
-margin_top = 98.0
-margin_right = 657.0
-margin_bottom = 138.0
+margin_left = -655.0
+margin_top = -32.0
+margin_right = 357.0
+margin_bottom = 8.0
 texture = ExtResource( 4 )
 
 [node name="ParallaxBackground" parent="." index="2" instance=ExtResource( 5 )]
@@ -82,11 +81,12 @@ position = Vector2( -291.662, 425.58 )
 
 [node name="Objective" parent="." index="7" instance=ExtResource( 10 )]
 
+editor/display_folded = true
 position = Vector2( 573.522, 417.908 )
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="Objective" index="4"]
 
-stream = ExtResource( 11 )
+stream = null
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -95,7 +95,7 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="Door" parent="." index="8" instance=ExtResource( 12 )]
+[node name="Door" parent="." index="8" instance=ExtResource( 11 )]
 
 position = Vector2( 416.571, 403.447 )
 
@@ -103,18 +103,18 @@ position = Vector2( 416.571, 403.447 )
 
 position = Vector2( 220.366, 132.394 )
 scale = Vector2( 0.518927, 0.518927 )
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 
 [node name="Sprite2" type="Sprite" parent="." index="10"]
 
 position = Vector2( 184.6, 122.038 )
 scale = Vector2( 1.49526, 1.49526 )
-texture = ExtResource( 14 )
+texture = ExtResource( 13 )
 region_enabled = true
 region_rect = Rect2( 5.625, 63.875, 42.5, 16.375 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Portal" parent="." index="11" instance=ExtResource( 15 )]
+[node name="Portal" parent="." index="11" instance=ExtResource( 14 )]
 
 position = Vector2( 530.555, 222.756 )
 Next_Scene = "res://Worlds/Tutorial.tscn"
