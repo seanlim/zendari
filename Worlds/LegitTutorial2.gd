@@ -34,10 +34,20 @@ func _ready():
 	# Initialization here
 	track($Player)
 	track($Platform)
-	track($Platform2)
+	track($Platform8)
+	track($Platform9)
+	track($Platform10)
+	track($Platform6)
+	track($Platform7)
 	track($Platform3)
 	track($Platform4)
+	track($Platform11)
+	track($Platform12)
+	track($Platform13)
+	track($Platform14)
 	track($Platform5)
+	track($Platform15)
+	track($Platform16)
 	pass
 
 func _process(delta):
