@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Worlds/World1.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=2]
@@ -11,9 +11,10 @@
 [ext_resource path="res://Monster.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Components/ParallaxBackground1.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objective.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Sounds/Forest_Ambience.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/hjm-glass_bell_1.wav" type="AudioStream" id=12]
+[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sounds/Forest_Ambience.wav" type="AudioStream" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -194,8 +195,8 @@ position = Vector2( 217.894, 321.651 )
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="Objective" index="4"]
 
-stream = null
-volume_db = 0.0
+stream = ExtResource( 12 )
+volume_db = -3.0
 pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
@@ -210,7 +211,7 @@ _sections_unfolded = [ "Collision", "Z Index", "collision" ]
 ACC = 45
 JUMP = 1.4
 
-[node name="Portal" parent="." index="17" instance=ExtResource( 12 )]
+[node name="Portal" parent="." index="17" instance=ExtResource( 13 )]
 
 position = Vector2( 507.169, 191.437 )
 Next_Scene = "res://Worlds/Sandbox.tscn"
@@ -229,8 +230,8 @@ position = Vector2( 176.153, 167.162 )
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="Objective2" index="4"]
 
-stream = null
-volume_db = 0.0
+stream = ExtResource( 12 )
+volume_db = -3.0
 pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
@@ -238,16 +239,15 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="Player" parent="." index="20" instance=ExtResource( 13 )]
+[node name="Player" parent="." index="20" instance=ExtResource( 14 )]
 
-editor/display_folded = true
 position = Vector2( -575.723, 255.708 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 
 [node name="Music" type="AudioStreamPlayer" parent="Player" index="6"]
 
-stream = ExtResource( 14 )
-volume_db = -5.08
+stream = ExtResource( 15 )
+volume_db = -3.33
 pitch_scale = 1.0
 autoplay = true
 mix_target = 0

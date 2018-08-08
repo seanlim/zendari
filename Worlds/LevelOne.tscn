@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Worlds/LevelOne.gd" type="Script" id=1]
 [ext_resource path="res://Components/ParallaxBackground1.tscn" type="PackedScene" id=2]
@@ -11,15 +11,16 @@
 [ext_resource path="res://Components/Lever.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Components/Spikes.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objective.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Spawner.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Moving Platform.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Worlds/LevelOne-Switch.gd" type="Script" id=14]
-[ext_resource path="res://Tiles/Lever/lever2.png" type="Texture" id=15]
-[ext_resource path="res://Tiles/Lever/lever1.png" type="Texture" id=16]
-[ext_resource path="res://Tiles/Lever/lever0.png" type="Texture" id=17]
-[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Sounds/Forest_Ambience.wav" type="AudioStream" id=20]
+[ext_resource path="res://Sounds/hjm-glass_bell_1.wav" type="AudioStream" id=12]
+[ext_resource path="res://Spawner.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Moving Platform.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Worlds/LevelOne-Switch.gd" type="Script" id=15]
+[ext_resource path="res://Tiles/Lever/lever0.png" type="Texture" id=16]
+[ext_resource path="res://Tiles/Lever/lever1.png" type="Texture" id=17]
+[ext_resource path="res://Tiles/Lever/lever2.png" type="Texture" id=18]
+[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Sounds/Forest_Ambience.wav" type="AudioStream" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -29,14 +30,14 @@ extents = Vector2( 10, 147.604 )
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "off",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ), ExtResource( 16 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "on",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "off",
 "speed": 5.0
 } ]
 
@@ -183,8 +184,8 @@ position = Vector2( -201.635, 160.892 )
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="Objective" index="4"]
 
-stream = null
-volume_db = 0.0
+stream = ExtResource( 12 )
+volume_db = -3.0
 pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
@@ -192,12 +193,12 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="Spawner" parent="." index="14" instance=ExtResource( 12 )]
+[node name="Spawner" parent="." index="14" instance=ExtResource( 13 )]
 
 position = Vector2( 600, 70 )
 enabled = true
 
-[node name="Moving Platform" parent="." index="15" instance=ExtResource( 13 )]
+[node name="Moving Platform" parent="." index="15" instance=ExtResource( 14 )]
 
 position = Vector2( 405.184, 206.884 )
 scale = Vector2( 1.04571, 0.934166 )
@@ -216,7 +217,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -231,19 +232,19 @@ animation = "off"
 position = Vector2( 16.7958, -1.11975 )
 shape = SubResource( 3 )
 
-[node name="Portal" parent="." index="17" instance=ExtResource( 18 )]
+[node name="Portal" parent="." index="17" instance=ExtResource( 19 )]
 
 position = Vector2( -230, 290 )
 Next_Scene = "res://Worlds/Leveltwo.tscn"
 
-[node name="Player" parent="." index="18" instance=ExtResource( 19 )]
+[node name="Player" parent="." index="18" instance=ExtResource( 20 )]
 
 editor/display_folded = true
 position = Vector2( -161.36, 290.883 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Player" index="9"]
 
-stream = ExtResource( 20 )
+stream = ExtResource( 21 )
 volume_db = -3.3
 pitch_scale = 1.0
 autoplay = true

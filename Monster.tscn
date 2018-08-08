@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Monster.gd" type="Script" id=1]
 [ext_resource path="res://Components/Monster/tile000.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Components/Monster/tile002.png" type="Texture" id=14]
 [ext_resource path="res://Components/Monster/tile003.png" type="Texture" id=15]
 [ext_resource path="res://Components/Monster/tile004.png" type="Texture" id=16]
+[ext_resource path="res://Sounds/monster.wav" type="AudioStream" id=17]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -138,5 +139,16 @@ _sections_unfolded = [ "Collision" ]
 position = Vector2( -0.198632, 0.649325 )
 scale = Vector2( 1.78336, 0.443848 )
 shape = SubResource( 4 )
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="." index="4"]
+
+stream = ExtResource( 17 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 

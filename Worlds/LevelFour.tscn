@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Worlds/LevelFour.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=2]
@@ -8,16 +8,17 @@
 [ext_resource path="res://Components/Disappearing Platform/DisappearingPlatform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objective.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Monster.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Components/Lever.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Keyboard Buttons.png" type="Texture" id=11]
-[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Components/Key.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Components/Spikes.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Sounds/Forest_Ambience.wav" type="AudioStream" id=16]
-[ext_resource path="res://Worlds/Gate.gd" type="Script" id=17]
-[ext_resource path="res://Tiles/generic_platformer_tiles.png" type="Texture" id=18]
+[ext_resource path="res://Sounds/hjm-glass_bell_1.wav" type="AudioStream" id=9]
+[ext_resource path="res://Monster.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Components/Lever.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Keyboard Buttons.png" type="Texture" id=12]
+[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Components/Key.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Components/Spikes.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Sounds/Forest_Ambience.wav" type="AudioStream" id=17]
+[ext_resource path="res://Worlds/Gate.gd" type="Script" id=18]
+[ext_resource path="res://Tiles/generic_platformer_tiles.png" type="Texture" id=19]
 
 [sub_resource type="Animation" id=1]
 
@@ -151,8 +152,8 @@ position = Vector2( 1148.68, -33.5794 )
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="Objective" index="4"]
 
-stream = null
-volume_db = 0.0
+stream = ExtResource( 9 )
+volume_db = -3.0
 pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
@@ -160,13 +161,13 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="Monster" parent="." index="14" instance=ExtResource( 9 )]
+[node name="Monster" parent="." index="14" instance=ExtResource( 10 )]
 
 position = Vector2( 826.938, 178.379 )
 ACC = 100
 JUMP = 1.5
 
-[node name="Lever" parent="." index="15" instance=ExtResource( 10 )]
+[node name="Lever" parent="." index="15" instance=ExtResource( 11 )]
 
 position = Vector2( 1136.48, 277.81 )
 targetNode = "Gate"
@@ -176,17 +177,17 @@ persistent = false
 
 position = Vector2( 0.89608, -34.2859 )
 scale = Vector2( 1.75658, 1.79794 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 region_enabled = true
 region_rect = Rect2( 80.5, 33.25, 15.25, 14.5 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Portal" parent="." index="16" instance=ExtResource( 12 )]
+[node name="Portal" parent="." index="16" instance=ExtResource( 13 )]
 
 position = Vector2( 1072, 160 )
 Next_Scene = "res://Worlds/World1.tscn"
 
-[node name="Key" parent="." index="17" instance=ExtResource( 13 )]
+[node name="Key" parent="." index="17" instance=ExtResource( 14 )]
 
 position = Vector2( 1039.82, 152.752 )
 
@@ -194,34 +195,34 @@ position = Vector2( 1039.82, 152.752 )
 
 editor/display_folded = true
 
-[node name="Spikes" parent="Spikes" index="0" instance=ExtResource( 14 )]
+[node name="Spikes" parent="Spikes" index="0" instance=ExtResource( 15 )]
 
 position = Vector2( 614.583, 478.273 )
 
-[node name="Spikes2" parent="Spikes" index="1" instance=ExtResource( 14 )]
+[node name="Spikes2" parent="Spikes" index="1" instance=ExtResource( 15 )]
 
 position = Vector2( 675.542, 477.785 )
 
-[node name="Spikes3" parent="Spikes" index="2" instance=ExtResource( 14 )]
+[node name="Spikes3" parent="Spikes" index="2" instance=ExtResource( 15 )]
 
 position = Vector2( 738.452, 478.273 )
 
-[node name="Spikes4" parent="Spikes" index="3" instance=ExtResource( 14 )]
+[node name="Spikes4" parent="Spikes" index="3" instance=ExtResource( 15 )]
 
 position = Vector2( 804.776, 477.298 )
 
-[node name="Spikes5" parent="Spikes" index="4" instance=ExtResource( 14 )]
+[node name="Spikes5" parent="Spikes" index="4" instance=ExtResource( 15 )]
 
 position = Vector2( 858.909, 477.298 )
 
-[node name="Player" parent="." index="19" instance=ExtResource( 15 )]
+[node name="Player" parent="." index="19" instance=ExtResource( 16 )]
 
 editor/display_folded = true
 position = Vector2( -24.1174, 191.432 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Player" index="11"]
 
-stream = ExtResource( 16 )
+stream = ExtResource( 17 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
@@ -242,7 +243,7 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 _sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_group_": true
@@ -253,7 +254,7 @@ __meta__ = {
 editor/display_folded = true
 position = Vector2( 0, 6.7595 )
 scale = Vector2( 1, 1.26741 )
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 region_enabled = true
 region_rect = Rect2( 704, 96, 32, 64 )
 _sections_unfolded = [ "Region", "Transform", "Visibility" ]

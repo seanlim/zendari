@@ -56,6 +56,7 @@ func _will_interact_player(object):
 func die(untracks = false):
 	enabled = false
 	$Sprite.animation = 'die'
+	$Sound.play()
 	if untracks:
 		get_parent().remove(self)
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Worlds/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://Components/ParallaxBackground1.tscn" type="PackedScene" id=2]
@@ -10,10 +10,11 @@
 [ext_resource path="res://Key.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Monster.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objective.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Door.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Sounds/Forest_Ambience.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/hjm-glass_bell_1.wav" type="AudioStream" id=11]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sounds/Forest_Ambience.wav" type="AudioStream" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -117,8 +118,8 @@ scale = Vector2( 0.774344, 0.774344 )
 [node name="Sound" type="AudioStreamPlayer2D" parent="Objective" index="4"]
 
 position = Vector2( 2.58283, 0 )
-stream = null
-volume_db = 0.0
+stream = ExtResource( 11 )
+volume_db = -3.0
 pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
@@ -126,16 +127,16 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="Door" parent="." index="13" instance=ExtResource( 11 )]
+[node name="Door" parent="." index="13" instance=ExtResource( 12 )]
 
 position = Vector2( 958.325, 147.189 )
 
-[node name="Portal" parent="." index="14" instance=ExtResource( 12 )]
+[node name="Portal" parent="." index="14" instance=ExtResource( 13 )]
 
 position = Vector2( 1138.39, 158.19 )
 Next_Scene = "res://Worlds/LevelFour.tscn"
 
-[node name="Player" parent="." index="15" instance=ExtResource( 13 )]
+[node name="Player" parent="." index="15" instance=ExtResource( 14 )]
 
 position = Vector2( -277.608, 220.761 )
 
@@ -143,7 +144,7 @@ position = Vector2( -277.608, 220.761 )
 
 position = Vector2( 16.2302, 4.80969 )
 scale = Vector2( 4.36157, 3.26431 )
-stream = ExtResource( 14 )
+stream = ExtResource( 15 )
 volume_db = 0.0
 pitch_scale = 0.9
 autoplay = true

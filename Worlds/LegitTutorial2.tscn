@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Worlds/LegitTutorial2.gd" type="Script" id=1]
 [ext_resource path="res://Components/ParallaxBackground1.tscn" type="PackedScene" id=2]
@@ -9,13 +9,14 @@
 [ext_resource path="res://Components/Key.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objective.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Components/Spikes.tscn" type="PackedScene" id=10]
-[ext_resource path="res://instruction3.png" type="Texture" id=11]
-[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Sounds/Forest_Ambience.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/hjm-glass_bell_1.wav" type="AudioStream" id=10]
+[ext_resource path="res://Components/Spikes.tscn" type="PackedScene" id=11]
+[ext_resource path="res://instruction3.png" type="Texture" id=12]
+[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sounds/Forest_Ambience.wav" type="AudioStream" id=15]
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 script = ExtResource( 1 )
 OBJECTIVE_COUNT = 1
@@ -85,8 +86,8 @@ position = Vector2( 699.669, 40.7425 )
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="Objective" index="4"]
 
-stream = null
-volume_db = 0.0
+stream = ExtResource( 10 )
+volume_db = -3.0
 pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
@@ -98,39 +99,39 @@ area_mask = 1
 
 editor/display_folded = true
 
-[node name="Spikes" parent="Spikes" index="0" instance=ExtResource( 10 )]
+[node name="Spikes" parent="Spikes" index="0" instance=ExtResource( 11 )]
 
 position = Vector2( 421.507, 256.048 )
 
-[node name="Spikes2" parent="Spikes" index="1" instance=ExtResource( 10 )]
+[node name="Spikes2" parent="Spikes" index="1" instance=ExtResource( 11 )]
 
 position = Vector2( 490.362, 256.647 )
 
-[node name="Spikes3" parent="Spikes" index="2" instance=ExtResource( 10 )]
+[node name="Spikes3" parent="Spikes" index="2" instance=ExtResource( 11 )]
 
 position = Vector2( 567, 256.647 )
 
-[node name="Spikes4" parent="Spikes" index="3" instance=ExtResource( 10 )]
+[node name="Spikes4" parent="Spikes" index="3" instance=ExtResource( 11 )]
 
 position = Vector2( 567, 256.647 )
 
-[node name="Spikes5" parent="Spikes" index="4" instance=ExtResource( 10 )]
+[node name="Spikes5" parent="Spikes" index="4" instance=ExtResource( 11 )]
 
 position = Vector2( 635.256, 257.844 )
 
-[node name="Spikes6" parent="Spikes" index="5" instance=ExtResource( 10 )]
+[node name="Spikes6" parent="Spikes" index="5" instance=ExtResource( 11 )]
 
 position = Vector2( 713.092, 257.844 )
 
-[node name="Spikes7" parent="Spikes" index="6" instance=ExtResource( 10 )]
+[node name="Spikes7" parent="Spikes" index="6" instance=ExtResource( 11 )]
 
 position = Vector2( 773.564, 257.245 )
 
-[node name="Spikes8" parent="Spikes" index="7" instance=ExtResource( 10 )]
+[node name="Spikes8" parent="Spikes" index="7" instance=ExtResource( 11 )]
 
 position = Vector2( 823.259, 257.245 )
 
-[node name="Spikes9" parent="Spikes" index="8" instance=ExtResource( 10 )]
+[node name="Spikes9" parent="Spikes" index="8" instance=ExtResource( 11 )]
 
 position = Vector2( 890.318, 257.245 )
 
@@ -151,22 +152,22 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Portal" parent="." index="13" instance=ExtResource( 12 )]
+[node name="Portal" parent="." index="13" instance=ExtResource( 13 )]
 
 position = Vector2( 1280, 32 )
 Next_Scene = "res://Worlds/LevelThree.tscn"
 
-[node name="Player" parent="." index="14" instance=ExtResource( 13 )]
+[node name="Player" parent="." index="14" instance=ExtResource( 14 )]
 
 position = Vector2( 0, 96 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Player" index="11"]
 
-stream = ExtResource( 14 )
+stream = ExtResource( 15 )
 volume_db = -3.33
 pitch_scale = 1.0
 autoplay = true
