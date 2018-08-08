@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Worlds/LegitTutorial.gd" type="Script" id=1]
 [ext_resource path="res://Components/ParallaxBackground1.tscn" type="PackedScene" id=2]
@@ -8,14 +8,17 @@
 [ext_resource path="res://Monster.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Components/Spikes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Keyboard Buttons.png" type="Texture" id=8]
-[ext_resource path="res://Instruction2.png" type="Texture" id=9]
-[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Portal/portal0.png" type="Texture" id=11]
-[ext_resource path="res://Portal/portal1.png" type="Texture" id=12]
-[ext_resource path="res://Portal/portal2.png" type="Texture" id=13]
-[ext_resource path="res://Portal/portal3.png" type="Texture" id=14]
-[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Sounds/Ephemeral Memory.wav" type="AudioStream" id=16]
+[ext_resource path="res://Level Titles/exp3.png" type="Texture" id=9]
+[ext_resource path="res://Level Titles/exp1.png" type="Texture" id=10]
+[ext_resource path="res://Level Titles/exp2.png" type="Texture" id=11]
+[ext_resource path="res://Level Titles/exp4.png" type="Texture" id=12]
+[ext_resource path="res://Components/Portal.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Portal/portal0.png" type="Texture" id=14]
+[ext_resource path="res://Portal/portal1.png" type="Texture" id=15]
+[ext_resource path="res://Portal/portal2.png" type="Texture" id=16]
+[ext_resource path="res://Portal/portal3.png" type="Texture" id=17]
+[ext_resource path="res://Components/Player.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Sounds/Ephemeral Memory.wav" type="AudioStream" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -25,7 +28,7 @@ extents = Vector2( 4.09235, 99.3934 )
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": true,
 "name": "default",
 "speed": 10.0
@@ -174,11 +177,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1008.0
-margin_top = -3.0
-margin_right = 1495.0
-margin_bottom = 103.0
-rect_scale = Vector2( 0.5, 0.5 )
+margin_left = 976.0
+margin_top = 61.0
+margin_right = 1611.0
+margin_bottom = 163.0
+rect_scale = Vector2( 0.3, 0.3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -189,7 +192,70 @@ texture = ExtResource( 9 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Portal" parent="." index="10" instance=ExtResource( 10 )]
+[node name="Objective2" type="TextureRect" parent="Instruction" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 272.0
+margin_top = 29.0
+margin_right = 907.0
+margin_bottom = 131.0
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 10 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Objective3" type="TextureRect" parent="Instruction" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 528.0
+margin_top = 29.0
+margin_right = 1163.0
+margin_bottom = 131.0
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 11 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Objective4" type="TextureRect" parent="Instruction" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1200.0
+margin_top = -3.0
+margin_right = 2013.0
+margin_bottom = 99.0
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 12 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Portal" parent="." index="10" instance=ExtResource( 13 )]
 
 position = Vector2( 1184, 128 )
 Next_Scene = "res://Worlds/LegitTutorial2.tscn"
@@ -201,6 +267,7 @@ rotation = 1.5708
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -214,14 +281,14 @@ playback_speed = 1.0
 anims/default = SubResource( 3 )
 blend_times = [  ]
 
-[node name="Player" parent="." index="12" instance=ExtResource( 15 )]
+[node name="Player" parent="." index="12" instance=ExtResource( 18 )]
 
 editor/display_folded = true
 position = Vector2( 128, -32 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Player" index="11"]
 
-stream = ExtResource( 16 )
+stream = ExtResource( 19 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
