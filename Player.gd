@@ -3,7 +3,7 @@ extends KinematicBody2D
 var GRAVITY = 15
 const ACC = 50
 const SPEED_UPPER = 210
-export var JUMP_HEIGHT = -270
+export var JUMP_HEIGHT = -280
 # const DOUBLE_JUMP_FACTOR = 1.3
 const UP = Vector2(0,-1)
 
@@ -53,6 +53,7 @@ func _physics_process(delta):
 		shader.set_shader_param("rewind", false)
 		$RewindParticles.set_emitting(false)
 		$Music.pitch_scale = 1.0
+		$Music.volume_db = -3.33
 
 		# Gravity
 		motion.y += GRAVITY

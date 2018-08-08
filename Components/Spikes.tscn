@@ -13,9 +13,8 @@ load_path = "res://.import/Spikes.png-49c30a95905db224cbdec0180761d34f.stex"
 custom_solver_bias = 0.0
 extents = Vector2( 10.2458, 10 )
 
-[node name="Spikes" type="Area2D"]
+[node name="Spikes" type="Area2D" index="0"]
 
-editor/display_folded = true
 position = Vector2( 352.774, 613.769 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -30,7 +29,7 @@ script = ExtResource( 1 )
 
 position = Vector2( -352.774, -613.769 )
 stream = ExtResource( 2 )
-volume_db = 3.0
+volume_db = -3.0
 pitch_scale = 0.88
 autoplay = false
 max_distance = 2000.0

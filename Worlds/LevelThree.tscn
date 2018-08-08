@@ -116,7 +116,7 @@ _sections_unfolded = [ "Region" ]
 
 [node name="Portal" parent="." index="11" instance=ExtResource( 14 )]
 
-position = Vector2( 530.555, 222.756 )
+position = Vector2( 531.553, 222.756 )
 Next_Scene = "res://Worlds/Tutorial.tscn"
 
 
