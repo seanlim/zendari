@@ -111,7 +111,7 @@ tracks/4/keys = {
 "values": [ false, true ]
 }
 
-[node name="Portal" type="Area2D" index="0"]
+[node name="Portal" type="Area2D"]
 
 scale = Vector2( 0.5, 1 )
 input_pickable = true
@@ -148,8 +148,8 @@ color = Color( 1, 0, 1, 1 )
 energy = 0.8
 mode = 0
 range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
+range_z_min = -2024
+range_z_max = 2024
 range_layer_min = 0
 range_layer_max = 0
 range_item_cull_mask = 1
@@ -168,11 +168,14 @@ position = Vector2( 8.02568, 0 )
 scale = Vector2( 1e-05, 1e-05 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Particles2D" parent="." index="3" instance=ExtResource( 7 )]
+
+lifetime = 1.0
+explosiveness = 0.5
+randomness = 0.8
 
 [node name="Camera2D" type="Camera2D" parent="." index="4"]
 

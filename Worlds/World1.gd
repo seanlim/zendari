@@ -10,7 +10,7 @@ var rewind_entities = Array() # Defines entities to track
 var counter = 0.0
 
 var objective_count = 0
-export var OBJECTIVE_COUNT = 1
+export var OBJECTIVE_COUNT = 2
 
 ##### HELPERS
 # Creates trackable entity
@@ -36,17 +36,16 @@ func _ready():
 	track($Player)
 	track($Monster)
 	track($Monster2)
+	track($Monster3)
+	track($Monster4)
+	track($Platform)
+	track($Platform2)
 	pass
 
 func _process(delta):
 	counter += delta
 	if counter > RECORD_FRAMERATE && !$Player.rewinding:
 		for entity in rewind_entities:
-			if entity == $Player:
-				if entity.position != global_store[entity][-1][0] || entity.enabled  != global_store[entity][-1][1]:
-						global_store[entity].append(_state_for(entity))
-				pass 
-			else:
 				global_store[entity].append(_state_for(entity))
 		counter = 0
 	pass

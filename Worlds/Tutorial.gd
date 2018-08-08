@@ -1,8 +1,8 @@
 extends Node
 
 const TIME_WARP = 0.3 # Factor in which time warps
-const REWIND_FRAMERATE = 0.001
-const RECORD_FRAMERATE = 0.03
+const REWIND_FRAMERATE = 0.0001
+const RECORD_FRAMERATE = 0.02
 
 var global_store = Dictionary() # Global state store
 var rewind_entities = Array() # Defines entities to track
@@ -28,12 +28,13 @@ func remove(entity):
 func _state_for(entity):
 	return [entity.position, entity.enabled, entity.get_node('Sprite').animation]
 
-
 #####
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	track($Player)
+	track($Monster)
+	track($Monster2)
 	track($Platform)
 	track($Platform3)
 	track($Platform4)
@@ -44,11 +45,6 @@ func _process(delta):
 	counter += delta
 	if counter > RECORD_FRAMERATE && !$Player.rewinding:
 		for entity in rewind_entities:
-			if entity == $Player:
-				if entity.position != global_store[entity][-1][0] || entity.enabled  != global_store[entity][-1][1]:
-						global_store[entity].append(_state_for(entity))
-				pass 
-			else:
 				global_store[entity].append(_state_for(entity))
 		counter = 0
 	pass

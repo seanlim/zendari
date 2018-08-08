@@ -18,4 +18,4 @@ func _physics_process(delta):
 				body.die()
 				enabled = false
 			elif body is KinematicBody2D:
-				body.die()
+				body.die(true)

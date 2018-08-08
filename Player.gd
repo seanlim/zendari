@@ -7,7 +7,6 @@ export var JUMP_HEIGHT = -270
 # const DOUBLE_JUMP_FACTOR = 1.3
 const UP = Vector2(0,-1)
 
-
 var enabled = true
 
 var motion = Vector2()
@@ -38,7 +37,9 @@ func _process(delta):
 func _physics_process(delta):
 	# REWIND 
 	$RewindIcon.visible = rewinding
+	$CollisionShape2D.disabled = !enabled
 	if rewinding:
+		$CollisionShape2D.disabled = true
 		# Cuts player motion
 		motion = Vector2(0,0)
 
@@ -93,6 +94,7 @@ func _physics_process(delta):
 	pass
 
 func die():
+	$Camera2D.shake(0.9, 20, 2)
 	$Shader.get_material().set_shader_param("died", true)
 	$DeathSound.connect("finished",self,"on_timeout")
 	$DeathSound.play()

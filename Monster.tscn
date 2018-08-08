@@ -10,12 +10,12 @@
 [ext_resource path="res://Components/Monster/tile014.png" type="Texture" id=8]
 [ext_resource path="res://Components/Monster/tile008.png" type="Texture" id=9]
 [ext_resource path="res://Components/Monster/tile009.png" type="Texture" id=10]
-[ext_resource path="res://Components/Monster/tile002.png" type="Texture" id=11]
-[ext_resource path="res://Components/Monster/tile003.png" type="Texture" id=12]
-[ext_resource path="res://Components/Monster/tile004.png" type="Texture" id=13]
-[ext_resource path="res://Components/Monster/tile005.png" type="Texture" id=14]
-[ext_resource path="res://Components/Monster/tile006.png" type="Texture" id=15]
-[ext_resource path="res://Components/Monster/tile007.png" type="Texture" id=16]
+[ext_resource path="res://Components/Monster/tile005.png" type="Texture" id=11]
+[ext_resource path="res://Components/Monster/tile006.png" type="Texture" id=12]
+[ext_resource path="res://Components/Monster/tile007.png" type="Texture" id=13]
+[ext_resource path="res://Components/Monster/tile002.png" type="Texture" id=14]
+[ext_resource path="res://Components/Monster/tile003.png" type="Texture" id=15]
+[ext_resource path="res://Components/Monster/tile004.png" type="Texture" id=16]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -29,28 +29,29 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": false,
 "name": "die",
-"speed": 5.0
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "attack",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "falling",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "moving",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
-"loop": true,
-"name": "attack",
-"speed": 5.0
+"speed": 10.0
 } ]
+_sections_unfolded = [ "Resource" ]
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -80,7 +81,6 @@ GRAVITY = 15
 ACC = 50
 JUMP = 1.0
 one_way = false
-disposable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -93,7 +93,8 @@ shape = SubResource( 1 )
 position = Vector2( -0.520347, -6.61457 )
 scale = Vector2( 1.91097, 1.75172 )
 frames = SubResource( 2 )
-animation = "idle"
+animation = "die"
+frame = 6
 playing = true
 
 [node name="Vertical Collision" type="Area2D" parent="." index="2"]

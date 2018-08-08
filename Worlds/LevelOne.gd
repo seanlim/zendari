@@ -28,7 +28,6 @@ func remove(entity):
 func _state_for(entity):
 	return [entity.position, entity.enabled, entity.get_node('Sprite').animation]
 
-
 #####
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -39,18 +38,14 @@ func _ready():
 	track($Platform3)
 	track($Platform4)
 	track($Platform5)
+	track($Switch)
 	pass
 
 func _process(delta):
 	counter += delta
 	if counter > RECORD_FRAMERATE && !$Player.rewinding:
 		for entity in rewind_entities:
-			if entity == $Player:
-				if entity.position != global_store[entity][-1][0] || entity.enabled  != global_store[entity][-1][1]:
-						global_store[entity].append(_state_for(entity))
-				pass 
-			else:
-				global_store[entity].append(_state_for(entity))
+			global_store[entity].append(_state_for(entity))
 		counter = 0
 	pass
 	

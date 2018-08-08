@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Ephemeral Memory.wav-a91a3c1d17b8b3025f596e5df16aa1ad.sample"
+
+[deps]
+
+source_file="res://Sounds/Ephemeral Memory.wav"
+dest_files=[ "res://.import/Ephemeral Memory.wav-a91a3c1d17b8b3025f596e5df16aa1ad.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0
