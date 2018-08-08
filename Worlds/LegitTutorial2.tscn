@@ -52,75 +52,67 @@ margin_right = 647.0
 margin_bottom = -122.0
 texture = ExtResource( 5 )
 
-[node name="Platform" parent="." index="3" instance=ExtResource( 6 )]
-
-position = Vector2( 463.586, 112.156 )
-
-[node name="Platform8" parent="." index="4" instance=ExtResource( 6 )]
-
-position = Vector2( 495.586, 112.156 )
-
-[node name="Platform9" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Platform9" parent="." index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 527.586, 112.156 )
 
-[node name="Platform10" parent="." index="6" instance=ExtResource( 6 )]
+[node name="Platform10" parent="." index="4" instance=ExtResource( 6 )]
 
 position = Vector2( 559.586, 112.156 )
 
-[node name="Platform6" parent="." index="7" instance=ExtResource( 6 )]
+[node name="Platform6" parent="." index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 431.586, 112.156 )
 
-[node name="Platform7" parent="." index="8" instance=ExtResource( 6 )]
+[node name="Platform7" parent="." index="6" instance=ExtResource( 6 )]
 
 position = Vector2( 399.586, 112.156 )
 
-[node name="Platform3" parent="." index="9" instance=ExtResource( 6 )]
+[node name="Platform3" parent="." index="7" instance=ExtResource( 6 )]
 
 position = Vector2( 656.079, 112.211 )
 
-[node name="Platform4" parent="." index="10" instance=ExtResource( 6 )]
+[node name="Platform4" parent="." index="8" instance=ExtResource( 6 )]
 
 position = Vector2( 688.079, 112.211 )
 
-[node name="Platform11" parent="." index="11" instance=ExtResource( 6 )]
+[node name="Platform11" parent="." index="9" instance=ExtResource( 6 )]
 
 position = Vector2( 720.079, 112.211 )
 
-[node name="Platform12" parent="." index="12" instance=ExtResource( 6 )]
+[node name="Platform12" parent="." index="10" instance=ExtResource( 6 )]
 
 position = Vector2( 752.079, 112.211 )
 
-[node name="Platform13" parent="." index="13" instance=ExtResource( 6 )]
+[node name="Platform13" parent="." index="11" instance=ExtResource( 6 )]
 
 position = Vector2( 784.079, 112.211 )
 
-[node name="Platform14" parent="." index="14" instance=ExtResource( 6 )]
+[node name="Platform14" parent="." index="12" instance=ExtResource( 6 )]
 
 position = Vector2( 816.079, 112.211 )
 
-[node name="Platform5" parent="." index="15" instance=ExtResource( 6 )]
+[node name="Platform5" parent="." index="13" instance=ExtResource( 6 )]
 
 position = Vector2( 848.301, 81.9674 )
 
-[node name="Platform15" parent="." index="16" instance=ExtResource( 6 )]
+[node name="Platform15" parent="." index="14" instance=ExtResource( 6 )]
 
 position = Vector2( 880.301, 81.9674 )
 
-[node name="Platform16" parent="." index="17" instance=ExtResource( 6 )]
+[node name="Platform16" parent="." index="15" instance=ExtResource( 6 )]
 
 position = Vector2( 912.301, 81.9674 )
 
-[node name="Key" parent="." index="18" instance=ExtResource( 7 )]
+[node name="Key" parent="." index="16" instance=ExtResource( 7 )]
 
-position = Vector2( 514.11, 43.71 )
+position = Vector2( 545.11, 75.71 )
 
-[node name="Door" parent="." index="19" instance=ExtResource( 8 )]
+[node name="Door" parent="." index="17" instance=ExtResource( 8 )]
 
 position = Vector2( 1089.21, 19.4616 )
 
-[node name="Objective" parent="." index="20" instance=ExtResource( 9 )]
+[node name="Objective" parent="." index="18" instance=ExtResource( 9 )]
 
 position = Vector2( 699.669, 40.7425 )
 
@@ -135,7 +127,7 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="Spikes" type="Node" parent="." index="21"]
+[node name="Spikes" type="Node" parent="." index="19"]
 
 editor/display_folded = true
 
@@ -175,7 +167,7 @@ position = Vector2( 823.259, 257.245 )
 
 position = Vector2( 890.318, 257.245 )
 
-[node name="DTInstruction" type="TextureRect" parent="." index="22"]
+[node name="DTInstruction" type="TextureRect" parent="." index="20"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -196,12 +188,12 @@ texture = ExtResource( 12 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Portal" parent="." index="23" instance=ExtResource( 13 )]
+[node name="Portal" parent="." index="21" instance=ExtResource( 13 )]
 
 position = Vector2( 1280, 32 )
 Next_Scene = "res://Worlds/LevelThree.tscn"
 
-[node name="Player" parent="." index="24" instance=ExtResource( 14 )]
+[node name="Player" parent="." index="22" instance=ExtResource( 14 )]
 
 position = Vector2( 0, 96 )
 
